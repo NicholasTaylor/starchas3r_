@@ -1,6 +1,6 @@
 (function(d) {
 var config = {
-  kitId: 'cir1may',
+  kitId: 'xxxxxx',
   scriptTimeout: 3000,
   async: true
 },
