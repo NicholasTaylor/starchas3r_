@@ -1,0 +1,118 @@
+body {
+	left: 0;
+}
+
+#container-nav-mobile {
+    display: initial;
+    position: fixed;
+    left: -80vw;
+    z-index: 200;
+    text-align: center;
+    transition: 0.25s ease-out;
+}
+
+#nav-mobile {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    width: 80vw;
+    background-color: white;
+    height: 100vh;
+    left: 0;
+    z-index: 210;
+    color: black;
+}
+
+#nav-mobile ul {
+    position: relative;
+    display: flex;
+    list-style-type: none;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    top: 1em;
+}
+
+#nav-mobile ul li {
+    font-size: 1.25rem;
+    width: 40vw;
+    text-align: center;
+    margin: 1em 0;
+}
+
+#container-nav-desktop {
+	display: none;
+}
+
+#nav-icon {
+    display: inline-block;
+    position: fixed;
+    left: 6vw;
+    font-size: 2rem;
+    line-height: 1em;
+    z-index: 201;
+}
+
+#nav-icon img {
+    width: 1.5rem;
+    height: auto;
+    line-height: 1em;
+}
+
+#nav-mobile-social img {
+    height: auto;
+    width: 3em;
+}
+
+#nav-desktop-social li img {
+    height: auto;
+    width: 1.5em;
+}
+
+#nav-desktop {
+    z-index: 110;
+    top: 2.5em;
+}
+
+#container-nav-desktop nav {
+    position: fixed;
+    display: block;
+    width: 100vw;
+    text-align: center;
+}
+
+#container-nav-desktop nav ul {
+    margin: 0.5em 0;
+    padding: 0;
+}
+
+#container-nav-desktop nav ul li {
+	display: inline-block;
+	margin: 0 0.5em;
+	font-size: 1.5rem;
+}
+
+@media (min-width: 420px) and (min-height: 420px) {
+	#container-nav-desktop {
+		display: initial;
+	}
+
+	#container-nav-mobile {
+		display: none;
+	}
+
+}
+
+/* START Computer */
+@media (min-width: 1200px){
+	#nav-desktop {
+	    top: 3em;
+	}
+	#container-nav-desktop nav ul li {
+		font-size: 2rem;
+	}
+}
+
+/* END Computer */
