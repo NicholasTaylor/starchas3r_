@@ -1,21 +1,26 @@
+body, html {
+	overflow: initial;
+}
+
 body {
 	left: 0;
 }
 
 #container-nav-mobile {
+	top: 0;
     display: initial;
     position: fixed;
     left: -80vw;
     z-index: 200;
     text-align: center;
-    transition: 0.25s ease-out;
+    transition: 0.1s;
 }
 
 #nav-mobile {
     position: absolute;
     top: 0;
     display: inline-block;
-    width: 80vw;
+    width: 65vw;
     background-color: white;
     height: 100vh;
     left: 0;
@@ -35,11 +40,24 @@ body {
     top: 1em;
 }
 
+#nav-mobile ul#nav-mobile-categories {
+    justify-content: left;
+}
+
 #nav-mobile ul li {
     font-size: 1.25rem;
-    width: 40vw;
+    width: 32.5vw;
     text-align: center;
     margin: 1em 0;
+}
+
+#nav-mobile ul#nav-mobile-categories li {
+    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    border-top: 1px solid #e0e0e0;
+    padding: 0.75em 1em;
 }
 
 #container-nav-desktop {
@@ -94,6 +112,35 @@ body {
 	font-size: 1.5rem;
 }
 
+
+/* START Landscape */
+@media (max-height: 420px) {
+	#nav-mobile {
+		width: 50vw;
+	}
+
+	#nav-mobile ul li {
+		width: 10vw;
+	}
+
+	#nav-mobile-social img {
+	    width: 2em;
+	}
+}
+/* END Landscape */
+
+/* START Micro Landscape */
+@media (max-height: 320px) {
+	#nav-mobile ul li {
+		width: 12vw;
+	}
+
+	#nav-mobile ul#nav-mobile-categories li {
+		font-size: 0.75rem;
+	}
+/* END Micro Landscape */
+
+/* START Tablet and Above */
 @media (min-width: 420px) and (min-height: 420px) {
 	#container-nav-desktop {
 		display: initial;
@@ -104,7 +151,7 @@ body {
 	}
 
 }
-
+/* END Tablet and Above */
 /* START Computer */
 @media (min-width: 1200px){
 	#nav-desktop {
