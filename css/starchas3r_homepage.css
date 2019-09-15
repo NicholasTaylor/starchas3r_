@@ -18,7 +18,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, nav ul li {
 	font-weight: 200;
-	line-height: 0.9em;
+	line-height: 1em;
 	margin: 0;
 	padding: 0;
 	letter-spacing: -0.03em;
@@ -69,89 +69,81 @@ p {
 .excerpt p {
 	font-weight: 200;
 }
-
-.excerpt-ellipses {
-	display: initial;
-}
-
-.excerpt-desktop {
-	display: none;
-}
 /* END General */
-/* START Primary, Secondary Articles */
-.article-primary,.article-primary .bg-screen, .article-secondary,.article-secondary .bg-screen {
+/* START Primary Articles */
+.article-primary,.article-primary .bg-screen {
     height: 100vh;
     min-height: 300px;
 }
 
-.article-primary h1, .article-secondary h1 {
+.article-primary h1 {
 	font-size: 3.25rem;
 }
 
-.article-primary h2, .article-secondary h2 {
+.article-primary h2 {
 	font-size: 1.75rem;
 }
 
-.article-primary p, .article-secondary p {
+.article-primary p {
 	font-size: 1.25rem;
 }
-/* END Primary, Secondary Articles */
-/* START Tertiary Articles */
-.article-tertiary, .article-tertiary .bg-screen {
-    height: 20vh;
+/* END Primary Articles */
+/* START Secondary Articles */
+.article-secondary, .article-secondary .bg-screen {
+    height: 50vh;
     min-height: 150px;
 }
 
-.article-tertiary {	
-    background-position: bottom center;
+.article-secondary {	
+    background-position: center;
 }
 
 
-.article-tertiary h1 {
-	font-size: 2rem;
+.article-secondary h1 {
+	font-size: 2.5rem;
 }
 
-.article-tertiary h2 {
-	font-size: 1rem;
+.article-secondary h2 {
+	font-size: 1.5rem;
 }
-
-.article-tertiary .article-content .excerpt {
-	display: none;
-}
-/* END Tertiary Articles */
+/* END Secondary Articles */
 /* END Mobile */
 
 /* START Micro Mobile */
 @media (max-width: 320px), (max-height: 320px){
 	/* START Primary, Secondary Articles */
-	.article-primary, .article-primary .bg-screen, .article-secondary, .article-secondary .bg-screen {
+	.article-primary, .article-primary .bg-screen {
 		height: 100vh;
 		min-height: 360px;
 	}
 
-	.article-primary h1, .article-secondary h1 {
+	.article-primary h1 {
 	    font-size: 2.5rem;
 	}
 
-	.article-primary h2, .article-secondary h2 {
+	.article-primary h2 {
 	    font-size: 1.25rem;
 	}
 
-	.article-primary p, .article-secondary p {
+	.article-primary p {
 		font-size: 1rem;
 	}
 	/*END Primary, Secondary Articles */
 	/* START Tertiary Articles */
-	.article-tertiary, .article-tertiary .bg-screen {
+	.article-secondary, .article-secondary .bg-screen {
 		height: 30vh;
 	}
 
-	.article-tertiary h1 {
+	.article-secondary h1 {
 		font-size: 2rem;
 	}
 
-	.article-tertiary h2 {
+	.article-secondary h2 {
 		font-size: 1rem;
+	}
+
+	.article-secondary .excerpt {
+		display: none;
 	}
 	/* END Tertiary Articles */
 }
@@ -169,7 +161,7 @@ p {
 	/* END General */
 	/* START Primary Article */
 	.article-primary, .article-primary .bg-screen {
-		height: 65vh;
+		height: 80vh;
 		min-height: 620px;
 	}
 
@@ -194,8 +186,7 @@ p {
 
 	.article-secondary, .article-secondary .bg-screen {
 		width: 100vw;
-		height: 35vh;
-		min-height: 320px;
+		min-height: 480px;
 	}
 
 	.article-secondary .article-content {
@@ -204,54 +195,11 @@ p {
 		text-align: left;
 	}
 	/* END Secondary Articles */
-	/* START Tertiary Articles */
-	.article-tertiary .article-content h1 {
-		font-size: 1.25rem;
-	}
-
-	#metasec-tertiary {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
-
-	.article-tertiary, .article-tertiary .bg-screen {
-		width: 50vw;
-		min-height: 320px;
-	}
-
-	.article-tertiary .article-content {
-		width: 40vw;
-	}
-
-	.article-tertiary .article-content h1 {
-		font-size: 2rem;
-	}
-
-	.article-tertiary .article-data {
-		margin: 0.5em 0 0 0;
-	}
-
-	.article-tertiary .article-data h2 {
-		font-size: 1.5rem;
-	}
-	/* END Tertiary Articles */
 }
 /* END Tablet */
-/* START Tablet Landscape */
-@media (min-width: 1024px){
-
-}
-
-/* END Tablet Landscape */
 /* START Computer */
 @media (min-width: 1200px){
 	/* START Primary Article */
-	.article-primary, .article-primary .bg-screen {
-	    height: 85vh;
-	}
-
 	.article-primary .article-content {
 		width: 80vw;
 	}
@@ -272,5 +220,18 @@ p {
 		font-size: 2rem;
 	}
 	/* END Primary Article */
+	/* START Secondary Article */
+	.article-secondary .article-content h1 {
+	    font-size: 6rem;
+	}
+
+	.article-secondary .article-data h2 {
+	    font-size: 2rem;
+	}
+
+	.article-secondary p {
+		font-size: 1.75rem;
+	}
+	/* End Secondary Article */
 }
 /* END Computer */
