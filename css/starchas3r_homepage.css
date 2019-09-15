@@ -1,13 +1,14 @@
 /* START Mobile */
 /* START Font Stacks */
 
-h1, h2, h3, h4, h5, h6, nav ul li {
+h1, h2, h3, h4, h5, h6 {
 	font-family: 'din-2014', futura-pt, 'helvetica neue', helvetica, arial sans-serif;
 }
 
-body, .article-data h2 {
+body, .article-data h2, nav ul li {
 	font-family: acumin-pro, pragmatica, helvetica, 'helvetica neue', arial, sans-serif;
 }
+
 /* END Font Stacks */
 /* START Tags */
 body {
@@ -77,19 +78,6 @@ p {
 	display: none;
 }
 /* END General */
-/* START Logo */
-#logo {
-	position: fixed;
-	width: 100vw;
-	text-align: center;
-	z-index: 100;
-}
-
-#logo h1 {
-	font-size: 2rem;
-	line-height: 1em;
-}
-/* END Logo */
 /* START Primary, Secondary Articles */
 .article-primary,.article-primary .bg-screen, .article-secondary,.article-secondary .bg-screen {
     height: 100vh;
@@ -179,11 +167,6 @@ p {
 		font-size: 1.5rem;
 	}
 	/* END General */
-	/* START Logo */
-	#logo h1 {
-		font-size: 2.5rem;
-	}
-	/* END Logo */
 	/* START Primary Article */
 	.article-primary, .article-primary .bg-screen {
 		height: 65vh;
@@ -264,12 +247,6 @@ p {
 /* END Tablet Landscape */
 /* START Computer */
 @media (min-width: 1200px){
-	/* START Logo */
-	#logo h1 {
-	    font-size: 3rem;
-	}
-	/* END Logo */
-
 	/* START Primary Article */
 	.article-primary, .article-primary .bg-screen {
 	    height: 85vh;
