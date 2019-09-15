@@ -138,6 +138,7 @@ body {
 	#nav-mobile ul#nav-mobile-categories li {
 		font-size: 0.75rem;
 	}
+}
 /* END Micro Landscape */
 
 /* START Tablet and Above */
@@ -147,7 +148,7 @@ body {
 	}
 
 	#container-nav-mobile {
-		display: none;
+		display: none !important;
 	}
 
 }
