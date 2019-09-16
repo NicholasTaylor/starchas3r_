@@ -25,10 +25,6 @@
     z-index: 100;
 }
 
-#title-content h1 {
-    font-size: 2.5rem;
-}
-
 #title-content h2 {
     display: inline-block;
     font-weight: 600;
@@ -38,5 +34,85 @@
 
 #title-content p {
     font-size: 1.25rem;
-    line-height: 1em;
+}
+
+
+#article-body {
+    width: 90vw;
+    position: relative;
+    left: 5vw;
+    top: 2vh;
+}
+
+#article-body p {
+    font-size: 1.25rem;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, aside {
+	line-height: 1em;
+}
+
+#article-body h1,#article-body h2,#article-body h3,#article-body h4,#article-body h5, #article-body h6 {
+	font-weight: 600;
+	margin: 0.25em 0;
+	padding: 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.75rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+h4 {
+    font-size: 2.25rem;
+}
+
+h5 {
+    font-size: 2rem;
+}
+
+h6 {
+    font-size: 1.75rem;
+}
+
+blockquote {
+    color: #e0e0e0;
+    margin: 0;
+    border-left: 6px #e0e0e0 dashed;
+    padding: 0 0 0 1em;
+}
+
+aside {
+    width: 90%;
+    font-family: din-2014;
+    font-size: 2rem;
+    font-weight: 100;
+    margin: 0 auto;
+    padding: 2em 0;
+    position: relative;
+}
+
+aside:before {
+    content: '“';
+    font-size: 10rem;
+    font-family: georgia;
+    position: absolute;
+    top: 20%;
+    left: -5vw;
+}
+
+aside:after {
+    content: '”';
+    font-size: 10rem;
+    font-family: georgia;
+    position: absolute;
+    top: 95%;
+    right: -5vw;
 }
