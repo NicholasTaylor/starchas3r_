@@ -1,0 +1,42 @@
+#article-title, #article-title .bg-screen {
+    width: 100vw;
+    height: 100vh;
+}
+
+#article-title {
+    background-size: cover;
+    position: relative;
+    background-position: center;
+}
+
+.bg-screen {
+	position: absolute;
+	background-color: rgba(0,0,0,0.3);
+	z-index: 90;
+}
+
+#title-content {
+    width: 90vw;
+    text-align: left;
+    position: absolute;
+    left: 50vw;
+    transform: translateX(-50%);
+    bottom: 6vh;
+    z-index: 100;
+}
+
+#title-content h1 {
+    font-size: 2.5rem;
+}
+
+#title-content h2 {
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-size: 1.75rem;
+}
+
+#title-content p {
+    font-size: 1.25rem;
+    line-height: 1em;
+}

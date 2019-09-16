@@ -1,29 +1,5 @@
 /* START Mobile */
-/* START Font Stacks */
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'din-2014', futura-pt, 'helvetica neue', helvetica, arial sans-serif;
-}
-
-body, .article-data h2, nav ul li {
-	font-family: acumin-pro, pragmatica, helvetica, 'helvetica neue', arial, sans-serif;
-}
-
-/* END Font Stacks */
 /* START Tags */
-body {
-	background-color: black;
-	color: white;
-}
-
-h1, h2, h3, h4, h5, h6, nav ul li {
-	font-weight: 200;
-	line-height: 1em;
-	margin: 0;
-	padding: 0;
-	letter-spacing: -0.03em;
-}
-
 p {
 	font-size: 1rem;
 	line-height: 1em;
