@@ -1,4 +1,4 @@
-#article-title, #article-title .bg-screen {
+#article-title, #article-title #bg-screen {
     width: 100vw;
     height: 100vh;
 }
@@ -9,10 +9,20 @@
     background-position: center;
 }
 
-.bg-screen {
+#bg-screen {
 	position: absolute;
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0,0,0,1.0);
 	z-index: 90;
+	transition: 0.5s ease-out;
+}
+
+#fadein-screen {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,1.0);
+    z-index: 250;
+    position: absolute;
+	transition: 0.25s;
 }
 
 #title-content {
@@ -30,6 +40,7 @@
     font-weight: 600;
     letter-spacing: 0;
     font-size: 1.75rem;
+    margin-right: 0.5em;
 }
 
 #title-content p {
