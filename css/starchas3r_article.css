@@ -11,7 +11,8 @@
 
 #bg-screen {
 	position: absolute;
-	background-color: rgba(0,0,0,1.0);
+	background-color: black;
+	opacity: 1.0;
 	z-index: 90;
 	transition: 0.5s ease-out;
 }
@@ -19,10 +20,11 @@
 #fadein-screen {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,1.0);
+	background-color: black;
+	opacity: 1.0;
     z-index: 250;
     position: absolute;
-	transition: 0.25s;
+	transition: 0.5s;
 }
 
 #title-content {

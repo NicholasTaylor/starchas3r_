@@ -3,13 +3,15 @@ var bg = document.getElementById('bg-screen');
 
 const fadeInitial = function(){
 	return new Promise(function (resolve){
-		fadeIn.style.backgroundColor = 'rgba(0,0,0,0.0)';
-		resolve();
+		fadeIn.style.opacity = 0.0;
+		setTimeout(function(){
+			resolve();
+		},500);
 	});
 }
 
 const fadeBgScreen = function(){
-	bg.style.backgroundColor = 'rgba(0,0,0,0.3)';
+	bg.style.opacity = 0.3;
 }
 
 const fullFade = async function(){
@@ -17,7 +19,7 @@ const fullFade = async function(){
 	fadeIn.style.display = 'none';
 	setTimeout(function(){
 		fadeBgScreen();
-	},1500);
+	},250);
 }
 
 document.addEventListener('DOMContentLoaded',function(){
