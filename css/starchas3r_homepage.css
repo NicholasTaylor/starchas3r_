@@ -4,8 +4,10 @@ p {
 	font-size: 1rem;
 	line-height: 1em;
 }
+
 /* END Tags */
 /* START General */
+
 .article {
     background-position: center;
     background-size: cover;
@@ -18,7 +20,8 @@ p {
 	z-index: 90;
 }
 
-.article, .bg-screen {
+.article,
+.bg-screen {
 	width: 100vw;
 }
 
@@ -45,9 +48,12 @@ p {
 .excerpt p {
 	font-weight: 200;
 }
+
 /* END General */
 /* START Primary Articles */
-.article-primary,.article-primary .bg-screen {
+
+.article-primary,
+.article-primary .bg-screen {
     height: 100vh;
     min-height: 300px;
 }
@@ -63,9 +69,12 @@ p {
 .article-primary p {
 	font-size: 1.25rem;
 }
+
 /* END Primary Articles */
 /* START Secondary Articles */
-.article-secondary, .article-secondary .bg-screen {
+
+.article-secondary,
+.article-secondary .bg-screen {
     height: 50vh;
     min-height: 150px;
 }
@@ -82,13 +91,17 @@ p {
 .article-secondary h2 {
 	font-size: 1.5rem;
 }
+
 /* END Secondary Articles */
 /* END Mobile */
 
 /* START Micro Mobile */
-@media (max-width: 320px), (max-height: 320px){
-	/* START Primary, Secondary Articles */
-	.article-primary, .article-primary .bg-screen {
+
+@media (max-width: 320px),
+(max-height: 320px){
+	/* START Primary Articles */
+	.article-primary,
+	.article-primary .bg-screen {
 		height: 100vh;
 		min-height: 360px;
 	}
@@ -104,9 +117,12 @@ p {
 	.article-primary p {
 		font-size: 1rem;
 	}
-	/*END Primary, Secondary Articles */
-	/* START Tertiary Articles */
-	.article-secondary, .article-secondary .bg-screen {
+
+	/*END Primary Articles */
+	/* START Secondary Articles */
+
+	.article-secondary,
+	.article-secondary .bg-screen {
 		height: 30vh;
 	}
 
@@ -121,12 +137,18 @@ p {
 	.article-secondary .excerpt {
 		display: none;
 	}
-	/* END Tertiary Articles */
+
+	/* END Secondary Articles */
+
 }
+
 /* END Micro Mobile */
 /* START Tablet */
+
 @media (min-width: 768px){
+
 	/* START General */
+
 	.article-data h2 {
 		font-size: 2rem;
 	}
@@ -134,9 +156,12 @@ p {
 	.excerpt p {
 		font-size: 1.5rem;
 	}
+
 	/* END General */
 	/* START Primary Article */
-	.article-primary, .article-primary .bg-screen {
+
+	.article-primary,
+	.article-primary .bg-screen {
 		height: 80vh;
 		min-height: 620px;
 	}
@@ -144,8 +169,10 @@ p {
 	.article-primary .article-content h1 {
 		font-size: 5.5rem;
 	}
+
 	/* END Primary Article */
 	/* START Secondary Articles */
+
 	.article-secondary .article-content h1 {
 		font-size: 4rem;
 	}
@@ -160,7 +187,8 @@ p {
 		justify-content: center;
 	}
 
-	.article-secondary, .article-secondary .bg-screen {
+	.article-secondary,
+	.article-secondary .bg-screen {
 		width: 100vw;
 		min-height: 480px;
 	}
@@ -170,12 +198,18 @@ p {
 		left: 5vw;
 		text-align: left;
 	}
+
 	/* END Secondary Articles */
+
 }
+
 /* END Tablet */
 /* START Computer */
+
 @media (min-width: 1200px){
+
 	/* START Primary Article */
+
 	.article-primary .article-content {
 		width: 80vw;
 	}
@@ -195,8 +229,10 @@ p {
 	.article-primary p {
 		font-size: 2rem;
 	}
+
 	/* END Primary Article */
 	/* START Secondary Article */
+
 	.article-secondary .article-content h1 {
 	    font-size: 6rem;
 	}
@@ -208,6 +244,9 @@ p {
 	.article-secondary p {
 		font-size: 1.75rem;
 	}
+
 	/* End Secondary Article */
+
 }
+
 /* END Computer */

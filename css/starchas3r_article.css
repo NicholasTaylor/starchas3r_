@@ -1,4 +1,5 @@
-#article-title, #article-title #bg-screen {
+#article-title,
+#article-title #bg-screen {
     width: 100vw;
     height: 100vh;
 }
@@ -61,11 +62,24 @@
     font-size: 1.25rem;
 }
 
-h1, h2, h3, h4, h5, h6, p, blockquote, aside {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+aside {
 	line-height: 1em;
 }
 
-#article-body h1,#article-body h2,#article-body h3,#article-body h4,#article-body h5, #article-body h6 {
+#article-body h1,
+#article-body h2,
+#article-body h3,
+#article-body h4,
+#article-body h5,
+#article-body h6 {
 	font-weight: 600;
 	margin: 0.25em 0;
 	padding: 0;
@@ -130,6 +144,7 @@ aside:after {
     right: -5vw;
 }
 
+
 @media (min-width: 768px){
 	#article-body {
 	    width: 75vw;
@@ -177,7 +192,8 @@ aside:after {
 	    margin: 1em auto;
 	}
 
-	aside:before, aside:after {
+	aside:before,
+	aside:after {
 	    font-size: 20rem;
 	}
 
@@ -230,7 +246,8 @@ aside:after {
 	    margin: 0.5em auto;
 	}
 
-	aside:before, aside:after {
+	aside:before,
+	aside:after {
 	    font-size: 30rem;
 	}
 
