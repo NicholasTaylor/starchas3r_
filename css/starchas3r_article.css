@@ -12,7 +12,7 @@
 
 #bg-screen {
 	position: absolute;
-	background-color: black;
+	background-color: #000;
 	opacity: 1.0;
 	z-index: 90;
 	transition: 0.5s ease-out;
@@ -21,7 +21,7 @@
 #fadein-screen {
     width: 100vw;
     height: 100vh;
-	background-color: black;
+	background-color: #000;
 	opacity: 1.0;
     z-index: 250;
     position: absolute;
