@@ -1,0 +1,48 @@
+/*
+Theme Name: starchas3r_
+Theme URI: https://github.com/NicholasTaylor/starchas3r_
+Author: Nicholas Taylor
+Author URI: https://github.com/NicholasTaylor
+Description: An immersive, image-driven mobile-first WP theme. In other words, nothing special or unique ;)
+Version: 1.0
+Text Domain: starchas3r_
+*/
+
+body {
+	background-color: black;
+	color: white;
+}
+
+body, html {
+	font-size: 100%;
+	width: 100vw;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, nav ul li {
+	font-weight: 200;
+	line-height: 1em;
+	margin: 0;
+	padding: 0;
+	letter-spacing: -0.03em;
+}
+/* START Font Stacks */
+
+h1, h2, h3, h4, h5, h6, #logo h1, #nav-icon {
+	font-family: 'din-2014', futura-pt, 'helvetica neue', helvetica, arial sans-serif;
+}
+
+body, .article-data h2, nav ul li, #title-content h2 {
+	font-family: acumin-pro, pragmatica, helvetica, 'helvetica neue', arial, sans-serif;
+}
+
+/* END Font Stacks */
+
+#logo h1, #nav-icon {
+	font-weight: 700;
+}
+
+a, a:hover, a:visited {
+	color: inherit;
+	text-decoration: none;
+}
