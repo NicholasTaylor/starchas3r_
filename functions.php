@@ -70,6 +70,11 @@ function social_options( $wp_customize ) {
   	'type'			=> 'theme_mod',
   	'capability'	=> 'edit_theme_options',
   ));
+  $wp_customize->add_setting('social_media_tiktok', array(
+  	'default'		=> '',
+  	'type'			=> 'theme_mod',
+  	'capability'	=> 'edit_theme_options',
+  ));
   $wp_customize->add_control('social_url_fb', array(
   	'label'			=> 'Facebook URL',
   	'section'		=> 'starchas3r_social_media',
