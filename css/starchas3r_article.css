@@ -71,7 +71,7 @@ h6,
 p,
 blockquote,
 aside {
-	line-height: 1em;
+	line-height: 1;
 }
 
 #article-body h1,

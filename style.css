@@ -28,7 +28,7 @@ h5,
 h6, 
 nav ul li {
 	font-weight: 200;
-	line-height: 1em;
+	line-height: 1;
 	margin: 0;
 	padding: 0;
 	letter-spacing: -0.03em;

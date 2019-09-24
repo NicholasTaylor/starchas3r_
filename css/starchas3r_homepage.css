@@ -181,12 +181,6 @@ p {
 		font-size: 1.5rem;
 	}
 
-	#metasec-secondary {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
 	.article-secondary,
 	.article-secondary .bg-screen {
 		width: 100vw;
