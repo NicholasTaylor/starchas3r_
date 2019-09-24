@@ -1,154 +1,76 @@
-<?php get_header(); ?>
-      <section id="001" class="article article-primary" style="background-image: url('images/20160622-playlist-00-featured.gif');">
-        <div class="bg-screen">
-        </div>
-        <div class="article-content">
-          <h1>
-            This Is Summertime
-          </h1>
-          <div class="article-data">
-            <h2>
-              2019.09.04 17:38:30
-            </h2>
-            <h2>
-              Journal
-            </h2>
-            <h2>
-              5 min.
-            </h2>
-          </div>
-          <div class="excerpt">
-            <p>
-              Lorem ipsum dolor amet small batch 3 wolf moon echo park art party retro post-ironic actually ugh fingerstache kombucha salvia chillwave. Craft beer cloud bread whatever tilde sriracha health goth knausgaard put a bird on it pabst man bun cray synth retro intelligentsia neutra.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section id="002" class="article article-primary" style="background-image: url('images/File_000.jpeg');">
-        <div class="bg-screen">
-        </div>
-        <div class="article-content">
-          <h1>
-            Look at The Pretty Lights!
-          </h1>
-          <div class="article-data">
-            <h2>
-              2019.09.03 15:26:52
-            </h2>
-            <h2>
-              Lifehacks
-            </h2>
-            <h2>
-              12 min.
-            </h2>
-          </div>
-          <div class="excerpt">
-            <p>
-              Lorem ipsum dolor amet small batch 3 wolf moon echo park art party retro post-ironic actually ugh fingerstache kombucha salvia chillwave. Craft beer cloud bread whatever tilde sriracha health goth knausgaard put a bird on it pabst man bun cray synth retro intelligentsia neutra.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section id="003" class="article article-primary" style="background-image: url('images/IMG_0143.JPG');">
-        <div class="bg-screen">
-        </div>
-        <div class="article-content">
-          <h1>
-            Suddenly... Buildings! Everywhere!
-          </h1>
-          <div class="article-data">
-            <h2>
-              2018.12.26 18:58:38
-            </h2>
-            <h2>
-              Journal
-            </h2>
-            <h2>
-              258 min.
-            </h2>
-          </div>
-          <div class="excerpt">
-            <p>
-              Lorem ipsum dolor amet small batch 3 wolf moon echo park art party retro post-ironic actually ugh fingerstache kombucha salvia chillwave. Craft beer cloud bread whatever tilde sriracha health goth knausgaard put a bird on it pabst man bun cray synth retro intelligentsia neutra.
-            </p>
-          </div>
-        </div>
-      </section>
-      <div id="metasec-secondary">
-        <section id="004" class="article article-secondary" style="background-image: url('images/IMG_1589.JPG');">
-          <div class="bg-screen">
-          </div>
-          <div class="article-content">
-            <h1>
-              The End of The World
-            </h1>
-            <div class="article-data">
-              <h2>
-                2002.06.03 15:26:52
-              </h2>
-              <h2>
-                Journal
-              </h2>
-              <h2>
-                12 min.
-              </h2>
-            </div>
-            <div class="excerpt">
-              <p>
-                Lorem ipsum dolor amet small batch 3 wolf moon echo park art party retro post-ironic actually ugh fingerstache kombucha salvia chillwave. Craft beer cloud bread whatever tilde sriracha health goth knausgaard put a bird on it pabst man bun cray synth retro intelligentsia neutra.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section id="005" class="article article-secondary" style="background-image: url('images/IMG_0143.JPG');">
-          <div class="bg-screen">
-          </div>
-          <div class="article-content">
-            <h1>
-              Fucking Kangaroos
-            </h1>
-            <div class="article-data">
-              <h2>
-                2000.01.01 15:26:52
-              </h2>
-              <h2>
-                Lifehacks
-              </h2>
-              <h2>
-                12 min.
-              </h2>
-            </div>
-            <div class="excerpt">
-              <p>
-                Lorem ipsum dolor amet small batch 3 wolf moon echo park art party retro post-ironic actually ugh fingerstache kombucha salvia chillwave. Craft beer cloud bread whatever tilde sriracha health goth knausgaard put a bird on it pabst man bun cray synth retro intelligentsia neutra.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section id="006" class="article article-secondary" style="background-image: url('images/IMG_1589.JPG');">
-          <div class="bg-screen">
-          </div>
-          <div class="article-content">
-            <h1>
-              The End of The World
-            </h1>
-            <div class="article-data">
-              <h2>
-                2002.06.03 15:26:52
-              </h2>
-              <h2>
-                Journal
-              </h2>
-              <h2>
-                12 min.
-              </h2>
-            </div>
-            <div class="excerpt">
-              <p>
-                Lorem ipsum dolor amet small batch 3 wolf moon echo park art party retro post-ironic actually ugh fingerstache kombucha salvia chillwave. Craft beer cloud bread whatever tilde sriracha health goth knausgaard put a bird on it pabst man bun cray synth retro intelligentsia neutra.
-              </p>
-            </div>
-          </div>
-        </section>
+<?php
+/**
+ * The template for displaying the index
+ *
+ * Contains the closing of the #content div and all content after
+ *
+ * @package Starchas3r_
+ * @since Starchas3r_ 1.0
+ */
+
+get_header();?>
+<?php if ( have_posts() ) : ?>  
+  <?php 
+    $post_count = wp_count_posts();
+    $publish_count = $countPosts->publish;
+    $post_01 = ( $paged == 0 ) ? $posts[0]->ID : ''; 
+    $post_02 = ( $paged == 0 ) ? $posts[1]->ID : ''; 
+    $post_03 = ( $paged == 0 ) ? $posts[2]->ID : ''; 
+    // Start the loop.
+    while ( have_posts() ) : the_post();
+  ?>
+    <?php 
+      $current_ID = the_ID();
+      $article_type = (in_array($current_ID, array($post_01, $post_02, $post_03)) ? 'primary' : 'secondary');
+      $background_flag = has_post_thumbnail();
+      $background_raw = ($background_flag ? wp_get_attachment_image_src( get_post_thumbnail_id(  ), 'full' ) );
+      $background_style = ($background_flag ? "background-image: url('" . $background_raw[0] . "');" : "background-color: #000;");
+    ?>
+    <section id="post-<?php echo $current_ID; ?>" class="article article-<?php echo $article_type; ?>" style=<?php echo $background_style; ?>>
+      <div class="bg-screen">
       </div>
+      <div class="article-content">
+        <a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title( '<h1>','</h1>' ); ?></a>
+        <div class="article-data">
+          <h2>
+            <a href="<?php echo esc_url( get_permalink() ); ?>">
+              <?php the_date( 'Y.m.d H:i', '<h2>', '</h2>' ); ?>
+            </a>
+          </h2>
+          <?php if (has_category () ) : ?>
+            <?php $categories = get_the_category();
+            $categoryFirst = $categories[0];
+            $categoryName = $categoryFirst->name;
+            $categoryURL = esc_url(get_category_link($categoryFirst->term_id)); ?>
+            <?php if (categoryName != '') : ?>
+              <a href="<?php echo $categoryURL; ?>" title="<?php echo $categoryName; ?>">
+                <h2>
+                  <?php echo $categoryName; ?>
+                </h2>
+              </a>
+            <?php endif; ?>
+          <?php endif; ?>
+          <h2>
+            <?php $current_content = $post->post_content;
+            $read_time_secs = (strlen(strip_tags(do_shortcode($current_content))) / (25/6));
+            $read_time = ($read_time_secs < 60 ? $read_time_secs . ' sec.' : ($read_time_secs < 3600 : (round($read_time_secs / 60),0) . ' min.' : (round($read_time_secs / 3600),0) . ' hr.'));
+            echo $read_time; ?> 
+          </h2>
+        </div>
+        <?php if ( has_excerpt () ) : ?>
+          <div class="excerpt">
+            <a href="<?php echo esc_url( get_permalink() ); ?>">
+              <p>
+                <?php echo get_the_excerpt(); ?>
+              </p>
+            </a>
+          </div>
+        <?php endif; ?>
+      </div>
+    </section>
+  <?php endwhile; ?>
+<?php else : ?>
+  <?php get_template_part( 'template-parts/content', 'none' ); ?>
+<?php endif; ?>
+
 <?php get_footer(); ?>

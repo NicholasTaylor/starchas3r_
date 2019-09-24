@@ -1,9 +1,15 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after
+ *
+ * @package Starchas3r_
+ * @since Starchas3r_ 1.0
+ */
+?>
 	</div>
 	<!-- END Container -->
-	<!-- START Javascript files-->
-    <script src="js/mobileNav.js"></script>
-    <script src="js/typekit-dev.js"></script>
-    <script src="js/articleFadeIn.js"></script>
-	<!-- END Javascript files-->
+	<?php wp_footer(); ?>
   </body>
 </html>
