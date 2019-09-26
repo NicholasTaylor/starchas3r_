@@ -1,21 +1,24 @@
 <?php
 
 function starchas3r_register(){
-	wp_register_style('homepage', get_temmplate_directory_uri() . 'css/starchas3r_homepage.css');
-	wp_register_style('article', get_temmplate_directory_uri() . 'css/starchas3r_article.css');
-	wp_register_style('nav', get_temmplate_directory_uri() . 'css/starchas3r_nav.css');
-	wp_register_script('mobileNav', get_temmplate_directory_uri() . 'js/mobileNav.js','','',true);
-	wp_register_script('typeKit', get_temmplate_directory_uri() . 'js/typekit-dev.js','','',true);
-	wp_register_script('articleFadein', get_temmplate_directory_uri() . 'js/articleFadeIn.js','','',true);
+	wp_register_style('main_style', get_template_directory_uri() . '/style.css');
+	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
+	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
+	wp_register_style('article', get_template_directory_uri() . '/css/starchas3r_article.css');
+	wp_register_style('nav', get_template_directory_uri() . '/css/starchas3r_nav.css');
+	wp_register_script('mobile_nav', get_template_directory_uri() . '/js/mobileNav.js','','',true);
+	wp_register_script('typekit', get_template_directory_uri() . '/js/typekit-dev.js','','',true);
+	wp_register_script('article_fade_in', get_template_directory_uri() . '/js/articleFadeIn.js','','',true);
 }
 
 function starchas3r_enqueue(){
+	wp_enqueue_style('main_style');
 	wp_enqueue_style('nav');
-	wp_enqueue_style('mobileNav');
-	wp_enqueue_style('typeKit');
+	wp_enqueue_style('mobile_nav');
+	wp_enqueue_script('typekit');
 	if (is_single()){
 		wp_enqueue_style('article');
-		wp_enqueue_script('articleFadein');
+		wp_enqueue_script('article_fade_in');
 	} else {
 		wp_enqueue_style('homepage');
 	}
@@ -122,7 +125,7 @@ function social_options( $wp_customize ) {
   	'section'		=> 'starchas3r_social_media',
   	'settings'		=> 'social_media_li',
   	'type'			=> 'text',
-  ))
+  ));
   $wp_customize->add_control('social_url_tiktok', array(
   	'label'			=> 'TikTok URL',
   	'section'		=> 'starchas3r_social_media',
@@ -167,7 +170,6 @@ function social_options( $wp_customize ) {
 	        switch_to_blog( $blog_id );
 	        $switched_blog = true;
 	    }
-		endif;
 
 	    $social_media_bool_tiktok = get_theme_mod( 'social_media_tiktok' );
 	    $social_media_bool_fb = get_theme_mod( 'social_media_fb' );
@@ -183,13 +185,9 @@ function social_options( $wp_customize ) {
 	        restore_current_blog();
 	    }
 
-		endif;
-
 	    if ( $social_media_bool_tiktok || $social_media_bool_fb || $social_media_bool_ig || $social_media_bool_sc || $social_media_bool_twitch || $social_media_bool_twitter || $social_media_bool_yt || $social_media_bool_pn || $social_media_bool_li ) {
 	    	$custom_social_icons = true;
 	    }
-
-		endif;
 	 
 	    return (bool) $custom_social_icons;
 	}
@@ -203,11 +201,11 @@ function retrieve_social_links( $color, $blog_id = 0 ) {
         switch_to_blog( $blog_id );
         $switched_blog = true;
     }
-	endif;
+
     if ( $switched_blog ) {
 	    restore_current_blog();
 	}
-	endif;
+
 	$social_links_raw = array(
 		'tiktok' => array(
 			'prefix' => 'https://vm.tiktok.com/',
@@ -272,11 +270,9 @@ function retrieve_social_links( $color, $blog_id = 0 ) {
 	foreach($social_links_keys as $social_key) {
 		$currentSocial = $social_links_raw[$social_key];
 		$social_color = ($color == 'black' ? 'black' : 'white');
-		endif;
 		if($currentSocial['value']){
-			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_temmplate_directory_uri()  . '/images/icons-social/' . $social_color . '/social-logos-' . $social_color . '-' . $currentSocial['abbreviation'] . 'png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
+			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/' . $social_color . '/social-logos-' . $social_color . '-' . $currentSocial['abbreviation'] . 'png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
 		}
-		endif;
 	}
 	return $social_links;
 }

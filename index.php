@@ -20,13 +20,13 @@ get_header();?>
     while ( have_posts() ) : the_post();
   ?>
     <?php 
-      $current_ID = the_ID();
-      $article_type = (in_array($current_ID, array($post_01, $post_02, $post_03)) ? 'primary' : 'secondary');
+      $current_post_num = get_the_ID();
+      $article_type = (in_array($current_post_num, array($post_01, $post_02, $post_03)) ? 'primary' : 'secondary');
       $background_flag = has_post_thumbnail();
-      $background_raw = ($background_flag ? wp_get_attachment_image_src( get_post_thumbnail_id(  ), 'full' ) );
-      $background_style = ($background_flag ? "background-image: url('" . $background_raw[0] . "');" : "background-color: #000;");
+      $background_raw = ($background_flag ? wp_get_attachment_image_src( get_post_thumbnail_id(  ), 'full' ) : array() );
+      $background_style = ($background_flag ? "background-image:url('" . $background_raw[0] . "');" : "background-color: #000;");
     ?>
-    <section id="post-<?php echo $current_ID; ?>" class="article article-<?php echo $article_type; ?>" style=<?php echo $background_style; ?>>
+    <section id="post-<?php echo $current_post_num; ?>" class="article article-<?php echo $article_type; ?>" style=<?php echo $background_style; ?>>
       <div class="bg-screen">
       </div>
       <div class="article-content">
@@ -53,7 +53,7 @@ get_header();?>
           <h2>
             <?php $current_content = $post->post_content;
             $read_time_secs = (strlen(strip_tags(do_shortcode($current_content))) / (25/6));
-            $read_time = ($read_time_secs < 60 ? $read_time_secs . ' sec.' : ($read_time_secs < 3600 : (round($read_time_secs / 60),0) . ' min.' : (round($read_time_secs / 3600),0) . ' hr.'));
+            $read_time = ($read_time_secs < 60 ? $read_time_secs . ' sec.' : ($read_time_secs < 3600 ? round(($read_time_secs / 60),0) . ' min.' : round(($read_time_secs / 3600),0) . ' hr.'));
             echo $read_time; ?> 
           </h2>
         </div>

@@ -33,54 +33,54 @@
         <nav id="nav-desktop">
           <?php $args_nav_desk = array(
             'theme_location'  => 'primary',
-            'menu'            => ,
+            'menu'            => '',
             'container'       => '',
-            'container_class' => ,
+            'container_class' => '',
             'container_id'    => '',
-            'menu_class'      => ,
+            'menu_class'      => '',
             'menu_id'         => 'nav-desktop-categories',
             'echo'            => true,
             'fallback_cb'     => 'wp_page_menu',
-            'before'          => ,
-            'after'           => ,
-            'link_before'     => ,
-            'link_after'      => ,
+            'before'          => '',
+            'after'           => '',
+            'link_before'     => '',
+            'link_after'      => '',
             'items_wrap'      => '<ul id=\"%1$s\" class=\"%2$s\">%3$s</ul>',
             'depth'           => 0,
-            'walker'          =>
+            'walker'          => ''
           );
 
           $args_nav_mobile = array(
             'theme_location'  => 'primary',
-            'menu'            => ,
+            'menu'            => '',
             'container'       => '',
-            'container_class' => ,
+            'container_class' => '',
             'container_id'    => '',
-            'menu_class'      => ,
+            'menu_class'      => '',
             'menu_id'         => 'nav-mobile-categories',
             'echo'            => true,
             'fallback_cb'     => 'wp_page_menu',
-            'before'          => ,
-            'after'           => ,
-            'link_before'     => ,
-            'link_after'      => ,
+            'before'          => '',
+            'after'           => '',
+            'link_before'     => '',
+            'link_after'      => '',
             'items_wrap'      => '<ul id=\"%1$s\" class=\"%2$s\">%3$s</ul>',
             'depth'           => 0,
-            'walker'          =>
+            'walker'          => ''
           );
 
           $args_categories = array(
             'parent' => 0,
             'orderby' => 'name',
             'order' => 'ASC',
-            'hide_empty' = 0
+            'hide_empty' => 0
           );
 
           $categories = get_categories( $args_categories );
-          $category_count = .count( $categories );
+          $category_count = count( $categories );
           $social_media_white = retrieve_social_links('white');
           $social_media_black = retrieve_social_links('black');
-          $social_media_count = .count( $social_media_white );
+          $social_media_count = count( $social_media_white );
           $toggle_mobile_nav = ( $category_count > 0 || has_nav_menu( 'primary' ) || $social_media_count > 0 ? true : false );
 
           ?>
