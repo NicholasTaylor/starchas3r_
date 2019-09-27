@@ -14,7 +14,7 @@ function starchas3r_register(){
 function starchas3r_enqueue(){
 	wp_enqueue_style('main_style');
 	wp_enqueue_style('nav');
-	wp_enqueue_style('mobile_nav');
+	wp_enqueue_script('mobile_nav');
 	wp_enqueue_script('typekit');
 	if (is_single()){
 		wp_enqueue_style('article');

@@ -111,7 +111,7 @@
               </li>
               <?php if ($category_count > 0) : ?>
                 <?php foreach($categories as $category){
-                  sprintf( '<li><a href="%1$s">%2$s</a></li>', esc_url( get_category_link( $category->term_id ) ), esc_html( $category->name));
+                  echo sprintf( '<li><a href="%s">%s</a></li>', esc_url( get_category_link( $category->term_id ) ), esc_html( $category->name));
                 }; ?>
               <?php endif; ?>
             </ul>
@@ -131,7 +131,7 @@
         <?php if($toggle_mobile_nav) : ?>
           <div id="nav-icon">
             <a href="#">
-              <img src="images/icon-mobile-nav-white.png" border="0" />
+              <img src="<?php echo get_template_directory_uri();?>/images/icon-mobile-nav-white.png" border="0" />
             </a>
           </div>
         <?php endif; ?>
@@ -157,7 +157,7 @@
             <?php elseif ($category_count > 0) : ?>
               <ul id="nav-mobile-categories">
                 <?php foreach($categories as $category){
-                  sprintf( '<li><a href="%1$s">%2$s</a></li>', esc_url( get_category_link( $category->term_id ) ), esc_html( $category->name));
+                  echo sprintf( '<li><a href="%s">%s</a></li>', esc_url( get_category_link( $category->term_id ) ), esc_html( $category->name));
                 }; ?>
               </ul>
             <?php endif; ?>      
