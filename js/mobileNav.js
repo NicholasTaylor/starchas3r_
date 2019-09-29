@@ -3,7 +3,7 @@ var navIconFirstChild = navIcon.children[0];
 var flagNav = false;
 var body = document.getElementsByTagName('body')[0];
 var html = document.getElementsByTagName('html')[0];
-var navDiv = document.getElementById('container-nav-mobile');
+var navDiv = document.getElementById('container-nav');
 var container = document.getElementById('container');
 
 const navOn = function() {
@@ -30,6 +30,8 @@ navIconFirstChild.addEventListener('click', function(e) {
 });
 
 container.addEventListener('click', function(e) {
-	e.preventDefault()
-	navOff();
+	if (flagNav == true){
+		e.preventDefault();
+		navOff();
+	}
 });

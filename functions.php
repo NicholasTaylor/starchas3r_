@@ -134,32 +134,50 @@ function social_options( $wp_customize ) {
   ));
 
   function custom_logo_svg( $wp_customize) {
-  $wp_customize->add_section( 'starchas3r_logo_svg' , array(
-  	'title' 		=> __( 'Logo Icon SVG', 'starchas3r_' ),
-  	'priority' 		=> 201,
-  ) );
-  $wp_customize->add_setting('logo_svg', array(
-  	'default'		=> '',
-  	'type'			=> 'theme_mod',
-  	'capability'	=> 'edit_theme_options',
-  ));
-  $wp_customize->add_setting('logo_svg_viewBox', array(
-  	'default'		=> '',
-  	'type'			=> 'theme_mod',
-  	'capability'	=> 'edit_theme_options',
-  ));
-  $wp_customize->add_control('logo_svg_code', array(
-  	'label'			=> 'SVG Code for Icon (Usually found in exports from apps like Adobe Illustrator)',
-  	'section'		=> 'starchas3r_logo_svg',
-  	'settings'		=> 'logo_svg',
-  	'type'			=> 'text',
-  ));
-  $wp_customize->add_control('logo_svg_viewBox_code', array(
-  	'label'			=> 'Attribute for "ViewBox" attribute in SVG tag (Also found in exports from apps like Adobe Illustrator)',
-  	'section'		=> 'starchas3r_logo_svg',
-  	'settings'		=> 'logo_svg_viewBox',
-  	'type'			=> 'text',
-  ));
+	  $wp_customize->add_section( 'starchas3r_logo_svg' , array(
+	  	'title' 		=> __( 'Logo Icon SVG', 'starchas3r_' ),
+	  	'priority' 		=> 201,
+	  ) );
+	  $wp_customize->add_setting('logo_svg', array(
+	  	'default'		=> '',
+	  	'type'			=> 'theme_mod',
+	  	'capability'	=> 'edit_theme_options',
+	  ));
+	  $wp_customize->add_setting('logo_svg_viewBox', array(
+	  	'default'		=> '',
+	  	'type'			=> 'theme_mod',
+	  	'capability'	=> 'edit_theme_options',
+	  ));
+	  $wp_customize->add_control('logo_svg_code', array(
+	  	'label'			=> 'SVG Code for Icon (Usually found in exports from apps like Adobe Illustrator)',
+	  	'section'		=> 'starchas3r_logo_svg',
+	  	'settings'		=> 'logo_svg',
+	  	'type'			=> 'text',
+	  ));
+	  $wp_customize->add_control('logo_svg_viewBox_code', array(
+	  	'label'			=> 'Attribute for "ViewBox" attribute in SVG tag (Also found in exports from apps like Adobe Illustrator)',
+	  	'section'		=> 'starchas3r_logo_svg',
+	  	'settings'		=> 'logo_svg_viewBox',
+	  	'type'			=> 'text',
+	  ));
+  }
+
+  function custom_typekit( $wp_customize ) {
+	  	$wp_customize->add_section( 'starchas3r_typekit', array(
+	  		'title'		=> __( 'Adobe Fonts Integration', 'starchas3r_' ),
+	  		'priority'	=> 202
+	  	) );
+	  	$wp_customize->add_setting('project_id', array(
+  		'default'		=> '',
+  		'type'			=> 'theme_mod',
+  		'capability'	=> 'edit_theme_options'
+	  	));
+	  	$wp_customize->add_control('project_id_entry',array(
+	  		'label'		=> 'Project ID (go to https://fonts.adobe.com/my_fonts#web_projects-section to find this)',
+	  		'section'	=> 'starchas3r_typekit',
+	  		'settings'	=> 'project_id',
+	  		'type'		=> 'text'
+	  	));
   }
 
   function has_social_icons( $blog_id = 0 ) {
@@ -193,7 +211,11 @@ function social_options( $wp_customize ) {
 	}
 }
 
-function retrieve_social_links( $color, $blog_id = 0 ) {
+function has_typekit( $blog_id = 0 ){
+	$typekit_id = get_theme_mod(  );
+}
+
+function retrieve_social_links( $blog_id = 0 ) {
     $switched_blog = false;
     $custom_social_icons = false;
  
@@ -269,9 +291,8 @@ function retrieve_social_links( $color, $blog_id = 0 ) {
 
 	foreach($social_links_keys as $social_key) {
 		$currentSocial = $social_links_raw[$social_key];
-		$social_color = ($color == 'black' ? 'black' : 'white');
 		if($currentSocial['value']){
-			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/' . $social_color . '/social-logos-' . $social_color . '-' . $currentSocial['abbreviation'] . 'png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
+			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/black/social-logos-black-' . $currentSocial['abbreviation'] . 'png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
 		}
 	}
 	return $social_links;
@@ -279,6 +300,7 @@ function retrieve_social_links( $color, $blog_id = 0 ) {
 
 add_action( 'customize_register', 'social_options' );
 add_action( 'customize_register', 'custom_logo_svg' );
+add_action( 'customize_register', 'custom_typekit' );
 add_action( 'after_setup_theme', 'title_setup' );
 add_action( 'wp_enqueue_scripts', 'starchas3r_register');
 add_action( 'wp_enqueue_scripts', 'starchas3r_enqueue');
