@@ -8,7 +8,7 @@ function starchas3r_register(){
 	wp_register_style('nav', get_template_directory_uri() . '/css/starchas3r_nav.css');
 	wp_register_script('mobile_nav', get_template_directory_uri() . '/js/mobileNav.js','','',true);
 	wp_register_script('typekit', get_template_directory_uri() . '/js/typekit-dev.js','','',true);
-	wp_register_script('article_fade_in', get_template_directory_uri() . '/js/articleFadeIn.js','','',true);
+	wp_register_script('single_page_effects', get_template_directory_uri() . '/js/singlePageEffects.js','','',true);
 }
 
 function starchas3r_enqueue(){
@@ -18,7 +18,7 @@ function starchas3r_enqueue(){
 	wp_enqueue_script('typekit');
 	if (is_single()){
 		wp_enqueue_style('article');
-		wp_enqueue_script('article_fade_in');
+		wp_enqueue_script('single_page_effects');
 	} else {
 		wp_enqueue_style('homepage');
 	}
@@ -292,7 +292,7 @@ function retrieve_social_links( $blog_id = 0 ) {
 	foreach($social_links_keys as $social_key) {
 		$currentSocial = $social_links_raw[$social_key];
 		if($currentSocial['value']){
-			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/black/social-logos-black-' . $currentSocial['abbreviation'] . 'png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
+			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/white/social-logos-white-' . $currentSocial['abbreviation'] . 'png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
 		}
 	}
 	return $social_links;

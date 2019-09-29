@@ -63,6 +63,8 @@
 
           ?>
       <div id="container-nav">
+        <div id="nav-screen">
+        </div>
         <?php if($toggle_nav) : ?>
           <div id="nav-icon">
             <a href="#">
