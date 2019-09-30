@@ -18,17 +18,17 @@
  * @since starchas3r_ 1.0
  */
 ?>    
-  <div id="article-title" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/images/lily-waiting.gif');">
-    <div id="bg-screen">
+  <section class="article article-primary" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/images/lily-waiting.gif');">
+    <div class="bg-screen">
     </div>
     <div id="fadein-screen">
     </div>
-    <div id="title-content">
+    <div class="article-content">
     	<?php if ( is_404() ) : ?>
 			<h1>
 				404
 			</h1>
-			<div id="title-data">
+			<div id="article-data">
 				<h2>
 					Page Not Found
 				</h2>
@@ -42,7 +42,7 @@
 			<h1>
 				Ready to Unbox?
 			</h1>
-			<div id="title-data">
+			<div id="article-data">
 				<h2>
 					Let's do this!
 				</h2>
@@ -56,7 +56,7 @@
 			<h1>
 				We searched far and wide...
 			</h1>
-			<div id="title-data">
+			<div id="article-data">
 				<h2>
 					...but found nothing.
 				</h2>
@@ -70,7 +70,7 @@
 			<h1>
 				Uh....hi?
 			</h1>
-			<div id="title-data">
+			<div id="article-data">
 				<h2>
 					Not gonna lie. This is awkward.
 				</h2>
