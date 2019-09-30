@@ -264,7 +264,7 @@ function retrieve_social_links( $blog_id = 0 ) {
 	foreach($social_links_keys as $social_key) {
 		$currentSocial = $social_links_raw[$social_key];
 		if($currentSocial['value']){
-			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/white/social-logos-white-' . $currentSocial['abbreviation'] . 'png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
+			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/white/social-logos-white-' . $currentSocial['abbreviation'] . '.png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
 		}
 	}
 	return $social_links;

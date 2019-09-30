@@ -58,7 +58,7 @@
           $categories = get_categories( $args_categories );
           $category_count = count( $categories );
           $social_media_icons = retrieve_social_links();
-          $social_media_count = count( $social_media_white );
+          $social_media_count = count( $social_media_icons );
           $toggle_nav = ( $category_count > 0 || has_nav_menu( 'primary' ) || $social_media_count > 0 ? true : false );
 
           ?>
@@ -102,8 +102,8 @@
             <?php endif; ?>      
             <?php if( $social_media_count > 0 ): ?>
               <ul id="nav-social">
-                <?php foreach($social_media_black as $social_black){
-                  echo $social_black;
+                <?php foreach($social_media_icons as $social_icon){
+                  echo $social_icon;
                 } ?>
               </ul>
             <?php endif; ?>

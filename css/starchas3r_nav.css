@@ -146,6 +146,10 @@ body {
         font-size: 1.25rem;
     }
 
+    #nav-inner ul li {
+        width: 10vw;
+    }
+
     #nav-icon a {
         font-size: 2rem;
     }
@@ -170,6 +174,10 @@ body {
 @media (min-width: 1200px) {
     #nav-inner {
         width: 40vw;
+    }
+
+    #nav-inner ul li {
+        width: 8vw;
     }
 
     #nav-icon a {
