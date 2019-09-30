@@ -1,29 +1,5 @@
 <?php
 
-function starchas3r_register(){
-	wp_register_style('main_style', get_template_directory_uri() . '/style.css');
-	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
-	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
-	wp_register_style('article', get_template_directory_uri() . '/css/starchas3r_article.css');
-	wp_register_style('nav', get_template_directory_uri() . '/css/starchas3r_nav.css');
-	wp_register_script('mobile_nav', get_template_directory_uri() . '/js/mobileNav.js','','',true);
-	wp_register_script('typekit', get_template_directory_uri() . '/js/typekit-dev.js','','',true);
-	wp_register_script('single_page_effects', get_template_directory_uri() . '/js/singlePageEffects.js','','',true);
-}
-
-function starchas3r_enqueue(){
-	wp_enqueue_style('main_style');
-	wp_enqueue_style('nav');
-	wp_enqueue_script('mobile_nav');
-	wp_enqueue_script('typekit');
-	if (is_single()){
-		wp_enqueue_style('article');
-		wp_enqueue_script('single_page_effects');
-	} else {
-		wp_enqueue_style('homepage');
-	}
-}
-
 function title_setup() {
    add_theme_support( 'title-tag' );
 }
@@ -167,7 +143,7 @@ function social_options( $wp_customize ) {
 	  		'title'		=> __( 'Adobe Fonts Integration', 'starchas3r_' ),
 	  		'priority'	=> 202
 	  	) );
-	  	$wp_customize->add_setting('project_id', array(
+	  	$wp_customize->add_setting('typekit_pid', array(
   		'default'		=> '',
   		'type'			=> 'theme_mod',
   		'capability'	=> 'edit_theme_options'
@@ -175,7 +151,7 @@ function social_options( $wp_customize ) {
 	  	$wp_customize->add_control('project_id_entry',array(
 	  		'label'		=> 'Project ID (go to https://fonts.adobe.com/my_fonts#web_projects-section to find this)',
 	  		'section'	=> 'starchas3r_typekit',
-	  		'settings'	=> 'project_id',
+	  		'settings'	=> 'typekit_pid',
 	  		'type'		=> 'text'
 	  	));
   }
@@ -209,10 +185,6 @@ function social_options( $wp_customize ) {
 	 
 	    return (bool) $custom_social_icons;
 	}
-}
-
-function has_typekit( $blog_id = 0 ){
-	$typekit_id = get_theme_mod(  );
 }
 
 function retrieve_social_links( $blog_id = 0 ) {
@@ -296,6 +268,52 @@ function retrieve_social_links( $blog_id = 0 ) {
 		}
 	}
 	return $social_links;
+}
+
+function has_typekit( $blog_id = 0 ){
+    $switched_blog = false;
+    $custom_social_icons = false;
+ 
+    if ( is_multisite() && ! empty( $blog_id ) && (int) $blog_id !== get_current_blog_id() ) {
+        switch_to_blog( $blog_id );
+        $switched_blog = true;
+    }
+
+    if ( $switched_blog ) {
+	    restore_current_blog();
+	}
+
+	if (get_theme_mod( 'typekit_pid' ) ){
+		return true;	
+	};
+}
+
+function starchas3r_register(){
+	wp_register_style('main_style', get_template_directory_uri() . '/style.css');
+	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
+	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
+	wp_register_style('article', get_template_directory_uri() . '/css/starchas3r_article.css');
+	wp_register_style('nav', get_template_directory_uri() . '/css/starchas3r_nav.css');
+	wp_register_script('mobile_nav', get_template_directory_uri() . '/js/mobileNav.js','','',true);
+	wp_register_script('single_page_effects', get_template_directory_uri() . '/js/singlePageEffects.js','','',true);
+	if (has_typekit()) {
+		wp_register_style('adobe_font', 'https://use.typekit.net/' . get_theme_mod( 'typekit_pid' ) . '.css');
+	};
+}
+
+function starchas3r_enqueue(){
+	wp_enqueue_style('main_style');
+	wp_enqueue_style('nav');
+	wp_enqueue_script('mobile_nav');
+	if (is_single()){
+		wp_enqueue_style('article');
+		wp_enqueue_script('single_page_effects');
+	} else {
+		wp_enqueue_style('homepage');
+	}
+	if (has_typekit()){
+		wp_enqueue_style('adobe_font');
+	}
 }
 
 add_action( 'customize_register', 'social_options' );

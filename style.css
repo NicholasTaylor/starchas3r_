@@ -67,3 +67,16 @@ a:visited {
 	color: inherit;
 	text-decoration: none;
 }
+
+/* START Admin Bar Overrides */
+body.admin-bar {
+    position: relative;
+    top: -32px;
+}
+
+.admin-bar #wpadminbar {
+	top: initial;
+	bottom: 0;
+
+}
+/* END Admin Bar Overrides */
