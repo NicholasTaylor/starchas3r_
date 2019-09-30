@@ -67,12 +67,12 @@
               array(
                 'before'           => '',
                 'after'            => '',
-                'link_before'      => '',
-                'link_after'       => '',
+                'link_before'      => '<h3>',
+                'link_after'       => '</h3>',
                 'next_or_number'   => 'next',
                 'separator'        => ' ',
-                'nextpagelink'     => __( 'NEXT PAGE' ),
-                'previouspagelink' => __( 'PREVIOUS PAGE' ),
+                'nextpagelink'     => __( 'Next Page' ),
+                'previouspagelink' => __( 'Previous Page' ),
                 'pagelink'         => '%',
               )
             );

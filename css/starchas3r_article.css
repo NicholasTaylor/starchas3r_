@@ -64,7 +64,8 @@
     top: 2vh;
 }
 
-#article-body p {
+#article-body p,
+#article-body li {
     font-size: 1.25rem;
 }
 
@@ -168,9 +169,32 @@ aside:after {
     margin-bottom: 0.5em;
 }
 
+#article-body p.wp-caption-text {
+    font-size: 1rem;
+    margin: 0 0 1em 0;
+}
+
+.single img.size-full {
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .commentlist {
-	margin: 0;
 	padding: 0;
+}
+
+.wp_link_pages,
+.commentlist,
+.navigation,
+#respond {
+	margin: 3em 0;
+}
+
+.post-page-numbers h3 {
+    display: inline-block;
+    margin: 0 1em 0 0;
 }
 
 /* START Micro Mobile */
@@ -203,7 +227,8 @@ aside:after {
 	}
 
 	#title-content p,
-	#article-body p {
+	#article-body p,
+	#article-body li {
 	    font-size: 1rem;
 	}
 }
@@ -259,7 +284,8 @@ aside:after {
 	    font-size: 1.5rem;
 	}
 
-	#article-body p {
+	#article-body p,
+	#article-body li {
 	    font-size: 1.5rem;
 	}
 
@@ -314,7 +340,8 @@ aside:after {
 	    font-size: 2rem;
 	}
 
-	#article-body p {
+	#article-body p,
+	#article-body li {
 	    font-size: 2rem;
 	}
 
