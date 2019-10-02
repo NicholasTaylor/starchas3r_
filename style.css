@@ -34,28 +34,6 @@ nav ul li {
 	letter-spacing: -0.03em;
 }
 
-/* START Font Stacks */
-
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6, 
-#logo h1, 
-#nav-icon {
-	font-family: 'din-2014', futura-pt, 'helvetica neue', helvetica, arial sans-serif;
-}
-
-body, 
-.article-data h2, 
-nav ul li, 
-#title-content h2 {
-	font-family: acumin-pro, pragmatica, helvetica, 'helvetica neue', arial, sans-serif;
-}
-
-/* END Font Stacks */
-
 #logo h1, 
 #nav-icon {
 	font-weight: 700;
