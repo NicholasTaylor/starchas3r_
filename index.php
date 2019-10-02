@@ -54,7 +54,7 @@ get_header();?>
           <?php endif; ?>
           <h2>
             <?php $current_content = $post->post_content;
-            $read_time_secs = (strlen(strip_tags(do_shortcode($current_content))) / (25/6));
+              $read_time_secs = (str_word_count(strip_tags(do_shortcode($current_content))) * (6/25));
             $read_time = ($read_time_secs < 60 ? round($read_time_secs,0) . ' sec.' : ($read_time_secs < 3600 ? round(($read_time_secs / 60),0) . ' min.' : round(($read_time_secs / 3600),0) . ' hr.'));
             echo $read_time; ?> 
           </h2>
