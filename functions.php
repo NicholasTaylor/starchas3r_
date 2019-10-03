@@ -69,59 +69,59 @@ function social_options( $wp_customize ) {
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options',
 	));
-	$wp_customize->add_control('social_url_fb', array(
-		'label'			=> 'Facebook URL',
-		'section'		=> 'starchas3r_social_media',
-		'settings'		=> 'social_media_fb',
-		'type'			=> 'text',
-	));
-	$wp_customize->add_control('social_url_ig', array(
-		'label'			=> 'Instagram URL',
-		'section'		=> 'starchas3r_social_media',
-		'settings'		=> 'social_media_ig',
-		'type'			=> 'text',
-	));
-	$wp_customize->add_control('social_url_sc', array(
-		'label'			=> 'Snapchat URL',
-		'section'		=> 'starchas3r_social_media',
-		'settings'		=> 'social_media_sc',
-		'type'			=> 'text',
-	));
-	$wp_customize->add_control('social_url_twitch', array(
-		'label'			=> 'Twitch URL',
-		'section'		=> 'starchas3r_social_media',
-		'settings'		=> 'social_media_twitch',
-		'type'			=> 'text',
-	));
-	$wp_customize->add_control('social_url_twitter', array(
-		'label'			=> 'Twitter URL',
-		'section'		=> 'starchas3r_social_media',
-		'settings'		=> 'social_media_twitter',
-		'type'			=> 'text',
-	));
-	$wp_customize->add_control('social_url_yt', array(
-		'label'			=> 'Youtube URL',
-		'section'		=> 'starchas3r_social_media',
-		'settings'		=> 'social_media_yt',
-		'type'			=> 'text',
-	));
-	$wp_customize->add_control('social_url_pn', array(
-		'label'			=> 'Pinterest URL',
-		'section'		=> 'starchas3r_social_media',
-		'settings'		=> 'social_media_pn',
-		'type'			=> 'text',
-	));
-	$wp_customize->add_control('social_url_li', array(
-		'label'			=> 'LinkedIn URL',
-		'section'		=> 'starchas3r_social_media',
-		'settings'		=> 'social_media_li',
-		'type'			=> 'text',
-	));
 	$wp_customize->add_control('social_url_tiktok', array(
-		'label'			=> 'TikTok URL',
+		'label'			=> 'TikTok Username (ex. https://tiktok.com/@[username]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_tiktok',
-		'type'			=> 'text',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_fb', array(
+		'label'			=> 'Facebook Username (ex. https://www.facebook.com/[username])',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_fb',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_ig', array(
+		'label'			=> 'Instagram Username (ex. https://www.instagram.com/[username])',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_ig',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_sc', array(
+		'label'			=> 'Snapchat Username (ex. https://www.snapchat.com/add/[username]',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_sc',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_twitch', array(
+		'label'			=> 'Twitch Username (ex. https://www.twitch.tv/[username]',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_twitch',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_twitter', array(
+		'label'			=> 'Twitter Handle (ex. https://www.twitter.com/[handle])',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_twitter',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_yt', array(
+		'label'			=> 'Youtube Channel ID (ex. https://www.youtube.com/channel/[channel ID])',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_yt',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_pn', array(
+		'label'			=> 'Pinterest Username (ex. https://www.pinterest.com/[username]',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_pn',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_li', array(
+		'label'			=> 'LinkedIn Profile Name (ex. https://www.linkedin.com/in/[profile name]',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_li',
+		'type'			=> 'text'
 	));
 }
 
@@ -251,7 +251,7 @@ function retrieve_social_links() {
 
 	$social_links_raw = array(
 		'tiktok' => array(
-			'prefix' => 'https://vm.tiktok.com/',
+			'prefix' => 'https://tiktok.com/@',
 			'value' => get_theme_mod( 'social_media_tiktok' ),
 			'title' => 'TikTok',
 			'abbreviation' => 'tk'
