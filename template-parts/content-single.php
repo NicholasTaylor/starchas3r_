@@ -23,7 +23,11 @@
         <div id="title-content">
           <?php the_title( '<h1 itemprop="headline">','</h1>' ); ?>
           <div id="title-data">
-            <time itemprop="datePublished" datetime="<?php echo get_the_date( $d = 'Y-m-d' ); ?>T<?php echo get_the_date( $d = 'H:i' ); ?>"><?php the_date( 'Y.m.d H:i', '<h2>', '</h2>' ); ?></time>
+            <h2>
+              <time itemprop="datePublished" datetime="<?php echo get_the_date( $d = 'Y-m-d' ); ?>T<?php echo get_the_date( $d = 'H:i' ); ?>">
+                <?php echo get_the_date( 'Y.m.d H:i'); ?>
+              </time>
+            </h2>
             <meta itemprop="dateModified" content="<?php echo get_the_modified_date( $d = 'Y-m-d' ) ?>T<?php echo get_the_modified_date( $d = 'H:i' ) ?>"></meta>
             <?php if (has_category () ) : ?>
               <h2>

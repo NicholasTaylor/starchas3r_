@@ -36,7 +36,7 @@ get_header();?>
         <div class="article-data">
           <h2>
             <a href="<?php echo esc_url( get_permalink() ); ?>">
-              <?php the_date( 'Y.m.d H:i', '<h2>', '</h2>' ); ?>
+              <?php echo get_the_date( 'Y.m.d H:i' ); ?>
             </a>
           </h2>
           <?php if (has_category () ) : ?>

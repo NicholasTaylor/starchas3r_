@@ -15,8 +15,9 @@ function blog_switch( $blog_id = 0 ) {
 	return $blog_id;
 }
 
-function title_setup() {
+function theme_support_setup() {
    add_theme_support( 'title-tag' );
+   add_theme_support( 'post-thumbnails' );
 }
 
 function social_options( $wp_customize ) {
@@ -386,7 +387,7 @@ function starchas3r_enqueue(){
 add_action( 'customize_register', 'social_options' );
 add_action( 'customize_register', 'custom_logo_svg' );
 add_action( 'customize_register', 'custom_fonts' );
-add_action( 'after_setup_theme', 'title_setup' );
+add_action( 'after_setup_theme', 'theme_support_setup' );
 add_action( 'wp_enqueue_scripts', 'starchas3r_register');
 add_action( 'wp_enqueue_scripts', 'starchas3r_enqueue');
 add_action( 'wp_enqueue_scripts', 'starchas3r_custom_styles');
