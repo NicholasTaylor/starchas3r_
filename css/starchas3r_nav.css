@@ -57,8 +57,8 @@ body {
     text-align: left;
     margin: 0;
     border-top: 1px solid #e0e0e0;
-    padding: 0.75em 1em;
     font-weight: 600;
+    padding: 0.75em 1em;
 }
 
 #container-nav #logo {
@@ -121,6 +121,20 @@ body {
 	#nav-social img {
 	    width: 2em;
 	}
+
+    /* START Notch Fixes */
+
+    #nav-inner ul#nav-categories li {
+        font-size: 1.25rem;
+        padding: 3vh 0 3vh 5vw;
+    }
+
+    ul#nav-social {
+        padding: 0 5vw;
+    }
+
+    /* END Notch Fixes */
+
 }
 /* END Landscape */
 
