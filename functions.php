@@ -70,6 +70,21 @@ function social_options( $wp_customize ) {
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options',
 	));
+	$wp_customize->add_setting('social_media_gh', array(
+		'default'		=> '',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options',
+	));
+	$wp_customize->add_setting('social_media_dr', array(
+		'default'		=> '',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options',
+	));
+	$wp_customize->add_setting('social_media_be', array(
+		'default'		=> '',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options',
+	));
 	$wp_customize->add_control('social_url_tiktok', array(
 		'label'			=> 'TikTok Username (ex. https://tiktok.com/@[username]',
 		'section'		=> 'starchas3r_social_media',
@@ -122,6 +137,24 @@ function social_options( $wp_customize ) {
 		'label'			=> 'LinkedIn Profile Name (ex. https://www.linkedin.com/in/[profile name]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_li',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_gh', array(
+		'label'			=> 'Github Username (ex. https://www.github.com/[username]',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_gh',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_dr', array(
+		'label'			=> 'Dribbble Profile Name (ex. https://www.dribbble.com/[profile name]',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_dr',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_be', array(
+		'label'			=> 'Behance Profile Name (ex. https://www.behance.net/[profile name]',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_be',
 		'type'			=> 'text'
 	));
 }
@@ -239,8 +272,11 @@ function has_social_icons() {
     $social_media_bool_yt = get_theme_mod( 'social_media_yt' );
     $social_media_bool_pn = get_theme_mod( 'social_media_pn' );
     $social_media_bool_li = get_theme_mod( 'social_media_li' );
+    $social_media_bool_gh = get_theme_mod( 'social_media_gh' );
+    $social_media_bool_dr = get_theme_mod( 'social_media_dr' );
+    $social_media_bool_be = get_theme_mod( 'social_media_be' );
 
-    if ( $social_media_bool_tiktok || $social_media_bool_fb || $social_media_bool_ig || $social_media_bool_sc || $social_media_bool_twitch || $social_media_bool_twitter || $social_media_bool_yt || $social_media_bool_pn || $social_media_bool_li ) {
+    if ( $social_media_bool_tiktok || $social_media_bool_fb || $social_media_bool_ig || $social_media_bool_sc || $social_media_bool_twitch || $social_media_bool_twitter || $social_media_bool_yt || $social_media_bool_pn || $social_media_bool_li || $social_media_bool_gh || $social_media_bool_dr || $social_media_bool_be ) {
     	$custom_social_icons = true;
     }
  
@@ -304,6 +340,24 @@ function retrieve_social_links() {
 			'value' => get_theme_mod( 'social_media_li' ),
 			'title' => 'LinkedIn',
 			'abbreviation' => 'li'
+		),
+		'github' => array(
+			'prefix' => 'https://www.github.com/',
+			'value' => get_theme_mod( 'social_media_gh' ),
+			'title' => 'GitHub',
+			'abbreviation' => 'gh'
+		),
+		'dribbble' => array(
+			'prefix' => 'https://www.dribbble.com/',
+			'value' => get_theme_mod( 'social_media_dr' ),
+			'title' => 'Dribbble',
+			'abbreviation' => 'dr'
+		),
+		'behance' => array(
+			'prefix' => 'https://www.behance.net/',
+			'value' => get_theme_mod( 'social_media_be' ),
+			'title' => 'Behance',
+			'abbreviation' => 'be'
 		)
 	);
 
