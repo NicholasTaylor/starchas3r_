@@ -85,6 +85,11 @@ function social_options( $wp_customize ) {
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options',
 	));
+	$wp_customize->add_setting('social_media_vs', array(
+		'default'		=> '',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options',
+	));
 	$wp_customize->add_control('social_url_tiktok', array(
 		'label'			=> 'TikTok Username (ex. https://tiktok.com/@[username]',
 		'section'		=> 'starchas3r_social_media',
@@ -155,6 +160,12 @@ function social_options( $wp_customize ) {
 		'label'			=> 'Behance Profile Name (ex. https://www.behance.net/[profile name]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_be',
+		'type'			=> 'text'
+	));
+	$wp_customize->add_control('social_url_vs', array(
+		'label'			=> 'VSCO Username (ex. https://vsco.co/[Username]/images/1',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_vs',
 		'type'			=> 'text'
 	));
 }
@@ -288,8 +299,9 @@ function has_social_icons() {
     $social_media_bool_gh = get_theme_mod( 'social_media_gh' );
     $social_media_bool_dr = get_theme_mod( 'social_media_dr' );
     $social_media_bool_be = get_theme_mod( 'social_media_be' );
+    $social_media_bool_be = get_theme_mod( 'social_media_vs' );
 
-    if ( $social_media_bool_tiktok || $social_media_bool_fb || $social_media_bool_ig || $social_media_bool_sc || $social_media_bool_twitch || $social_media_bool_twitter || $social_media_bool_yt || $social_media_bool_pn || $social_media_bool_li || $social_media_bool_gh || $social_media_bool_dr || $social_media_bool_be ) {
+    if ( $social_media_bool_tiktok || $social_media_bool_fb || $social_media_bool_ig || $social_media_bool_sc || $social_media_bool_twitch || $social_media_bool_twitter || $social_media_bool_yt || $social_media_bool_pn || $social_media_bool_li || $social_media_bool_gh || $social_media_bool_dr || $social_media_bool_be || $social_media_bool_vs ) {
     	$custom_social_icons = true;
     }
  
@@ -371,6 +383,12 @@ function retrieve_social_links() {
 			'value' => get_theme_mod( 'social_media_be' ),
 			'title' => 'Behance',
 			'abbreviation' => 'be'
+		),
+		'vsco' => array(
+			'prefix' => 'https://vsco.co/',
+			'value' => get_theme_mod( 'social_media_vs' ),
+			'title' => 'VSCO',
+			'abbreviation' => 'vs'
 		)
 	);
 
