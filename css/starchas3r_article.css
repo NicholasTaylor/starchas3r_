@@ -174,11 +174,16 @@ aside:after {
     margin: 0 0 1em 0;
 }
 
-.single img.size-full {
+.single img.size-full, 
+.wp-block-cover {
     max-width: 100vw;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.single .wp-block-cover {
+	width: 100vw;
 }
 
 .commentlist {

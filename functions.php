@@ -209,32 +209,43 @@ function custom_fonts( $wp_customize ) {
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
 	));
-	$wp_customize->add_control('project_id_entry',array(
+	$wp_customize->add_control('google_fonts_entry',array(
 		'label'		=> 'Google Fonts String – Use link tag supplied by Google Fonts (ex. <link href="https://fonts.googleapis.com/css?family=Mansalva|Noto+Sans:400,700|Turret+Road:400,500&display=swap" rel="stylesheet">)',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'google_fonts_list',
 		'type'		=> 'text'
 	));
 	$wp_customize->add_setting('heading_stack', array(
-		'default'		=> '\'helvetica neue\',helvetica, arial, sans-serif',
+		'default'		=> '\'helvetica neue\', helvetica, arial, sans-serif',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_control('heading_stack_entry',array(
-		'label'		=> 'Heading Stack (Give a CSS-friendly comma delimited sequence of fonts) Default: "\'helvetica neue\',helvetica, arial, sans-serif"',
+		'label'		=> 'Heading Stack (Give a CSS-friendly comma delimited sequence of fonts) Default: "\'helvetica neue\', helvetica, arial, sans-serif"',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'heading_stack',
 		'type'		=> 'text'
 	));
 	$wp_customize->add_setting('body_stack', array(
-		'default'		=> 'georgia,\'times new roman\',serif',
+		'default'		=> 'georgia, \'times new roman\', serif',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_control('body_stack_entry',array(
-		'label'		=> 'Body Copy Stack (Give a CSS-friendly comma delimited sequence of fonts) Default: "georgia,\'times new roman\',serif"',
+		'label'		=> 'Body Copy Stack (Give a CSS-friendly comma delimited sequence of fonts) Default: "georgia, \'times new roman\', serif"',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'body_stack',
+		'type'		=> 'text'
+	));
+	$wp_customize->add_setting('code_text_stack', array(
+		'default'		=> 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('code_text_stack_entry',array(
+		'label'		=> 'Code Tag Stack (Give a CSS-friendly comma delimited sequence of fonts) Default: "SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;"',
+		'section'	=> 'starchas3r_fonts',
+		'settings'	=> 'code_text_stack',
 		'type'		=> 'text'
 	));
 }
@@ -246,10 +257,12 @@ function drop_semicolon($css_string){
 
 function get_font_stacks() {
     $blog_id = blog_switch();
-    return array(
-    	'headlines'	=> drop_semicolon(get_theme_mod( 'heading_stack' )),
-    	'bodycopy'	=> drop_semicolon(get_theme_mod( 'body_stack' ))
+    $output = array(
+    	'headlines'	=> drop_semicolon(get_theme_mod( 'heading_stack' )) ? drop_semicolon(get_theme_mod( 'heading_stack' )) : '\'helvetica neue\', helvetica, arial, sans-serif',
+    	'bodycopy'	=> drop_semicolon(get_theme_mod( 'body_stack' )) ? drop_semicolon(get_theme_mod( 'body_stack' )) : 'georgia,\' times new roman\', serif',
+    	'codetext'	=> drop_semicolon(get_theme_mod( 'code_text_stack' )) ? drop_semicolon(get_theme_mod( 'code_text_stack' )) : 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace'
     );
+    return $output;
 }
 
 function has_google_fonts() {
@@ -417,6 +430,10 @@ function starchas3r_custom_styles(){
 		nav ul li, 
 		#title-content h2 {
 			font-family: ' . $custom_font_arr['bodycopy'] . ';
+		}
+
+		code {
+			font-family: ' . $custom_font_arr['codetext'] . ';
 		}';
 	wp_add_inline_style( 'main_style' , $custom_fonts );
 };

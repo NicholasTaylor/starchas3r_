@@ -57,4 +57,8 @@ body.admin-bar {
 	bottom: 0;
 
 }
+
+code {
+    overflow-wrap: break-word;
+}
 /* END Admin Bar Overrides */
