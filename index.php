@@ -12,7 +12,7 @@ get_header();?>
 <?php if ( have_posts() ) : ?>  
   <?php 
     $post_count = wp_count_posts();
-    $publish_count = $countPosts->publish;
+    $publish_count = $post_count->publish;
     $post_01 = ( $paged == 0 ) ? $posts[0]->ID : ''; 
     $post_02 = ( $paged == 0 ) ? $posts[1]->ID : ''; 
     $post_03 = ( $paged == 0 ) ? $posts[2]->ID : ''; 
@@ -71,6 +71,16 @@ get_header();?>
       </div>
     </section>
   <?php endwhile; ?>
+  <?php if ($publish_count >= 11){
+    the_posts_pagination( 
+      array(
+        'mid_size'  => 1,
+        'prev_text' => __( '&#9668; Newer', 'starchas3r_' ),
+        'next_text' => __( 'Older &#9658;', 'starchas3r_' ),
+        'screen_reader_text' => __('Archives','starchas3r_')
+      ) 
+    );
+  } ?>
 <?php else : ?>
   <?php get_template_part( 'template-parts/content', 'none' ); ?>
 <?php endif; ?>
