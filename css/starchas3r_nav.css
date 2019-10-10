@@ -64,8 +64,15 @@ body {
 #container-nav #logo {
     z-index: 110;
     position: fixed;
+}
+
+#container-nav .nav-on {
     left: calc(6vw + 1.25rem);
     margin-left: 1rem;
+}
+
+#container-nav .nav-off {
+    left: 6vw;
 }
 
 #container-nav #logo h1 {
@@ -172,7 +179,7 @@ body {
         width: 2rem;
         }
 
-    #container-nav #logo {
+    #container-nav .nav-on {
         left: calc(6vw + 2rem);
     }
 
@@ -202,7 +209,7 @@ body {
         width: 3rem;
         }
 
-    #container-nav #logo {
+    #container-nav .nav-on {
         left: calc(6vw + 3rem);
     }
 

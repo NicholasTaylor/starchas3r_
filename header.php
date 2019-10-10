@@ -43,7 +43,7 @@
             'after'           => '',
             'link_before'     => '',
             'link_after'      => '',
-            'items_wrap'      => '<ul id=\"%1$s\" class=\"%2$s\">%3$s</ul>',
+            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
             'depth'           => 0,
             'walker'          => ''
           );
@@ -57,9 +57,12 @@
 
           $categories = get_categories( $args_categories );
           $category_count = count( $categories );
+          $misc_options = retrieve_misc_options();
+          $disable_nav_default = $misc_options['disable_nav_default'];
+          $show_cats = (( $category_count == 0 || $disable_nav_default ) ? false : true);
           $social_media_icons = retrieve_social_links();
           $social_media_count = count( $social_media_icons );
-          $toggle_nav = ( $category_count > 0 || has_nav_menu( 'primary' ) || $social_media_count > 0 ? true : false );
+          $toggle_nav = ( $show_cats || has_nav_menu( 'primary' ) || $social_media_count > 0 ? true : false );
 
           ?>
       <div id="container-nav">
@@ -71,8 +74,10 @@
               <img src="<?php echo get_template_directory_uri();?>/images/icon-mobile-nav-white.png" border="0" />
             </a>
           </div>
+        <div id="logo" class="nav-on">
+        <?php else : ?>
+        <div id="logo" class="nav-off">
         <?php endif; ?>
-        <div id="logo">
           <a href="<?php echo get_home_url(); ?>">
             <h1>
               <?php bloginfo( 'name' ); ?>
@@ -90,10 +95,10 @@
           <?php endif; ?>
         </div>
         <?php if($toggle_nav) : ?>
-          <nav id="nav-inner">   
+          <nav id="nav-inner"> 
             <?php if (has_nav_menu( 'primary' )) : ?>
               <?php wp_nav_menu($args_nav);?>
-            <?php elseif ($category_count > 0) : ?>
+            <?php elseif ($show_cats) : ?>
               <ul id="nav-categories">
                 <?php foreach($categories as $category){
                   echo sprintf( '<li><a href="%s">%s</a></li>', esc_url( get_category_link( $category->term_id ) ), esc_html( $category->name));
