@@ -3,7 +3,7 @@ var navIconFirstChild = navIcon.children[0];
 var flagNav = false;
 var body = document.getElementsByTagName('body')[0];
 var html = document.getElementsByTagName('html')[0];
-var navDiv = document.getElementById('container-nav');
+var navDiv = document.getElementById('container-nav-primary');
 var container = document.getElementById('container');
 
 const navOn = function() {

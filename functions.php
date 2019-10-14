@@ -1,5 +1,15 @@
 <?php
 
+function get_sm_locs(){
+	return array(
+		'None',
+		'Primary',
+		'Header',
+		'Footer'
+	);
+}
+
+
 function blog_switch( $blog_id = 0 ) {
 	$switched_blog = false;
 
@@ -37,7 +47,9 @@ function theme_support_setup() {
 	add_theme_support( 'responsive-embeds' );
 	register_nav_menus(
 			array(
-				'primary' => __( 'Primary', 'starchas3r_' )
+				'primary' => __( 'Primary', 'starchas3r_' ),
+				'header' => __( 'Header', 'starchas3r_' ),
+				'footer' => __( 'Footer', 'starchas3r_' )
 			)
 		);
 }
@@ -111,6 +123,18 @@ function social_options( $wp_customize ) {
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options',
+	));
+	$wp_customize->add_setting('social_media_location', array(
+		'default'		=> '',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options',
+	));
+	$wp_customize->add_control('social_media_location_control', array(
+		'label'			=> 'Social Media Menu Location',
+		'section'		=> 'starchas3r_social_media',
+		'settings'		=> 'social_media_location',
+		'type'			=> 'select',
+		'choices'		=> get_sm_locs()
 	));
 	$wp_customize->add_control('social_url_tiktok', array(
 		'label'			=> 'TikTok Username (ex. https://tiktok.com/@[username])',
@@ -283,24 +307,6 @@ function custom_fonts( $wp_customize ) {
 	));
 }
 
-function misc_options( $wp_customize ){
-	$wp_customize->add_section( 'starchas3r_misc' , array(
-		'title' 		=> __( 'Misc Theme Options', 'starchas3r_' ),
-		'priority' 		=> 200,
-	) );
-	$wp_customize->add_setting('misc_toggle_nav_default', array(
-		'default'		=> '',
-		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
-	));
-	$wp_customize->add_control('misc_toggle_nav_check', array(
-		'label'			=> 'Disable Nav Defaulting to Category List',
-		'section'		=> 'starchas3r_misc',
-		'settings'		=> 'misc_toggle_nav_default',
-		'type'			=> 'checkbox'
-	));
-}
-
 function drop_semicolon($css_string){
 	$output = substr($css_string,-1) == ';' ? substr($css_string, 0, -1) : $css_string;
 	return $output;
@@ -453,13 +459,6 @@ function has_typekit( $blog_id = 0 ){
 	};
 }
 
-function retrieve_misc_options( $blog_id = 0 ){
-    $blog_id = blog_switch();
-    return array(
-    	'disable_nav_default'	=>	get_theme_mod( 'misc_toggle_nav_default' )
-    );
-}
-
 function starchas3r_register(){
 	wp_register_style('main_style', get_template_directory_uri() . '/style.css');
 	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
@@ -525,7 +524,6 @@ function starchas3r_enqueue(){
 add_action( 'customize_register', 'social_options' );
 add_action( 'customize_register', 'custom_logo_svg' );
 add_action( 'customize_register', 'custom_fonts' );
-add_action( 'customize_register', 'misc_options' );
 add_action( 'after_setup_theme', 'theme_support_setup' );
 add_action( 'wp_enqueue_scripts', 'starchas3r_register');
 add_action( 'wp_enqueue_scripts', 'starchas3r_enqueue');

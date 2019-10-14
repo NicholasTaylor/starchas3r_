@@ -1,4 +1,4 @@
-var navScreen =  document.getElementById('nav-screen');
+var navParent =  document.getElementById('container-nav');
 var currentScroll = document.documentElement.scrollTop;
 var currentVWHeight = window.innerHeight;
 var flagHeader = false;
@@ -7,12 +7,10 @@ const navFade = function(){
 	var currentScroll = document.documentElement.scrollTop;
 	var currentVWHeight = window.innerHeight;
 	if (currentScroll > 0 && flagHeader == false){
-		navScreen.style.opacity = 1;
-		navScreen.style.transition = '0.5s ease-in';
+		navParent.style.backgroundColor = 'rgba(0,0,0,1)';
 		flagHeader = true;
 	} else if (currentScroll <= 0 && flagHeader == true){
-		navScreen.style.opacity = 0;
-		navScreen.style.transition = '0.5s ease-in';
+		navParent.style.backgroundColor = 'rgba(0,0,0,0)';
 		flagHeader = false;
 	}
 }

@@ -18,8 +18,6 @@
       <?php endif; ?>
         <div id="bg-screen">
         </div>
-        <div id="fadein-screen">
-        </div>
         <div id="title-content">
           <?php the_title( '<h1 itemprop="headline">','</h1>' ); ?>
           <div id="title-data">

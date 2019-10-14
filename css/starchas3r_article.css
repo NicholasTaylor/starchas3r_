@@ -1,7 +1,15 @@
+.single #container-nav,
+.single #title-content,
+.single #nav-icon {
+	opacity: 0;
+	transition: 0.5s ease-out;
+}
+
 #article-title,
 #article-title #bg-screen {
     width: 100vw;
     height: 100vh;
+    min-height: 420px;
 }
 
 #article-title {
@@ -60,8 +68,9 @@
 .wp_link_pages {
     width: 90vw;
     position: relative;
-    left: 5vw;
+    left: 50%;
     top: 2vh;
+    transform: translateX(-50%);
 }
 
 #article-body p,
@@ -155,11 +164,6 @@ aside:after {
     font-size: 1rem;
 }
 
-.single img, .wp-caption{
-	max-width: 90vw;
-	height: auto;
-}
-
 #respond {
     margin-top: 2em;
 }
@@ -174,12 +178,13 @@ aside:after {
     margin: 0 0 1em 0;
 }
 
-.single img.size-full, 
-.wp-block-cover {
-    max-width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+img, 
+figure,
+textarea {
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
 }
 
 .single .wp-block-cover {
@@ -248,8 +253,7 @@ aside:after {
 	.commentlist, 
 	.thn_post_wrap, 
 	.wp_link_pages  {
-	    width: 75vw;
-	    left: 12.5vw;
+	    width: 70vw;
 	}
 
 	.single img, .wp-caption{
@@ -312,6 +316,15 @@ aside:after {
 
 /* START Desktop */
 @media (min-width: 1200px){
+	#article-body, 
+	#respond,
+	#comments,
+	.navigation,
+	.commentlist, 
+	.thn_post_wrap, 
+	.wp_link_pages  {
+	    width: 60vw;
+	}
 
 	h1 {
 	    font-size: 6rem;
