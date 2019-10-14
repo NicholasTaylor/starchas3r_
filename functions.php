@@ -507,7 +507,7 @@ function starchas3r_enqueue(){
 	wp_enqueue_style('nav');
 	wp_enqueue_script('mobile_nav');
 	wp_enqueue_script('page_effects');
-	if (is_single()){
+	if (is_single() || is_page()){
 		wp_enqueue_style('article');
 		wp_enqueue_script('single_page_fade_in');
 	} else {

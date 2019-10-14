@@ -1,6 +1,9 @@
 .single #container-nav,
 .single #title-content,
-.single #nav-icon {
+.single #nav-icon,
+.page #container-nav,
+.page #title-content,
+.page #nav-icon {
 	opacity: 0;
 	transition: 0.5s ease-out;
 }
