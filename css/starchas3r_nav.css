@@ -40,7 +40,7 @@ nav ul li {
 	display: inline-block;
 }
 
-#logo h1, #nav-icon {
+#logo h1 {
 	padding: 0;
 	margin: 0;
 	line-height: 1;
@@ -48,13 +48,21 @@ nav ul li {
 	font-weight: 700;
 }
 
+#container-nav-main-divs div {
+    height: 1.5rem;
+    vertical-align: top;
+}
+
 #nav-icon {
 	margin-right: 0.5em;
 }
 
 #nav-icon img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-80%);
 	height: auto;
-	width: 1.5rem;
+	width: 1rem;
 }
 /* END Container Navs and Main Divs */
 
@@ -191,20 +199,29 @@ nav ul li {
 		width: 70vw;
 	}
 
-	#logo h1, #nav-icon {
+	#logo h1 {
 		font-size: 2rem;
 	}
 
+	#container-nav-main-divs div {
+	    height: 2rem;
+	}
+
 	#nav-icon img {
-		width: 2rem;
+    	transform: translateY(-50%);
+		width: 1.5rem;
 	}
 }
 /* END Tablet */
 
 /* START Desktop */
 @media (min-width: 1200px){
-	#logo h1, #nav-icon {
+	#logo h1 {
 		font-size: 3rem;
+	}
+
+	#container-nav-main-divs div {
+	    height: 3rem;
 	}
 
 	#container-nav-footer {
@@ -212,7 +229,7 @@ nav ul li {
 	}
 
 	#nav-icon img {
-		width: 3rem;
+		width: 2rem;
 	}
 }
 /* END Desktop */
