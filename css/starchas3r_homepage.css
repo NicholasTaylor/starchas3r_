@@ -72,49 +72,51 @@ p {
 }
 
 /* END General */
-/* START Primary Articles */
+/* START Secondary Articles
+NOTE: List first in stylesheet. This should be default and overwritten by Primary Article CSS as needed */
 
-.article-primary,
-.article-primary .bg-screen {
-    height: 100vh;
-    min-height: 300px;
-}
-
-.article-primary h1 {
-	font-size: 3.25rem;
-}
-
-.article-primary h2 {
-	font-size: 1.75rem;
-}
-
-.article-primary p {
-	font-size: 1.25rem;
-}
-
-/* END Primary Articles */
-/* START Secondary Articles */
-
-.article-secondary,
-.article-secondary .bg-screen {
+.article,
+.article .bg-screen {
     height: 50vh;
     min-height: 150px;
 }
 
-.article-secondary {	
+.article {	
     background-position: center;
 }
 
 
-.article-secondary h1 {
+.article h1 {
 	font-size: 2.5rem;
 }
 
-.article-secondary h2 {
+.article h2 {
 	font-size: 1.5rem;
 }
 
 /* END Secondary Articles */
+
+/* START Primary Articles */
+
+#header-category, .article:first-child, .article:nth-child(2), .article:nth-child(3), 
+#header-category .bg-screen, .article:first-child .bg-screen, .article:nth-child(2) .bg-screen, .article:nth-child(3) .bg-screen { 
+    height: 100vh;
+    min-height: 300px;
+}
+
+#header-category h1, .article:first-child h1, .article:nth-child(2) h1, .article:nth-child(3) h1 { 
+	font-size: 3.25rem;
+}
+
+#header-category h2, .article:first-child h2, .article:nth-child(2) h2, .article:nth-child(3) h2 { 
+	font-size: 1.75rem;
+}
+
+#header-category p, .article:first-child p, .article:nth-child(2) p, .article:nth-child(3) p { 
+	font-size: 1.25rem;
+}
+
+/* END Primary Articles */
 /* END Mobile */
 
 /* START Micro Mobile */
@@ -135,46 +137,46 @@ p {
 
 	/* END General */
 
-	/* START Primary Articles */
-	.article-primary,
-	.article-primary .bg-screen {
-		min-height: 360px;
-	}
-
-	.article-primary h1 {
-	    font-size: 2.5rem;
-	}
-
-	.article-primary h2 {
-	    font-size: 1.25rem;
-	}
-
-	.article-primary p {
-		font-size: 1rem;
-	}
-
-	/*END Primary Articles */
 	/* START Secondary Articles */
 
-	.article-secondary,
-	.article-secondary .bg-screen {
+	.article,
+	.article .bg-screen {
 		height: 30vh;
 	}
 
-	.article-secondary h1 {
+	.article h1 {
 		font-size: 2rem;
 	}
 
-	.article-secondary h2 {
+	.article h2 {
 		font-size: 1rem;
 	}
 
-	.article-secondary .excerpt {
+	.article .excerpt {
 		display: none;
 	}
 
 	/* END Secondary Articles */
 
+	/* START Primary Articles */
+	#header-category, .article:first-child, .article:nth-child(2), .article:nth-child(3), 
+	#header-category .bg-screen, .article:first-child .bg-screen, .article:nth-child(2) .bg-screen, .article:nth-child(3) .bg-screen { 
+		min-height: 360px;
+	}
+
+	#header-category h1, .article:first-child h1, .article:nth-child(2) h1, .article:nth-child(3) h1 { 
+	    font-size: 2.5rem;
+	}
+
+	#header-category h2, .article:first-child h2, .article:nth-child(2) h2, .article:nth-child(3) h2 { 
+	    font-size: 1.25rem;
+	}
+
+	#header-category p, .article:first-child p, .article:nth-child(2) p, .article:nth-child(3) p { 
+		font-size: 1rem;
+	}
+
+	/*END Primary Articles */
 }
 
 /* END Micro Mobile */
@@ -206,35 +208,24 @@ p {
 	}
 
 	/* END General */
-	/* START Primary Article */
 
-	.article-primary,
-	.article-primary .bg-screen {
-		min-height: 620px;
-	}
-
-	.article-primary .article-content h1 {
-		font-size: 5.5rem;
-	}
-
-	/* END Primary Article */
 	/* START Secondary Articles */
 
-	.article-secondary .article-content h1 {
+	.article .article-content h1 {
 		font-size: 4rem;
 	}
 
-	.article-secondary .article-data h2 {
+	.article .article-data h2 {
 		font-size: 1.5rem;
 	}
 
-	.article-secondary,
-	.article-secondary .bg-screen {
+	.article,
+	.article .bg-screen {
 		width: 100vw;
 		min-height: 480px;
 	}
 
-	.article-secondary .article-content {
+	.article .article-content {
 		width: 90vw;
 		left: 5vw;
 		text-align: left;
@@ -242,6 +233,18 @@ p {
 
 	/* END Secondary Articles */
 
+	/* START Primary Article */
+
+	#header-category, .article:first-child, .article:nth-child(2), .article:nth-child(3), 
+	#header-category .bg-screen, .article:first-child .bg-screen, .article:nth-child(2) .bg-screen, .article:nth-child(3) .bg-screen { 
+		min-height: 620px;
+	}
+
+	#header-category .article-content h1, .article:first-child .article-content h1, .article:nth-child(2) .article-content h1, .article:nth-child(3) h1 { 
+		font-size: 5.5rem;
+	}
+
+	/* END Primary Article */
 }
 
 /* END Tablet */
@@ -262,13 +265,29 @@ p {
 
 	/* END General */
 
+	/* START Secondary Article */
+
+	.article .article-content h1 {
+	    font-size: 6rem;
+	}
+
+	.article .article-data h2 {
+	    font-size: 2rem;
+	}
+
+	.article p {
+		font-size: 1.75rem;
+	}
+
+	/* End Secondary Article */
+
 	/* START Primary Article */
 
-	.article-primary .article-content {
+	#header-category .article-content, .article:first-child .article-content, .article:nth-child(2) .article-content, .article:nth-child(3) .article-content { 
 		width: 80vw;
 	}
 
-	.article-primary .article-content h1 {
+	#header-category .article-content h1, .article:first-child .article-content h1, .article:nth-child(2) .article-content h1, .article:nth-child(3) h1 { 
 	    font-size: 7rem;
 	}
 
@@ -276,31 +295,15 @@ p {
 	    font-size: 3rem;
 	}
 
-	.article-primary .article-data {
+	#header-category .article-data, .article:first-child .article-data, .article:nth-child(2) .article-data, .article:nth-child(3) .article-data { 
 	    margin: 0 0 3em 0;
 	}
 
-	.article-primary p {
+	#header-category p, .article:first-child p, .article:nth-child(2) p, .article:nth-child(3) p { 
 		font-size: 2rem;
 	}
 
 	/* END Primary Article */
-	/* START Secondary Article */
-
-	.article-secondary .article-content h1 {
-	    font-size: 6rem;
-	}
-
-	.article-secondary .article-data h2 {
-	    font-size: 2rem;
-	}
-
-	.article-secondary p {
-		font-size: 1.75rem;
-	}
-
-	/* End Secondary Article */
-
 }
 
 /* END Computer */

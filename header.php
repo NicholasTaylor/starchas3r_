@@ -142,4 +142,6 @@
       <!-- END Navs -->
     </header>
     <!-- START Container -->
-    <div id="container">
+    <?php $featured_id = $posts[0]->ID; 
+      $container_style = ( ( is_archive() && have_posts() && has_post_thumbnail( $featured_id ) ) ? 'background-image: url(\'' . wp_get_attachment_image_src( get_post_thumbnail_id( $featured_id ), 'full' )[0] . '\');' : '' ); ?>
+    <div id="container" style="<?php echo $container_style ; ?>">

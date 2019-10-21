@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the index
+ * The template for displaying the single page
  *
  * Contains the closing of the #content div and all content after
  *

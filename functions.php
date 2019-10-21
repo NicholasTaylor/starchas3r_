@@ -462,7 +462,7 @@ function has_typekit( $blog_id = 0 ){
 function starchas3r_register(){
 	wp_register_style('main_style', get_template_directory_uri() . '/style.css');
 	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
-	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
+	wp_register_style('archive', get_template_directory_uri() . '/css/starchas3r_archive.css');
 	wp_register_style('article', get_template_directory_uri() . '/css/starchas3r_article.css');
 	wp_register_style('nav', get_template_directory_uri() . '/css/starchas3r_nav.css');
 	wp_register_script('mobile_nav', get_template_directory_uri() . '/js/mobileNav.js','','',true);
@@ -510,7 +510,9 @@ function starchas3r_enqueue(){
 	if (is_single() || is_page()){
 		wp_enqueue_style('article');
 		wp_enqueue_script('single_page_fade_in');
-	} else {
+	} elseif ( is_archive() ){
+		wp_enqueue_style('archive');}
+	else {
 		wp_enqueue_style('homepage');
 	}
 	if (has_typekit()){
