@@ -49,28 +49,6 @@ p {
 	font-weight: 200;
 }
 
-.pagination {
-    text-align: center;
-    margin: 1em 0;
-}
-
-.pagination h2 {
-    font-size: 2.5rem;
-}
-
-.page-numbers {
-    position: relative;
-    line-height: 1;
-    top: 0.25em;
-    border-right: 1px solid white;
-    font-size: 1.25rem;
-    padding: 0 0.5em;
-}
-
-.page-numbers:last-child {
-    border-right: none !important;
-}
-
 /* END General */
 /* START Secondary Articles
 NOTE: List first in stylesheet. This should be default and overwritten by Primary Article CSS as needed */
@@ -123,20 +101,6 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 
 @media (max-width: 320px),
 (max-height: 320px){
-
-	/* START General */
-
-	.pagination h2 {
-	    font-size: 2rem;
-	}
-
-	.nav-links a, 
-	.nav-links span {
-	    font-size: 1rem;
-	}
-
-	/* END General */
-
 	/* START Secondary Articles */
 
 	.article,
@@ -183,19 +147,6 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 /* START Tablet */
 
 @media (min-width: 768px){
-
-	/* START General */
-
-	.pagination h2 {
-	    font-size: 3.5rem;
-	}
-
-	.nav-links a, 
-	.nav-links span {
-	    font-size: 1.5rem;
-	}
-
-	/* END General */
 
 	/* START General */
 
@@ -251,20 +202,6 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 /* START Computer */
 
 @media (min-width: 1200px){
-
-	/* START General */
-
-	.pagination h2 {
-	    font-size: 4rem;
-	}
-
-	.nav-links a, 
-	.nav-links span {
-	    font-size: 2rem;
-	}
-
-	/* END General */
-
 	/* START Secondary Article */
 
 	.article .article-content h1 {

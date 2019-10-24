@@ -20,7 +20,7 @@ get_header(); ?>
 			</div>
 		</div>
 	</header>
-	<div id="container-section-list">
+	<div id="container-section-list"<?php if( $paged == 0 ) { echo ' class="archive-page0"'; } else { echo ' class="archive-page1plus"'; } ?>>
 		<?php while (have_posts () ) : 
 			the_post(); //Go Loop Go! 
 			get_template_part( 'template-parts/content', 'posts' ); 

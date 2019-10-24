@@ -13,10 +13,15 @@
     height: 100%;
     position: absolute;
     z-index: 101;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.6);
     top: 0;
     width: 100vw;
     left: 0;
+}
+
+.pagination {
+	position: relative;
+	z-index: 110;
 }
 /* END Container Nav and Main Divs */
 
@@ -32,11 +37,15 @@
 #header-category p {
     line-height: 1;
 }
+
+#header-category h1 {
+	font-size: 3rem;
+}
 /* END Category Header */
 
 /* START Section List Container */
 #container-section-list {
-    padding: 1vh 0;
+    padding: 0;
     position: relative;
     z-index: 110;
 }
@@ -84,13 +93,29 @@
 #container-section-list .excerpt {
     display: none;
 }
+
+#container-section-list section:first-child .article-content h1:before {
+    display: block;
+    margin: 0;
+    font-size: 3rem;
+}
+
+.archive-page0 section:first-child .article-content h1:before {
+    content: "Most Recent \A";
+}
+
+.archive-page1plus section:first-child .article-content h1:before {
+    content: "Featured \A";
+}
 /* END Individual Articles */
 
 /* START Most Recent Article */
 #container-section-list section:first-child {
 	background-image: none !important;
 	height: auto;
-	padding-bottom: 3vh;
+	padding: 3vh 0 6vh 0;
+	margin-bottom: 6vh;
+	border-bottom: 1px solid #fff;
 }
 
 #container-section-list section:first-child .bg-screen {
@@ -105,17 +130,14 @@
 	display: initial;
 }
 /* END Most Recent Article */
-
-/* START Multiple Regions */
-h1, 
-#container-section-list section:first-child h1 {
-    font-size: 2rem;
-}
-/* END Multiple Regions */
 /* END Mobile */
 
 /* START Micro Mobile Portrait */
 @media (max-width: 320px){
+	#header-category h1, #container-section-list section:first-child .article-content h1:before {
+		font-size: 2rem;
+	}
+
 	#container-section-list section .article-content h1 {
 	    font-size: 1.25rem;
 	}
@@ -157,7 +179,10 @@ h1,
 
 /* START Tablet */
 @media (min-width: 768px){
-	#header-category h1, 
+	#header-category h1, #container-section-list section:first-child .article-content h1:before {
+		font-size: 4rem;
+	}
+
 	#container-section-list section .article-content h1 {
 	    font-size: 3rem;
 	}
@@ -199,7 +224,10 @@ h1,
 		padding-top: 16vh;
 	}
 
-	#header-category h1, 
+	#header-category h1, #container-section-list section:first-child .article-content h1:before {
+		font-size: 6rem;
+	}
+
 	#container-section-list section .article-content h1 {
 	    font-size: 5rem;
 	}

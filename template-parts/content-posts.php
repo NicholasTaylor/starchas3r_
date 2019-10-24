@@ -13,7 +13,7 @@
       $article_type = (in_array($current_post_num, array($post_01, $post_02, $post_03)) ? 'primary' : 'secondary');
       $background_flag = has_post_thumbnail();
       $background_raw = ($background_flag ? wp_get_attachment_image_src( get_post_thumbnail_id(  ), 'full' ) : array() );
-      $background_style = ($background_flag ? "background-image:url('" . $background_raw[0] . "');" : "background-color: #000;");
+      $background_style = ($background_flag ? "background-image:url('" . $background_raw[0] . "');" : "background-color:#000;");
       $link_open_tag = '<a href="' . esc_url( get_permalink() ) . '">';
       $link_close_tag = '</a>';
     ?>
