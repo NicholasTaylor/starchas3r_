@@ -6,8 +6,18 @@ Author URI: https://github.com/NicholasTaylor
 Description: An immersive, image-driven mobile-first WP theme. In other words, nothing special or unique ;)
 Version: 1.0
 Text Domain: starchas3r_
+------------------------------
+TABLE OF CONTENTS
+------------------------------
+# Mobile (Default)
+## General Elements
+## Admin Bar Overrides
+# Micro Mobile
+# Tablet
+# Desktop
 */
 
+/* START General Elements */
 body {
 	background-color: #000;
 	color: #fff;
@@ -62,6 +72,7 @@ a:visited {
 .page-numbers:last-child {
     border-right: none !important;
 }
+/* END General Elements */
 
 /* START Admin Bar Overrides */
 body.admin-bar {
@@ -83,7 +94,6 @@ code {
 /* START Micro Mobile */
 @media (max-width: 320px),
 (max-height: 320px){
-	/* START General */
 	.pagination h2 {
 	    font-size: 2rem;
 	}
@@ -92,16 +102,11 @@ code {
 	.nav-links span {
 	    font-size: 1rem;
 	}
-
-	/* END General */
 }
 /* END Micro Mobile */
 
 /* START Tablet */
 @media (min-width: 768px){
-
-	/* START General */
-
 	.pagination h2 {
 	    font-size: 3.5rem;
 	}
@@ -110,16 +115,11 @@ code {
 	.nav-links span {
 	    font-size: 1.5rem;
 	}
-
-	/* END General */
 }
 /* END Tablet */
 
-/* START Computer */
+/* START Desktop */
 @media (min-width: 1200px){
-
-	/* START General */
-
 	.pagination h2 {
 	    font-size: 4rem;
 	}
@@ -128,7 +128,5 @@ code {
 	.nav-links span {
 	    font-size: 2rem;
 	}
-
-	/* END General */
 }
-/* END Computer */
+/* END Desktop */

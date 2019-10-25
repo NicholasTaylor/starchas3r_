@@ -1,4 +1,26 @@
-/* START General Tags */
+/*
+Theme Name: starchas3r_
+
+Adding support to the navigational elements
+------------------------------
+TABLE OF CONTENTS
+------------------------------
+# Mobile (Default)
+## General Elements
+## Container Nav and Main Divs
+## Primary Nav
+## Header Nav
+## Footer Nav
+## Social Nav
+## Multiple Navs
+# Micro Mobile
+# Mobile Landscape
+# Mobile Landscape + Tablet + Desktop
+# Tablet
+# Desktop
+*/
+
+/* START General Elements */
 body, 
 html {
 	overflow: initial;
@@ -24,7 +46,7 @@ nav ul li {
 	padding: 0;
 	letter-spacing: -0.03em;
 }
-/* END General Tags */
+/* END General Elements */
 
 /* START Container Nav and Main Divs */
 #container-nav {
@@ -157,7 +179,7 @@ nav ul li {
 /* END Multiple Nav */
 
 
-/* START Micro Mobile Portrait */
+/* START Micro Mobile */
 @media (max-width: 320px){
 	#container-nav-primary #nav-items-social ul li, #container-nav-footer #nav-items-social ul li {
 	    margin: 0.75em;
@@ -168,7 +190,7 @@ nav ul li {
 	    font-size: 1rem;
 	}
 }
-/* END Micro Mobile Portrait */
+/* END Micro Mobile */
 
 /* START Mobile Landscape */
 @media (max-height: 420px){
@@ -181,13 +203,13 @@ nav ul li {
 }
 /* END Mobile Landscape */
 
-/* START Landscape + Tablet + Laptop * Desktop */
+/* START Mobile Landscape + Tablet + Desktop */
 @media (min-width: 421px){
 	#container-nav-primary {
 	    width: 50vw;
 	}
 }
-/* END Landscape + Tablet + Computer */
+/* END Mobile Landscape + Tablet + Desktop */
 
 /* START Tablet */
 @media (min-width: 768px){

@@ -1,12 +1,33 @@
+/*
+Theme Name: starchas3r_
+
+Adding support to homepage (ex. index.php).
+------------------------------
+TABLE OF CONTENTS
+------------------------------
+# Mobile (Default)
+## Nav Elements
+## General Elements
+## Secondary Articles
+## Primary Articles
+# Micro Mobile
+## Secondary Articles
+## Primary Articles
+# Tablet
+## General
+## Secondary Articles
+## Primary Articles
+# Desktop
+## Secondary Articles
+## Primary Articles
+*/
+
 /* START Mobile */
-/* START Tags */
+/* START General Elements */
 p {
 	font-size: 1rem;
 	line-height: 1;
 }
-
-/* END Tags */
-/* START General */
 
 .article {
     background-position: center;
@@ -48,11 +69,10 @@ p {
 .excerpt p {
 	font-weight: 200;
 }
+/* END General Elements */
 
-/* END General */
 /* START Secondary Articles
 NOTE: List first in stylesheet. This should be default and overwritten by Primary Article CSS as needed */
-
 .article,
 .article .bg-screen {
     height: 50vh;
@@ -71,11 +91,9 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 .article h2 {
 	font-size: 1.5rem;
 }
-
 /* END Secondary Articles */
 
 /* START Primary Articles */
-
 #header-category, .article:first-child, .article:nth-child(2), .article:nth-child(3), 
 #header-category .bg-screen, .article:first-child .bg-screen, .article:nth-child(2) .bg-screen, .article:nth-child(3) .bg-screen { 
     height: 100vh;
@@ -98,11 +116,9 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 /* END Mobile */
 
 /* START Micro Mobile */
-
 @media (max-width: 320px),
 (max-height: 320px){
 	/* START Secondary Articles */
-
 	.article,
 	.article .bg-screen {
 		height: 30vh;
@@ -119,7 +135,6 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	.article .excerpt {
 		display: none;
 	}
-
 	/* END Secondary Articles */
 
 	/* START Primary Articles */
@@ -139,7 +154,6 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	#header-category p, .article:first-child p, .article:nth-child(2) p, .article:nth-child(3) p { 
 		font-size: 1rem;
 	}
-
 	/*END Primary Articles */
 }
 
@@ -149,7 +163,6 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 @media (min-width: 768px){
 
 	/* START General */
-
 	.article-data h2 {
 		font-size: 2rem;
 	}
@@ -157,11 +170,9 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	.excerpt p {
 		font-size: 1.5rem;
 	}
-
 	/* END General */
 
 	/* START Secondary Articles */
-
 	.article .article-content h1 {
 		font-size: 4rem;
 	}
@@ -181,11 +192,9 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 		left: 5vw;
 		text-align: left;
 	}
-
 	/* END Secondary Articles */
 
 	/* START Primary Article */
-
 	#header-category, .article:first-child, .article:nth-child(2), .article:nth-child(3), 
 	#header-category .bg-screen, .article:first-child .bg-screen, .article:nth-child(2) .bg-screen, .article:nth-child(3) .bg-screen { 
 		min-height: 620px;
@@ -194,16 +203,14 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	#header-category .article-content h1, .article:first-child .article-content h1, .article:nth-child(2) .article-content h1, .article:nth-child(3) h1 { 
 		font-size: 5.5rem;
 	}
-
 	/* END Primary Article */
 }
 
 /* END Tablet */
-/* START Computer */
+/* START Desktop */
 
 @media (min-width: 1200px){
 	/* START Secondary Article */
-
 	.article .article-content h1 {
 	    font-size: 6rem;
 	}
@@ -215,11 +222,9 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	.article p {
 		font-size: 1.75rem;
 	}
-
 	/* End Secondary Article */
 
 	/* START Primary Article */
-
 	#header-category .article-content, .article:first-child .article-content, .article:nth-child(2) .article-content, .article:nth-child(3) .article-content { 
 		width: 80vw;
 	}
@@ -239,8 +244,6 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	#header-category p, .article:first-child p, .article:nth-child(2) p, .article:nth-child(3) p { 
 		font-size: 2rem;
 	}
-
 	/* END Primary Article */
 }
-
-/* END Computer */
+/* END Desktop */

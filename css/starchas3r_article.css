@@ -1,3 +1,23 @@
+/*
+Theme Name: starchas3r_
+
+Adding support to individual post pages (ex. Single.php).
+------------------------------
+TABLE OF CONTENTS
+------------------------------
+# Mobile (Default)
+## Nav Elements
+## General Elements
+## Article Title Area
+## Article Body
+## Comments and Pagination
+# Micro Mobile
+# Tablet
+# Desktop
+*/
+
+/* START Mobile */
+/* START Nav Elements */
 .single #container-nav,
 .single #title-content,
 .single #nav-icon,
@@ -7,79 +27,9 @@
 	opacity: 0;
 	transition: 0.5s ease-out;
 }
+/* END Nav Elements */
 
-#article-title,
-#article-title #bg-screen {
-    width: 100vw;
-    height: 100vh;
-    min-height: 420px;
-}
-
-#article-title {
-    background-size: cover;
-    position: relative;
-    background-position: center;
-}
-
-#bg-screen {
-	position: absolute;
-	background-color: #000;
-	opacity: 1.0;
-	z-index: 90;
-	transition: 0.5s ease-out;
-}
-
-#fadein-screen {
-    width: 100vw;
-    height: 100vh;
-	background-color: #000;
-	opacity: 1.0;
-    z-index: 250;
-    position: absolute;
-	transition: 0.5s;
-}
-
-#title-content {
-    width: 90vw;
-    text-align: left;
-    position: absolute;
-    left: 50vw;
-    transform: translateX(-50%);
-    bottom: 6vh;
-    z-index: 100;
-}
-
-#title-content h2 {
-    display: inline-block;
-    font-weight: 600;
-    letter-spacing: 0;
-    font-size: 1.75rem;
-    margin-right: 0.5em;
-}
-
-#title-content p {
-    font-size: 1.25rem;
-}
-
-
-#article-body, 
-#respond,
-#comments,
-.navigation,
-.commentlist, 
-.thn_post_wrap, 
-.wp_link_pages {
-    width: 90vw;
-    position: relative;
-    left: 50%;
-    top: 2vh;
-    transform: translateX(-50%);
-}
-
-#article-body p,
-#article-body li {
-    font-size: 1.25rem;
-}
+/* START General Elements */
 
 h1,
 h2,
@@ -91,17 +41,6 @@ p,
 blockquote,
 aside {
 	line-height: 1;
-}
-
-#article-body h1,
-#article-body h2,
-#article-body h3,
-#article-body h4,
-#article-body h5,
-#article-body h6 {
-	font-weight: 600;
-	margin: 0.25em 0;
-	padding: 0;
 }
 
 h1 {
@@ -162,18 +101,96 @@ aside:after {
     top: 95%;
     right: -5vw;
 }
+/* END General Elements */
+
+/* START Article Title Area */
+#article-title,
+#article-title #bg-screen {
+    width: 100vw;
+    height: 100vh;
+    min-height: 420px;
+}
+
+#article-title {
+    background-size: cover;
+    position: relative;
+    background-position: center;
+}
+
+#bg-screen {
+	position: absolute;
+	background-color: #000;
+	opacity: 1.0;
+	z-index: 90;
+	transition: 0.5s ease-out;
+}
+
+#fadein-screen {
+    width: 100vw;
+    height: 100vh;
+	background-color: #000;
+	opacity: 1.0;
+    z-index: 250;
+    position: absolute;
+	transition: 0.5s;
+}
+
+#title-content {
+    width: 90vw;
+    text-align: left;
+    position: absolute;
+    left: 50vw;
+    transform: translateX(-50%);
+    bottom: 6vh;
+    z-index: 100;
+}
+
+#title-content h2 {
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-size: 1.75rem;
+    margin-right: 0.5em;
+}
+
+#title-content p {
+    font-size: 1.25rem;
+}
+/* END Article Title Area */
+
+/* START Article Body */
+#article-body, 
+#respond,
+#comments,
+.navigation,
+.commentlist, 
+.thn_post_wrap, 
+.wp_link_pages {
+    width: 90vw;
+    position: relative;
+    left: 50%;
+    top: 2vh;
+    transform: translateX(-50%);
+}
+
+#article-body p,
+#article-body li {
+    font-size: 1.25rem;
+}
+
+#article-body h1,
+#article-body h2,
+#article-body h3,
+#article-body h4,
+#article-body h5,
+#article-body h6 {
+	font-weight: 600;
+	margin: 0.25em 0;
+	padding: 0;
+}
 
 .content-body-tag h2 {
     font-size: 1rem;
-}
-
-#respond {
-    margin-top: 2em;
-}
-
-#respond label {
-    display: block;
-    margin-bottom: 0.5em;
 }
 
 #article-body p.wp-caption-text {
@@ -189,9 +206,16 @@ textarea {
     padding: 0;
     margin: 0 auto;
 }
+/* END Article Body */
 
-.single .wp-block-cover {
-	width: 100vw;
+/* START Comments and Pagination */
+#respond {
+    margin-top: 2em;
+}
+
+#respond label {
+    display: block;
+    margin-bottom: 0.5em;
 }
 
 .commentlist {
@@ -209,6 +233,8 @@ textarea {
     display: inline-block;
     margin: 0 1em 0 0;
 }
+/* END Comments and Pagination */
+/* END Mobile */
 
 /* START Micro Mobile */
 @media (max-height: 320px), (max-width: 320px){	
@@ -247,7 +273,7 @@ textarea {
 }
 /* END Micro Mobile */
 
-/* START Tablets */
+/* START Tablet */
 @media (min-width: 768px){
 	#article-body, 
 	#respond,
@@ -315,7 +341,7 @@ textarea {
 		font-size: 1.25rem;
 	}
 }
-/* END Tablets */
+/* END Tablet */
 
 /* START Desktop */
 @media (min-width: 1200px){
