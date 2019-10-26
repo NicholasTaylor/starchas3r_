@@ -1,4 +1,13 @@
 <?php
+/**
+ * Various functions and variables
+ *
+ * 
+ *
+ * @package Starchas3r_
+ * @since Starchas3r_ 1.0
+ */
+
 
 function get_sm_locs(){
 	return array(

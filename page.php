@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying the index
+ * The template for displaying individual pagesx
  *
- * Contains the closing of the #content div and all content after
+ * 
  *
  * @package Starchas3r_
  * @since Starchas3r_ 1.0

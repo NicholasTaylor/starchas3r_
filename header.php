@@ -2,7 +2,7 @@
 /**
  * The template for displaying the header
  *
- * Contains the closing of the #content div and all content after
+ * Contains the opening of the #content div
  *
  * @package Starchas3r_
  * @since Starchas3r_ 1.0
