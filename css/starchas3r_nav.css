@@ -58,6 +58,7 @@ nav ul li {
     transition: 0.5s ease-in;
 }
 
+#container-nav-main-divs,
 #container-nav-main-divs div {
 	display: inline-block;
 }
@@ -113,6 +114,12 @@ nav ul li {
 /* END Primary Nav */
 
 /* START Header Nav */
+#container-nav-header {
+    float: right;
+    position: relative;
+    right: 6vw;
+}
+
 #container-nav-header ul li {
     display: inline-block;
     margin: 0 1em 0.5em 0;
@@ -123,7 +130,9 @@ nav ul li {
 }
 
 #container-nav-header nav {
-    margin: 0.5em 0 0 0;
+    display: inline-block;
+    margin: 0.5em 0 0 1em;
+    vertical-align: middle;
 }
 /* END Header Nav */
 
@@ -196,9 +205,6 @@ nav ul li {
 @media (max-height: 420px){
 	#nav-items-social ul li img {
 	    width: 2.5rem;
-	}
-	#title-content h1 {
-		font-size: 3.5rem;
 	}
 }
 /* END Mobile Landscape */

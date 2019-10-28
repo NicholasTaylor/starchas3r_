@@ -59,19 +59,9 @@ p {
     margin: 0.25em 0 1em 0;
     line-height: 1;
 }
-
-.article-data h2 {
-    display: inline-block;
-    margin-right: 0.5em;
-    font-weight: 400;
- }
-
-.excerpt p {
-	font-weight: 200;
-}
 /* END General Elements */
 
-/* START Secondary Articles
+/* START Default/Secondary Articles
 NOTE: List first in stylesheet. This should be default and overwritten by Primary Article CSS as needed */
 .article,
 .article .bg-screen {
@@ -90,25 +80,42 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 
 .article h2 {
 	font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 0.5em;
+    font-weight: 400;
 }
-/* END Secondary Articles */
+
+.article p {
+	font-weight: 200;
+}
+/* END Default/Secondary Articles */
 
 /* START Primary Articles */
-#header-category, .article:first-child, .article:nth-child(2), .article:nth-child(3), 
-#header-category .bg-screen, .article:first-child .bg-screen, .article:nth-child(2) .bg-screen, .article:nth-child(3) .bg-screen { 
+.article:first-child, 
+.article:nth-child(2), 
+.article:nth-child(3), 
+.article:first-child .bg-screen, 
+.article:nth-child(2) .bg-screen, 
+.article:nth-child(3) .bg-screen { 
     height: 100vh;
     min-height: 300px;
 }
-
-#header-category h1, .article:first-child h1, .article:nth-child(2) h1, .article:nth-child(3) h1 { 
+ 
+.article:first-child h1, 
+.article:nth-child(2) h1, 
+.article:nth-child(3) h1 { 
 	font-size: 3.25rem;
 }
 
-#header-category h2, .article:first-child h2, .article:nth-child(2) h2, .article:nth-child(3) h2 { 
+.article:first-child h2, 
+.article:nth-child(2) h2, 
+.article:nth-child(3) h2 { 
 	font-size: 1.75rem;
 }
 
-#header-category p, .article:first-child p, .article:nth-child(2) p, .article:nth-child(3) p { 
+.article:first-child p, 
+.article:nth-child(2) p, 
+.article:nth-child(3) p { 
 	font-size: 1.25rem;
 }
 
@@ -137,21 +144,31 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	}
 	/* END Secondary Articles */
 
-	/* START Primary Articles */
-	#header-category, .article:first-child, .article:nth-child(2), .article:nth-child(3), 
-	#header-category .bg-screen, .article:first-child .bg-screen, .article:nth-child(2) .bg-screen, .article:nth-child(3) .bg-screen { 
+	/* START Primary Articles */ 
+	.article:first-child, 
+	.article:nth-child(2), 
+	.article:nth-child(3), 
+	.article:first-child .bg-screen, 
+	.article:nth-child(2) .bg-screen, 
+	.article:nth-child(3) .bg-screen { 
 		min-height: 360px;
 	}
 
-	#header-category h1, .article:first-child h1, .article:nth-child(2) h1, .article:nth-child(3) h1 { 
+	.article:first-child h1, 
+	.article:nth-child(2) h1, 
+	.article:nth-child(3) h1 { 
 	    font-size: 2.5rem;
 	}
-
-	#header-category h2, .article:first-child h2, .article:nth-child(2) h2, .article:nth-child(3) h2 { 
+ 
+	.article:first-child h2, 
+	.article:nth-child(2) h2, 
+	.article:nth-child(3) h2 { 
 	    font-size: 1.25rem;
 	}
 
-	#header-category p, .article:first-child p, .article:nth-child(2) p, .article:nth-child(3) p { 
+	.article:first-child p, 
+	.article:nth-child(2) p, 
+	.article:nth-child(3) p { 
 		font-size: 1rem;
 	}
 	/*END Primary Articles */
@@ -163,21 +180,17 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 @media (min-width: 768px){
 
 	/* START General */
-	.article-data h2 {
-		font-size: 2rem;
-	}
-
-	.excerpt p {
+	.article p {
 		font-size: 1.5rem;
 	}
 	/* END General */
 
 	/* START Secondary Articles */
-	.article .article-content h1 {
+	.article h1 {
 		font-size: 4rem;
 	}
 
-	.article .article-data h2 {
+	.article h2 {
 		font-size: 1.5rem;
 	}
 
@@ -195,12 +208,18 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	/* END Secondary Articles */
 
 	/* START Primary Article */
-	#header-category, .article:first-child, .article:nth-child(2), .article:nth-child(3), 
-	#header-category .bg-screen, .article:first-child .bg-screen, .article:nth-child(2) .bg-screen, .article:nth-child(3) .bg-screen { 
+	.article:first-child, 
+	.article:nth-child(2), 
+	.article:nth-child(3), 
+	.article:first-child .bg-screen, 
+	.article:nth-child(2) .bg-screen, 
+	.article:nth-child(3) .bg-screen { 
 		min-height: 620px;
 	}
-
-	#header-category .article-content h1, .article:first-child .article-content h1, .article:nth-child(2) .article-content h1, .article:nth-child(3) h1 { 
+ 
+	.article:first-child h1, 
+	.article:nth-child(2) h1, 
+	.article:nth-child(3) h1 { 
 		font-size: 5.5rem;
 	}
 	/* END Primary Article */
@@ -211,11 +230,11 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 
 @media (min-width: 1200px){
 	/* START Secondary Article */
-	.article .article-content h1 {
+	.article h1 {
 	    font-size: 6rem;
 	}
 
-	.article .article-data h2 {
+	.article h2 {
 	    font-size: 2rem;
 	}
 
@@ -225,23 +244,27 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	/* End Secondary Article */
 
 	/* START Primary Article */
-	#header-category .article-content, .article:first-child .article-content, .article:nth-child(2) .article-content, .article:nth-child(3) .article-content { 
+	.article:first-child .article-content, 
+	.article:nth-child(2) .article-content, 
+	.article:nth-child(3) .article-content { 
 		width: 80vw;
 	}
-
-	#header-category .article-content h1, .article:first-child .article-content h1, .article:nth-child(2) .article-content h1, .article:nth-child(3) h1 { 
+ 
+	.article:first-child h1, 
+	.article:nth-child(2) h1, 
+	.article:nth-child(3) h1 { 
 	    font-size: 7rem;
 	}
 
-	.article-data h2 {
-	    font-size: 3rem;
-	}
-
-	#header-category .article-data, .article:first-child .article-data, .article:nth-child(2) .article-data, .article:nth-child(3) .article-data { 
+	.article:first-child .article-data, 
+	.article:nth-child(2) .article-data, 
+	.article:nth-child(3) .article-data { 
 	    margin: 0 0 3em 0;
 	}
 
-	#header-category p, .article:first-child p, .article:nth-child(2) p, .article:nth-child(3) p { 
+	.article:first-child p, 
+	.article:nth-child(2) p, 
+	.article:nth-child(3) p { 
 		font-size: 2rem;
 	}
 	/* END Primary Article */

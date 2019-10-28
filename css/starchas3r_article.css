@@ -38,8 +38,7 @@ h4,
 h5,
 h6,
 p,
-blockquote,
-aside {
+blockquote{
 	line-height: 1;
 }
 
@@ -72,34 +71,6 @@ blockquote {
     margin: 0;
     border-left: 6px #e0e0e0 dashed;
     padding: 0 0 0 1em;
-}
-
-aside {
-    width: 90%;
-    font-family: din-2014;
-    font-size: 2rem;
-    font-weight: 100;
-    margin: 2em auto;
-    padding: 2em 0;
-    position: relative;
-}
-
-aside:before {
-    content: '“';
-    font-size: 10rem;
-    font-family: georgia;
-    position: absolute;
-    top: 20%;
-    left: -5vw;
-}
-
-aside:after {
-    content: '”';
-    font-size: 10rem;
-    font-family: georgia;
-    position: absolute;
-    top: 95%;
-    right: -5vw;
 }
 /* END General Elements */
 
@@ -273,6 +244,15 @@ textarea {
 }
 /* END Micro Mobile */
 
+/* START Mobile Landscape */
+@media (max-height: 420px){
+
+	#title-content h1 {
+		font-size: 3.5rem;
+	}
+}
+/* END Mobile Landscape */
+
 /* START Tablet */
 @media (min-width: 768px){
 	#article-body, 
@@ -291,7 +271,7 @@ textarea {
 	}
 
 	h1 {
-	    font-size: 4rem;
+	    2size: 4rem;
 	}
 
 	h2 {
@@ -318,23 +298,10 @@ textarea {
 	    font-size: 2.5rem;
 	}
 
+	#article-body p,
+	#article-body li,
 	#title-content p {
 	    font-size: 1.5rem;
-	}
-
-	#article-body p,
-	#article-body li {
-	    font-size: 1.5rem;
-	}
-
-	aside {
-	    font-size: 4rem;
-	    margin: 1em auto;
-	}
-
-	aside:before,
-	aside:after {
-	    font-size: 20rem;
 	}
 
 	blockquote {
@@ -385,16 +352,6 @@ textarea {
 
 	#title-content p {
 	    font-size: 2rem;
-	}
-
-	aside {
-	    font-size: 6rem;
-	    margin: 0.5em auto;
-	}
-
-	aside:before,
-	aside:after {
-	    font-size: 30rem;
 	}
 
 	blockquote {
