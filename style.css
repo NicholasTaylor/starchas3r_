@@ -50,6 +50,9 @@ a:visited {
 	text-decoration: none;
 }
 
+p {
+	font-size: 1.25rem;
+}
 
 .pagination {
     text-align: center;
@@ -60,7 +63,7 @@ a:visited {
     font-size: 2.5rem;
 }
 
-.page-numbers {
+.nav-links a, .nav-links span {
     position: relative;
     line-height: 1;
     top: 0.25em;
@@ -69,8 +72,12 @@ a:visited {
     padding: 0 0.5em;
 }
 
-.page-numbers:last-child {
+.nav-links a:last-child, .nav-links span:last-child {
     border-right: none !important;
+}
+
+#container {
+	overflow-x: hidden;
 }
 /* END General Elements */
 
@@ -95,11 +102,12 @@ code {
 @media (max-width: 320px),
 (max-height: 320px){
 	.pagination h2 {
-	    font-size: 2rem;
+	    .size: 2rem;
 	}
 	
 	.nav-links a, 
-	.nav-links span {
+	.nav-links span,
+	p {
 	    font-size: 1rem;
 	}
 }
@@ -112,7 +120,8 @@ code {
 	}
 
 	.nav-links a, 
-	.nav-links span {
+	.nav-links span,
+	p {
 	    font-size: 1.5rem;
 	}
 }
