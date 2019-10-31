@@ -8,7 +8,6 @@
  * @since Starchas3r_ 1.0
  */
 
-
 function get_sm_locs(){
 	return array(
 		'None',
@@ -18,6 +17,37 @@ function get_sm_locs(){
 	);
 }
 
+function get_font_weights(){
+	return array(
+		'',
+		'inherit',
+		'initial',
+		'normal',
+		'bold',
+		'bolder',
+		'lighter',
+		100,
+		200,
+		300,
+		400,
+		500,
+		600,
+		700,
+		800,
+		900);
+}
+
+function get_transform_options(){
+	return array(
+		'',
+		'inherit',
+		'initial',
+		'none',
+		'captitalize',
+		'uppercase',
+		'lowercase'
+	);
+}
 
 function blog_switch( $blog_id = 0 ) {
 	$switched_blog = false;
@@ -255,6 +285,9 @@ function custom_logo_svg( $wp_customize) {
 }
 
 function custom_fonts( $wp_customize ) {
+	$options_font_weight = get_font_weights();
+	$options_text_transform = get_transform_options();
+
 	$wp_customize->add_section( 'starchas3r_fonts', array(
 		'title'		=> __( 'Font Settings', 'starchas3r_' ),
 		'priority'	=> 202
@@ -325,6 +358,30 @@ function custom_fonts( $wp_customize ) {
 		'settings'	=> 'stack_logo',
 		'type'		=> 'text'
 	));
+	$wp_customize->add_setting('weight_logo', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_logo_entry', array(
+		'label'			=> 'Site Logo Font Weight',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_logo',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_logo', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_logo_entry', array(
+		'label'			=> 'Site Logo Text Options',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_logo',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
+	));
 	$wp_customize->add_setting('stack_nav_items', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
@@ -335,6 +392,30 @@ function custom_fonts( $wp_customize ) {
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_nav_items',
 		'type'		=> 'text'
+	));
+	$wp_customize->add_setting('weight_nav_items', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_nav_items_entry', array(
+		'label'			=> 'Nav Items Font Weight',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_nav_items',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_nav_items', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_nav_items_entry', array(
+		'label'			=> 'Nav Items Text Options',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_nav_items',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
 	));
 	$wp_customize->add_setting('stack_nav_items_primary', array(
 		'default'		=> '',
@@ -347,6 +428,30 @@ function custom_fonts( $wp_customize ) {
 		'settings'	=> 'stack_nav_items_primary',
 		'type'		=> 'text'
 	));
+	$wp_customize->add_setting('weight_nav_items_primary', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_nav_items_primary_entry', array(
+		'label'			=> 'Nav Items (Primary) Font Weight',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_nav_items_primary',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_nav_items_primary', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_nav_items_primary_entry', array(
+		'label'			=> 'Nav Items (Primary) Text Options',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_nav_items_primary',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
+	));
 	$wp_customize->add_setting('stack_nav_items_header', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
@@ -358,6 +463,30 @@ function custom_fonts( $wp_customize ) {
 		'settings'	=> 'stack_nav_items_header',
 		'type'		=> 'text'
 	));
+	$wp_customize->add_setting('weight_nav_items_header', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_nav_items_header_entry', array(
+		'label'			=> 'Nav Items (Header) Font Weight',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_nav_items_header',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_nav_items_header', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_nav_items_header_entry', array(
+		'label'			=> 'Nav Items (Header) Text Options',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_nav_items_header',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
+	));
 	$wp_customize->add_setting('stack_nav_items_footer', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
@@ -368,6 +497,30 @@ function custom_fonts( $wp_customize ) {
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_nav_items_footer',
 		'type'		=> 'text'
+	));
+	$wp_customize->add_setting('weight_nav_items_footer', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_nav_items_footer_entry', array(
+		'label'			=> 'Nav Items (Footer) Font Weight',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_nav_items_footer',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_nav_items_footer', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_nav_items_footer_entry', array(
+		'label'			=> 'Nav Items (Footer) Text Options',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_nav_items_footer',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
 	));
 	$wp_customize->add_setting('stack_pagination_header', array(
 		'default'		=> '',
@@ -413,6 +566,30 @@ function custom_fonts( $wp_customize ) {
 		'settings'	=> 'stack_homepage_headline',
 		'type'		=> 'text'
 	));
+	$wp_customize->add_setting('weight_homepage_headline', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_homepage_headline_entry', array(
+		'label'			=> 'Headline Font Weight (Homepage, Archive)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_homepage_headline',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_homepage_headline', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_homepage_headline_entry', array(
+		'label'			=> 'Headline Text Options (Homepage, Archive)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_homepage_headline',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
+	));
 	$wp_customize->add_setting('stack_homepage_byline', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
@@ -423,6 +600,30 @@ function custom_fonts( $wp_customize ) {
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_homepage_byline',
 		'type'		=> 'text'
+	));
+	$wp_customize->add_setting('weight_homepage_byline', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_homepage_byline_entry', array(
+		'label'			=> 'Article Byline/Date Font Weight (Homepage, Archive)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_homepage_byline',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_homepage_byline', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_homepage_byline_entry', array(
+		'label'			=> 'Article Byline/Date Text Options (Homepage, Archive)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_homepage_byline',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
 	));
 	$wp_customize->add_setting('stack_homepage_copy', array(
 		'default'		=> '',
@@ -435,6 +636,30 @@ function custom_fonts( $wp_customize ) {
 		'settings'	=> 'stack_homepage_copy',
 		'type'		=> 'text'
 	));
+	$wp_customize->add_setting('weight_homepage_copy', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_homepage_copy_entry', array(
+		'label'			=> 'Body Copy Font Weight (Homepage, Archive)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_homepage_copy',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_homepage_copy', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_homepage_copy_entry', array(
+		'label'			=> 'Body Copy Text Options (Homepage, Archive)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_homepage_copy',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
+	));
 	$wp_customize->add_setting('stack_article_title_headline', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
@@ -445,6 +670,30 @@ function custom_fonts( $wp_customize ) {
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_title_headline',
 		'type'		=> 'text'
+	));
+	$wp_customize->add_setting('weight_article_title_headline', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_article_title_headline_entry', array(
+		'label'			=> 'Article Title Section Headline Font Weight (Post, Page)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_article_title_headline',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_article_title_headline', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_article_title_headline_entry', array(
+		'label'			=> 'Article Title Section Headline Text Options (Post, Page)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_article_title_headline',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
 	));
 	$wp_customize->add_setting('stack_article_title_byline', array(
 		'default'		=> '',
@@ -457,6 +706,30 @@ function custom_fonts( $wp_customize ) {
 		'settings'	=> 'stack_article_title_byline',
 		'type'		=> 'text'
 	));
+	$wp_customize->add_setting('weight_article_title_byline', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_article_title_byline_entry', array(
+		'label'			=> 'Article Title Section Byline/Date Font Weight (Post, Page)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_article_title_byline',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_article_title_byline', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_article_title_byline_entry', array(
+		'label'			=> 'Article Title Section Byline/Date Text Options (Post, Page)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_article_title_byline',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
+	));
 	$wp_customize->add_setting('stack_article_title_copy', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
@@ -467,6 +740,30 @@ function custom_fonts( $wp_customize ) {
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_title_copy',
 		'type'		=> 'text'
+	));
+	$wp_customize->add_setting('weight_article_title_copy', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('weight_article_title_copy_entry', array(
+		'label'			=> 'Article Title Section Body Copy Font Weight (Post, Page)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'weight_article_title_copy',
+		'type'			=> 'select',
+		'choices'		=> $options_font_weight
+	));
+	$wp_customize->add_setting('transform_article_title_copy', array(
+		'default'		=> 'inherit',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	));
+	$wp_customize->add_control('transform_article_title_copy_entry', array(
+		'label'			=> 'Article Title Section Body Copy Text Options (Post, Page)',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'transform_article_title_copy',
+		'type'			=> 'select',
+		'choices'		=> $options_text_transform
 	));
 	$wp_customize->add_setting('stack_article_copy', array(
 		'default'		=> '',
@@ -799,167 +1096,268 @@ function starchas3r_custom_styles( $blog_id = 0 ){
 	wp_enqueue_style('main_style');
 	$css_array = array(
 		'heading'	=> array(
-			'selector'		=> 	'h1, h2, h3, h4, h5, h6',
-			'font_stack'	=> 	get_theme_mod( 'heading_stack' ),
-			'has_default'	=> 	true,
-			'default'		=>	'\'helvetica neue\', helvetica, arial, sans-serif'
+			'selector'					=> 	'h1, h2, h3, h4, h5, h6',
+			'font_stack'				=> 	get_theme_mod( 'heading_stack' ),
+			'has_default_font_stack'	=>	true,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false,
+			'default_font_stack'		=>	'\'helvetica neue\', helvetica, arial, sans-serif'
 			),
 		'body'	=> array(
-			'selector'		=>	'body',
-			'font_stack'	=>	get_theme_mod( 'body_stack' ),
-			'has_default'	=>	true,
-			'default'		=>	'georgia,\' times new roman\', serif'
+			'selector'					=>	'body',
+			'font_stack'				=>	get_theme_mod( 'body_stack' ),
+			'has_default_font_stack'	=>	true,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false,
+			'default_font_stack'		=>	'georgia,\' times new roman\', serif'
 			),
 		'code_text'	=> array(
-			'selector'		=>	'code',
-			'font_stack'	=>	get_theme_mod( 'code_text_stack' ),
-			'has_default'	=>	true,
-			'default'		=>	'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace'
+			'selector'					=>	'code',
+			'font_stack'				=>	get_theme_mod( 'code_text_stack' ),
+			'has_default_font_stack'	=>	true,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false,
+			'default_font_stack'		=>	'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace'
 			),
 		'logo'	=> array(
-			'selector'		=>	'#logo h1',
-			'font_stack'	=>	get_theme_mod( 'stack_logo' ),
-			'has_default'	=>	false
+			'selector'					=>	'#logo h1',
+			'font_stack'				=>	get_theme_mod( 'stack_logo' ),
+			'weight'					=>	get_theme_mod( 'weight_logo' ),
+			'transform'					=>	get_theme_mod( 'transform_logo' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	true,
+			'has_default_transform'		=>	true,
+			'default_weight'			=>	'inherit',
+			'default_transform'			=>	'inherit'
 			),
 		'nav_items'	=> array(
-			'selector'		=>	'nav ul li',
-			'font_stack'	=>	get_theme_mod( 'stack_nav_items' ),
-			'has_default'	=>	false
+			'selector'					=>	'nav ul li',
+			'font_stack'				=>	get_theme_mod( 'stack_nav_items' ),
+			'weight'					=>	get_theme_mod( 'weight_nav_items' ),
+			'transform'					=>	get_theme_mod( 'transform_nav_items' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	true,
+			'has_default_transform'		=>	true,
+			'default_weight'			=>	'inherit',
+			'default_transform'			=>	'inherit'
 			),
 		'nav_items_primary'	=> array(
-			'selector'		=>	'nav#nav-items-primary ul li',
-			'font_stack'	=>	get_theme_mod( 'stack_nav_items_primary' ),
-			'has_default'	=>	false
-			),
+			'selector'					=>	'nav#nav-items-primary ul li',
+			'font_stack'				=>	get_theme_mod( 'stack_nav_items_primary' ),
+			'weight'					=>	get_theme_mod( 'weight_nav_items_primary' ),
+			'transform'					=>	get_theme_mod( 'transform_nav_items_primary' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false			),
 		'nav_items_header'	=> array(
-			'selector'		=>	'nav#nav-items-header ul li',
-			'font_stack'	=>	get_theme_mod( 'stack_nav_items_header' ),
-			'has_default'	=>	false
+			'selector'					=>	'nav#nav-items-header ul li',
+			'font_stack'				=>	get_theme_mod( 'stack_nav_items_header' ),
+			'weight'					=>	get_theme_mod( 'weight_nav_items_header' ),
+			'transform'					=>	get_theme_mod( 'transform_nav_items_header' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'nav_items_footer'	=> array(
-			'selector'		=>	'nav#nav-items-footer ul li',
-			'font_stack'	=>	get_theme_mod( 'stack_nav_items_footer' ),
-			'has_default'	=>	false
+			'selector'					=>	'nav#nav-items-footer ul li',
+			'font_stack'				=>	get_theme_mod( 'stack_nav_items_footer' ),
+			'weight'					=>	get_theme_mod( 'weight_nav_items_footer' ),
+			'transform'					=>	get_theme_mod( 'transform_nav_items_footer' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'pagination_header'	=> array(
-			'selector'		=>	'.pagination h2',
-			'font_stack'	=>	get_theme_mod( 'stack_pagination_header' ),
-			'has_default'	=>	false
+			'selector'					=>	'.pagination h2',
+			'font_stack'				=>	get_theme_mod( 'stack_pagination_header' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'pagination_copy'	=> array(
-			'selector'		=>	'.nav-links a, .nav-links span',
-			'font_stack'	=>	get_theme_mod( 'stack_pagination_copy' ),
-			'has_default'	=>	false
+			'selector'					=>	'.nav-links a, .nav-links span',
+			'font_stack'				=>	get_theme_mod( 'stack_pagination_copy' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'copyright'	=> array(
-			'selector'		=>	'#copyright p',
-			'font_stack'	=>	get_theme_mod( 'stack_copyright' ),
-			'has_default'	=>	false
+			'selector'					=>	'#copyright p',
+			'font_stack'				=>	get_theme_mod( 'stack_copyright' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'homepage_headline'	=> array(
-			'selector'		=>	'.article h1',
-			'font_stack'	=>	get_theme_mod( 'stack_homepage_headline' ),
-			'has_default'	=>	false
+			'selector'					=>	'.article h1',
+			'font_stack'				=>	get_theme_mod( 'stack_homepage_headline' ),
+			'weight'					=>	get_theme_mod( 'weight_homepage_headline' ),
+			'transform'					=>	get_theme_mod( 'transform_homepage_headline' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	true,
+			'has_default_transform'		=>	true,
+			'default_weight'			=>	'inherit',
+			'default_transform'			=>	'inherit'
 			),
 		'homepage_byline'	=> array(
-			'selector'		=>	'.article h2',
-			'font_stack'	=>	get_theme_mod( 'stack_homepage_byline' ),
-			'has_default'	=>	false
+			'selector'					=>	'.article h2',
+			'font_stack'				=>	get_theme_mod( 'stack_homepage_byline' ),
+			'weight'					=>	get_theme_mod( 'weight_homepage_byline' ),
+			'transform'					=>	get_theme_mod( 'transform_homepage_byline' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	true,
+			'has_default_transform'		=>	true,
+			'default_weight'			=>	'inherit',
+			'default_transform'			=>	'inherit'
 			),
 		'homepage_copy'	=> array(
-			'selector'		=>	'.article p',
-			'font_stack'	=>	get_theme_mod( 'stack_homepage_copy' ),
-			'has_default'	=>	false
+			'selector'					=>	'.article p',
+			'font_stack'				=>	get_theme_mod( 'stack_homepage_copy' ),
+			'weight'					=>	get_theme_mod( 'weight_homepage_copy' ),
+			'transform'					=>	get_theme_mod( 'transform_homepage_copy' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	true,
+			'has_default_transform'		=>	true,
+			'default_weight'			=>	'inherit',
+			'default_transform'			=>	'inherit'
 			),
 		'article_title_headline'	=> array(
-			'selector'		=>	'#title-content h1',
-			'font_stack'	=>	get_theme_mod( 'stack_article_title_headline' ),
-			'has_default'	=>	false
+			'selector'					=>	'#title-content h1',
+			'font_stack'				=>	get_theme_mod( 'stack_article_title_headline' ),
+			'weight'					=>	get_theme_mod( 'weight_article_title_headline' ),
+			'transform'					=>	get_theme_mod( 'transform_article_title_headline' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	true,
+			'has_default_transform'		=>	true,
+			'default_weight'			=>	'inherit',
+			'default_transform'			=>	'inherit'
 			),
 		'article_title_byline'	=> array(
-			'selector'		=>	'#title-content h2',
-			'font_stack'	=>	get_theme_mod( 'stack_article_title_byline' ),
-			'has_default'	=>	false
+			'selector'					=>	'#title-content h2',
+			'font_stack'				=>	get_theme_mod( 'stack_article_title_byline' ),
+			'weight'					=>	get_theme_mod( 'weight_article_title_byline' ),
+			'transform'					=>	get_theme_mod( 'transform_article_title_byline' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	true,
+			'has_default_transform'		=>	true,
+			'default_weight'			=>	'inherit',
+			'default_transform'			=>	'inherit'
 			),
 		'article_title_copy'	=> array(
-			'selector'		=>	'#title-content p',
-			'font_stack'	=>	get_theme_mod( 'stack_article_title_copy' ),
-			'has_default'	=>	false
+			'selector'					=>	'#title-content p',
+			'font_stack'				=>	get_theme_mod( 'stack_article_title_copy' ),
+			'weight'					=>	get_theme_mod( 'weight_article_title_copy' ),
+			'transform'					=>	get_theme_mod( 'transform_article_title_copy' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	true,
+			'has_default_transform'		=>	true,
+			'default_weight'			=>	'inherit',
+			'default_transform'			=>	'inherit'
 			),
 		'article_copy'	=> array(
-			'selector'		=>	'#article-body p, #article-body li',
-			'font_stack'	=>	get_theme_mod( 'stack_article_copy' ),
-			'has_default'	=>	false
+			'selector'					=>	'#article-body p, #article-body li',
+			'font_stack'				=>	get_theme_mod( 'stack_article_copy' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'article_captions'	=> array(
-			'selector'		=>	'#article-body .wp-caption-text',
-			'font_stack'	=>	get_theme_mod( 'stack_article_captions' ),
-			'has_default'	=>	false
+			'selector'					=>	'#article-body .wp-caption-text',
+			'font_stack'				=>	get_theme_mod( 'stack_article_captions' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'article_tags'	=> array(
-			'selector'		=>	'.content-body-tag h2',
-			'font_stack'	=>	get_theme_mod( 'stack_article_tags' ),
-			'has_default'	=>	false
+			'selector'					=>	'.content-body-tag h2',
+			'font_stack'				=>	get_theme_mod( 'stack_article_tags' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'article_blockquote'	=> array(
-			'selector'		=>	'blockquote ',
-			'font_stack'	=>	get_theme_mod( 'stack_article_blockquote' ),
-			'has_default'	=>	false
+			'selector'					=>	'blockquote ',
+			'font_stack'				=>	get_theme_mod( 'stack_article_blockquote' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'article_pagination'	=> array(
-			'selector'		=>	'.post-page-numbers h3',
-			'font_stack'	=>	get_theme_mod( 'stack_article_pagination' ),
-			'has_default'	=>	false
+			'selector'					=>	'.post-page-numbers h3',
+			'font_stack'				=>	get_theme_mod( 'stack_article_pagination' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'comment_headline'	=> array(
-			'selector'		=>	'#comments',
-			'font_stack'	=>	get_theme_mod( 'stack_comment_headline' ),
-			'has_default'	=>	false
+			'selector'					=>	'#comments',
+			'font_stack'				=>	get_theme_mod( 'stack_comment_headline' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'comment_author'	=> array(
-			'selector'		=>	'.comment-author',
-			'font_stack'	=>	get_theme_mod( 'stack_comment_data' ),
-			'has_default'	=>	false
+			'selector'					=>	'.comment-author',
+			'font_stack'				=>	get_theme_mod( 'stack_comment_data' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'comment_data'	=> array(
-			'selector'		=>	'.comment-metadata',
-			'font_stack'	=>	get_theme_mod( 'stack_comment_metadata' ),
-			'has_default'	=>	false
+			'selector'					=>	'.comment-metadata',
+			'font_stack'				=>	get_theme_mod( 'stack_comment_metadata' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'comment_copy'	=> array(
-			'selector'		=>	'.comment-content p',
-			'font_stack'	=>	get_theme_mod( 'stack_comment_copy' ),
-			'has_default'	=>	false
+			'selector'					=>	'.comment-content p',
+			'font_stack'				=>	get_theme_mod( 'stack_comment_copy' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'comment_reply'	=> array(
-			'selector'		=>	'.reply .comment-reply-link',
-			'font_stack'	=>	get_theme_mod( 'stack_comment_reply' ),
-			'has_default'	=>	false
+			'selector'					=>	'.reply .comment-reply-link',
+			'font_stack'				=>	get_theme_mod( 'stack_comment_reply' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'comment_write_headline'	=> array(
-			'selector'		=>	'h3#reply-title',
-			'font_stack'	=>	get_theme_mod( 'stack_comment_write_headline' ),
-			'has_default'	=>	false
+			'selector'					=>	'h3#reply-title',
+			'font_stack'				=>	get_theme_mod( 'stack_comment_write_headline' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'comment_write_copy'	=> array(
-			'selector'		=>	'#commentform p',
-			'font_stack'	=>	get_theme_mod( 'stack_comment_write_copy' ),
-			'has_default'	=>	false
+			'selector'					=>	'#commentform p',
+			'font_stack'				=>	get_theme_mod( 'stack_comment_write_copy' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'comment_write_label'	=> array(
-			'selector'		=>	'#commentform p.comment-form-comment',
-			'font_stack'	=>	get_theme_mod( 'stack_comment_write_label' ),
-			'has_default'	=>	false
+			'selector'					=>	'#commentform p.comment-form-comment',
+			'font_stack'				=>	get_theme_mod( 'stack_comment_write_label' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'archive_headline'	=> array(
-			'selector'		=>	'#header-category h1',
-			'font_stack'	=>	get_theme_mod( 'stack_archive_headline' ),
-			'has_default'	=>	false
+			'selector'					=>	'#header-category h1',
+			'font_stack'				=>	get_theme_mod( 'stack_archive_headline' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			),
 		'archive_header_copy'	=> array(
-			'selector'		=>	'#header-category p',
-			'font_stack'	=>	get_theme_mod( 'stack_archive_header_copy' ),
-			'has_default'	=>	false
+			'selector'					=>	'#header-category p',
+			'font_stack'				=>	get_theme_mod( 'stack_archive_header_copy' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
 			)
 	);
 	$custom_fonts = '';
@@ -967,7 +1365,46 @@ function starchas3r_custom_styles( $blog_id = 0 ){
 
 	foreach($css_keys as $css_key){
 		$current_array = $css_array[$css_key];
+		$current_declaration = '';
+		$meta_array = array(
+			'font_stack'	=>	array(
+				'name'			=>	'font_stack',
+				'attr'			=>	'font-family',
+				'type'			=> 	'text'
+			),
+			'weight'	=>	array(
+				'name'			=>	'weight',
+				'attr'			=>	'font-weight',
+				'type'			=>	'select',
+				'choices'		=>	get_font_weights()
+			),
+			'transform'	=>	array(
+				'name'			=>	'transform',
+				'attr'			=>	'text-transform',
+				'type'			=>	'select',
+				'choices'		=>	get_transform_options()
+			)
+		);
+		foreach($meta_array as $field_name){
+			$current_field_name = $field_name['name'];
+			$current_field_attr = $field_name['attr'];
+			$current_field_type = $field_name['type'];
+			$current_field_choices = $current_field_type == 'select' ? $field_name['choices'] : '';
+			$has_default_key = 'has_default_' . $current_field_name;
+			$default_key = 'default_' . $current_field_name;
+			if($current_array[$current_field_name]){
+				$declaration_value = $field_name['type'] == 'select' ? $current_field_choices[$current_array[$current_field_name]] : $current_array[$current_field_name];
+				$current_declaration .= "\t" . $current_field_attr . ": " . drop_semicolon($declaration_value) . ";\n"; 
+			} elseif($current_array[$has_default_key]){
+				$current_declaration .= "\t" . $current_field_attr . ": " . drop_semicolon($current_array[$default_key]) . ";\n"; 
+			}
+		}
 
+		if(strlen($current_declaration) > 0){
+			$custom_fonts .= $current_array['selector'] . " {\n" . $current_declaration . "}\n\n";
+		}
+
+		/*
 		if($current_array['font_stack']){
 			$current_font_stack = $current_array['font_stack'];
 		} elseif($current_array['has_default']) {
@@ -978,12 +1415,11 @@ function starchas3r_custom_styles( $blog_id = 0 ){
 
 		if($current_font_stack){
 			$custom_fonts .= $current_array['selector'] . " {\n\tfont-family: " . drop_semicolon($current_font_stack) . ";\n}\n\n";
-		}
+		}*/
 	}
 
 	wp_add_inline_style( 'main_style' , $custom_fonts );
-	return $custom_fonts;
-};
+}
 
 function starchas3r_enqueue(){
 	wp_enqueue_style('nav');
