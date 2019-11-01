@@ -9,7 +9,7 @@
  */
 ?>
 <!doctype html>
-<html <?php language_attributes( $doctype ) ?> itemscope <?php if (is_single() ) : ?>itemtype="http://schema.org/Article"<?php else : ?>itemtype="http://schema.org/CreativeWork"<?php endif; ?>>
+<html <?php language_attributes( $doctype ) ?> <?php if( is_schema_enabled() ) : ?>itemscope <?php if (is_single() ) : ?>itemtype="http://schema.org/Article"<?php else : ?>itemtype="http://schema.org/CreativeWork"<?php endif; ?><?php endif; ?>>
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,7 +17,7 @@
     <?php $page_id = get_queried_object_id();
         $metaStructuredTitle = get_the_title( $page_id );
     ?>
-    <?php if (is_single () ) : ?>
+    <?php if (is_single () && is_schema_enabled() ) : ?>
         <meta itemprop="name" content="<?php echo $metaStructuredTitle; ?>"></meta>
     <?php endif; ?>
 
@@ -90,7 +90,7 @@
                 <?php bloginfo( 'name' ); ?>
               </h1>
             </a>
-            <?php if (has_custom_logo()) : ?>
+            <?php if (has_custom_logo() && is_schema_enabled() ) : ?>
               <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject" class="hide">
                   <?php $custom_logo_id = get_theme_mod( 'custom_logo');
                   $imageCustomLogo = wp_get_attachment_image_src( $custom_logo_id, 'full' ); ?>
@@ -99,6 +99,10 @@
                   <meta itemprop="width" content="<?php echo $imageCustomLogo[1]; ?>">
                   <meta itemprop="height" content="<?php echo $imageCustomLogo[2]; ?>">
               </span>
+            <?php elseif (has_custom_logo()) : ?>
+              <?php $custom_logo_id = get_theme_mod( 'custom_logo');
+              $imageCustomLogo = wp_get_attachment_image_src( $custom_logo_id, 'full' ); ?>
+              <img src="<?php echo $imageCustomLogo[0]; ?>">
             <?php endif; ?>
           </div>
         </div>

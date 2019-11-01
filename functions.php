@@ -93,80 +93,98 @@ function theme_support_setup() {
 		);
 }
 
+function general_options( $wp_customize ){
+	$wp_customize->add_section( 'starchas3r_general', array(
+		'title'			=>	__( 'General Site Settings', 'starchas3r_' ),
+		'priority'		=> 200
+	) );
+	$wp_customize->add_setting('general_is_schema', array(
+		'default'		=>	false,
+		'type'			=>	'theme_mod',
+		'capability'	=>	'edit_theme_options'
+	));
+	$wp_customize->add_control('general_is_schema_entry', array(
+		'label'			=> 'Enable Schema.org Support',
+		'section'		=> 'starchas3r_general',
+		'settings'		=> 'general_is_schema',
+		'type'			=> 'checkbox'
+	));
+}
+
 function social_options( $wp_customize ) {
 	$wp_customize->add_section( 'starchas3r_social_media' , array(
 		'title' 		=> __( 'Social Media', 'starchas3r_' ),
-		'priority' 		=> 200,
+		'priority' 		=> 200
 	) );
 	$wp_customize->add_setting('social_media_tiktok', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_fb', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_ig', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_sc', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_twitch', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_twitter', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_yt', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_pn', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_li', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_gh', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_dr', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_be', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_vs', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('social_media_location', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_control('social_media_location_control', array(
 		'label'			=> 'Social Media Menu Location',
@@ -263,12 +281,12 @@ function custom_logo_svg( $wp_customize) {
 	$wp_customize->add_setting('logo_svg', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_setting('logo_svg_viewBox', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options',
+		'capability'	=> 'edit_theme_options'
 	));
 	$wp_customize->add_control('logo_svg_code', array(
 		'label'			=> 'SVG Code for Icon (Usually found in exports from apps like Adobe Illustrator)',
@@ -1074,6 +1092,14 @@ function has_typekit( $blog_id = 0 ){
 	};
 }
 
+function is_schema_enabled( $blog_id = 0 ){
+    $blog_id = blog_switch();
+
+	if (get_theme_mod( 'general_is_schema' ) ){
+		return true;	
+	};
+}
+
 function starchas3r_register(){
 	wp_register_style('main_style', get_template_directory_uri() . '/style.css');
 	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
@@ -1442,6 +1468,7 @@ function starchas3r_enqueue(){
 }
 
 add_action( 'customize_register', 'social_options' );
+add_action( 'customize_register', 'general_options' );
 add_action( 'customize_register', 'custom_logo_svg' );
 add_action( 'customize_register', 'custom_fonts' );
 add_action( 'after_setup_theme', 'theme_support_setup' );
