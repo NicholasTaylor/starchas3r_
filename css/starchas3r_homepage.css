@@ -79,14 +79,12 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 }
 
 .article h2 {
-	font-size: 1.5rem;
-    display: inline-block;
-    margin-right: 0.5em;
-    font-weight: 400;
+	font-size: 1.75rem;
 }
 
-.article p {
-	font-weight: 200;
+.data-point {
+    display: inline-block;
+    margin-right: 0.5em;
 }
 /* END Default/Secondary Articles */
 
@@ -110,12 +108,15 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 .article:first-child h2, 
 .article:nth-child(2) h2, 
 .article:nth-child(3) h2 { 
-	font-size: 1.75rem;
+	font-size: 2rem;
 }
 
 .article:first-child p, 
 .article:nth-child(2) p, 
-.article:nth-child(3) p { 
+.article:nth-child(3) p,
+.article:first-child h3, 
+.article:nth-child(2) h3, 
+.article:nth-child(3) h3 { 
 	font-size: 1.25rem;
 }
 
@@ -139,7 +140,8 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 		font-size: 1rem;
 	}
 
-	.article .excerpt {
+	.article .excerpt, 
+	.article h3 {
 		display: none;
 	}
 	/* END Secondary Articles */
@@ -168,7 +170,10 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 
 	.article:first-child p, 
 	.article:nth-child(2) p, 
-	.article:nth-child(3) p { 
+	.article:nth-child(3) p,
+	.article:first-child h3, 
+	.article:nth-child(2) h3, 
+	.article:nth-child(3) h3 { 
 		font-size: 1rem;
 	}
 	/*END Primary Articles */
@@ -180,7 +185,8 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 @media (min-width: 768px){
 
 	/* START General */
-	.article p {
+	.article p, 
+	.article h3 {
 		font-size: 1.5rem;
 	}
 	/* END General */
@@ -191,7 +197,7 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	}
 
 	.article h2 {
-		font-size: 1.5rem;
+		font-size: 2rem;
 	}
 
 	.article,
@@ -222,6 +228,21 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	.article:nth-child(3) h1 { 
 		font-size: 5.5rem;
 	}
+
+	.article:first-child h2, 
+	.article:nth-child(2) h2, 
+	.article:nth-child(3) h2 { 
+		font-size: 2.5rem;
+	}
+
+	.article:first-child p, 
+	.article:nth-child(2) p, 
+	.article:nth-child(3) p,
+	.article:first-child h3, 
+	.article:nth-child(2) h3, 
+	.article:nth-child(3) h3 { 
+		font-size: 2rem;
+	}
 	/* END Primary Article */
 }
 
@@ -235,10 +256,10 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	}
 
 	.article h2 {
-	    font-size: 2rem;
+	    font-size: 2.5rem;
 	}
 
-	.article p {
+	.article p, .article h3 {
 		font-size: 1.75rem;
 	}
 	/* End Secondary Article */
@@ -256,6 +277,12 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	    font-size: 7rem;
 	}
 
+	.article:first-child h2, 
+	.article:nth-child(2) h2, 
+	.article:nth-child(3) h2 { 
+		font-size: 3rem;
+	}
+
 	.article:first-child .article-data, 
 	.article:nth-child(2) .article-data, 
 	.article:nth-child(3) .article-data { 
@@ -264,7 +291,10 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 
 	.article:first-child p, 
 	.article:nth-child(2) p, 
-	.article:nth-child(3) p { 
+	.article:nth-child(3) p,
+	.article:first-child h3, 
+	.article:nth-child(2) h3, 
+	.article:nth-child(3) h3 { 
 		font-size: 2rem;
 	}
 	/* END Primary Article */

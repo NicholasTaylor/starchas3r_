@@ -105,11 +105,15 @@ TABLE OF CONTENTS
 
 #container-section-list section .article-data h2 {
     font-size: 1.25rem;
+}
+
+#container-section-list section .article-data .data-point {
     display: inline-block;
     margin-right: 0.25em;
 }
 
-#container-section-list .excerpt {
+#container-section-list .excerpt,
+#container-section-list .article-data h3 {
     display: none;
 }
 
@@ -145,7 +149,8 @@ TABLE OF CONTENTS
 	padding: 0;
 }
 
-#container-section-list section:first-child .article-content .excerpt {
+#container-section-list section:first-child .article-content .excerpt,
+#container-section-list section:first-child .article-content h3 {
 	display: initial;
 }
 /* END Most Recent Article */
@@ -211,11 +216,13 @@ TABLE OF CONTENTS
 	}
 
 	#header-category .article-data .excerpt, 
-	#container-section-list section:first-child .article-content .excerpt {
+	#container-section-list section:first-child .article-content .excerpt,
+	#container-section-list section:first-child .article-content h3 {
 	    font-size: 1rem;
 	}
 
-	#container-section-list .excerpt {
+	#container-section-list .excerpt,
+	#container-section-list h3 {
 	    display: initial;
 	    font-size: 1rem;
 	}
@@ -257,7 +264,8 @@ TABLE OF CONTENTS
 
 	#header-category .article-data .excerpt, 
 	#container-section-list section:first-child .article-content .excerpt,
-	#container-section-list .excerpt {
+	#container-section-list .excerpt,
+	#container-section-list .article-data h3 {
 	    font-size: 2rem;
 	}
 

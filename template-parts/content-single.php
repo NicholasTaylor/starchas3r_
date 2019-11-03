@@ -7,6 +7,8 @@
  * @package starchas3r_
  * @since starchas3r_ 1.0
  */
+$misc_data_open_tag = (is_byline_enabled() ) ? '<h3 class="data-point">' : '<h2 class="data-point">';
+$misc_data_close_tag = (is_byline_enabled() ) ? '</h3>' : '</h2>';
 ?>    
     <article id="post-<?php the_ID(); ?>">
       <?php if(has_post_thumbnail()) : ?>
@@ -22,35 +24,41 @@
           <?php $pre_title = is_schema_enabled() ? '<h1 itemprop="headline">' : '<h1>';
           the_title( $pre_title,'</h1>' ); ?>
           <div id="title-data">
-            <?php if(is_schema_enabled()) : ?>
+            <?php if ( is_byline_enabled() && is_schema_enabled () ) : ?>
+              <h2 itemprop="author">
+                <?php echo get_the_author() ; ?>
+              </h2>
+            <?php elseif ( is_byline_enabled() ) : ?>
               <h2>
+                <?php echo get_the_author() ; ?>
+              </h2>
+            <?php endif;
+            if(is_schema_enabled()) : 
+              echo $misc_data_open_tag; ?>
                 <time itemprop="datePublished" datetime="<?php echo get_the_date( $d = 'Y-m-d' ); ?>T<?php echo get_the_date( $d = 'H:i' );?>"> 
                   <?php echo get_the_date( 'Y.m.d H:i');?>
                 </time>
-              </h2>
+              <?php echo $misc_data_close_tag; ?>
               <meta itemprop="dateModified" content="<?php echo get_the_modified_date( $d = 'Y-m-d' );?>T<?php echo get_the_modified_date( $d = 'H:i' );?>">
               </meta>
             <?php else :
-              echo '<h2>' . get_the_date( 'Y.m.d H:i') . '</h2>';
-            endif; ?>
-
-            <?php if ( has_category() && is_schema_enabled() ) : ?>
-              <h2>
+              echo $misc_data_open_tag . get_the_date( 'Y.m.d H:i') . $misc_data_close_tag;
+            endif;
+            if ( has_category() && is_schema_enabled() ) :
+              echo $misc_data_open_tag; ?>
                 <span itemprop="articleSection">
                   <?php the_category( ', ' ); ?>
                 </span>
-              </h2>
-            <?php elseif ( has_category() ) : ?>
-              <h2>
-                <?php the_category( ', ' ); ?>
-              </h2>
-            <?php endif; ?>
-            <h2>
-              <?php $current_content = $post->post_content;
+              <?php echo $misc_data_close_tag;
+              elseif ( has_category() ) : 
+              echo $misc_data_open_tag;
+                the_category( ', ' );
+            echo $misc_data_close_tag;
+            endif; 
+              $current_content = $post->post_content;
               $read_time_secs = (str_word_count(strip_tags(do_shortcode($current_content))) * (6/25));
               $read_time = ($read_time_secs < 60 ? '&lt; 1 min.' : ($read_time_secs < 3600 ? round(($read_time_secs / 60),0) . ' min.' : round(($read_time_secs / 3600),0) . ' hr.'));
-              echo $read_time; ?> 
-            </h2>
+              echo $misc_data_open_tag . $read_time . $misc_data_close_tag; ?>
           </div>
           <?php if ( has_excerpt () ) : ?>
             <div class="excerpt">

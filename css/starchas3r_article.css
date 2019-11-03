@@ -117,14 +117,17 @@ blockquote {
 }
 
 #title-content h2 {
-    display: inline-block;
-    font-weight: 600;
     letter-spacing: 0;
     font-size: 1.75rem;
+}
+
+#title-content .data-point {
+    display: inline-block;
     margin-right: 0.5em;
 }
 
-#title-content p {
+#title-content p, 
+#title-content h3 {
     font-size: 1.25rem;
 }
 /* END Article Title Area */
@@ -155,7 +158,6 @@ blockquote {
 #article-body h4,
 #article-body h5,
 #article-body h6 {
-	font-weight: 600;
 	margin: 0.25em 0;
 	padding: 0;
 }
@@ -300,7 +302,8 @@ textarea {
 
 	#article-body p,
 	#article-body li,
-	#title-content p {
+	#title-content p,
+	#title-content h3 {
 	    font-size: 1.5rem;
 	}
 
@@ -350,6 +353,7 @@ textarea {
 	    font-size: 3rem;
 	}
 
+	#title-content h3,
 	#title-content p {
 	    font-size: 2rem;
 	}
