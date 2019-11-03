@@ -8,7 +8,7 @@
  * @since starchas3r_ 1.0
  */
 ?>    
-  <section class="article article-primary" style="background-image: url('<?php echo get_bloginfo('template_directory');?>/images/lily-waiting.gif');">
+  <section class="article article-primary" style="background-image: url( '<?php echo get_bloginfo( 'template_directory' );?>/images/lily-waiting.gif' );">
     <div class="bg-screen">
     </div>
     <div id="fadein-screen">

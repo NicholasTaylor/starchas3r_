@@ -34,7 +34,7 @@ function get_font_weights(){
 		600,
 		700,
 		800,
-		900);
+		900 );
 }
 
 function get_transform_options(){
@@ -52,7 +52,7 @@ function get_transform_options(){
 function blog_switch( $blog_id = 0 ) {
 	$switched_blog = false;
 
-	if ( is_multisite() && ! empty( $blog_id ) && (int) $blog_id !== get_current_blog_id() ) {
+	if ( is_multisite() && ! empty( $blog_id ) && ( int ) $blog_id !== get_current_blog_id() ) {
 	    switch_to_blog( $blog_id );
 	    $switched_blog = true;
 	}
@@ -98,28 +98,28 @@ function general_options( $wp_customize ){
 		'title'			=>	__( 'General Site Settings', 'starchas3r_' ),
 		'priority'		=> 200
 	) );
-	$wp_customize->add_setting('general_is_schema', array(
+	$wp_customize->add_setting( 'general_is_schema', array(
 		'default'		=>	false,
 		'type'			=>	'theme_mod',
 		'capability'	=>	'edit_theme_options'
-	));
-	$wp_customize->add_control('general_is_schema_entry', array(
+	) );
+	$wp_customize->add_control( 'general_is_schema_entry', array(
 		'label'			=> 'Enable Schema.org Support',
 		'section'		=> 'starchas3r_general',
 		'settings'		=> 'general_is_schema',
 		'type'			=> 'checkbox'
-	));
-	$wp_customize->add_setting('general_is_byline', array(
+	) );
+	$wp_customize->add_setting( 'general_is_byline', array(
 		'default'		=>	false,
 		'type'			=>	'theme_mod',
 		'capability'	=>	'edit_theme_options'
-	));
-	$wp_customize->add_control('general_is_byline_entry', array(
-		'label'			=> 'Enable Writer Byline Display on Articles (Recommended for sites with multiple authors)',
+	) );
+	$wp_customize->add_control( 'general_is_byline_entry', array(
+		'label'			=> 'Enable Writer Byline Display on Articles ( Recommended for sites with multiple authors )',
 		'section'		=> 'starchas3r_general',
 		'settings'		=> 'general_is_byline',
 		'type'			=> 'checkbox'
-	));
+	) );
 }
 
 function social_options( $wp_customize ) {
@@ -127,190 +127,190 @@ function social_options( $wp_customize ) {
 		'title' 		=> __( 'Social Media', 'starchas3r_' ),
 		'priority' 		=> 200
 	) );
-	$wp_customize->add_setting('social_media_tiktok', array(
+	$wp_customize->add_setting( 'social_media_tiktok', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_fb', array(
+	) );
+	$wp_customize->add_setting( 'social_media_fb', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_ig', array(
+	) );
+	$wp_customize->add_setting( 'social_media_ig', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_sc', array(
+	) );
+	$wp_customize->add_setting( 'social_media_sc', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_twitch', array(
+	) );
+	$wp_customize->add_setting( 'social_media_twitch', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_twitter', array(
+	) );
+	$wp_customize->add_setting( 'social_media_twitter', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_yt', array(
+	) );
+	$wp_customize->add_setting( 'social_media_yt', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_pn', array(
+	) );
+	$wp_customize->add_setting( 'social_media_pn', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_li', array(
+	) );
+	$wp_customize->add_setting( 'social_media_li', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_gh', array(
+	) );
+	$wp_customize->add_setting( 'social_media_gh', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_dr', array(
+	) );
+	$wp_customize->add_setting( 'social_media_dr', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_be', array(
+	) );
+	$wp_customize->add_setting( 'social_media_be', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_vs', array(
+	) );
+	$wp_customize->add_setting( 'social_media_vs', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('social_media_location', array(
+	) );
+	$wp_customize->add_setting( 'social_media_location', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('social_media_location_control', array(
+	) );
+	$wp_customize->add_control( 'social_media_location_control', array(
 		'label'			=> 'Social Media Menu Location',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_location',
 		'type'			=> 'select',
 		'choices'		=> get_sm_locs()
-	));
-	$wp_customize->add_control('social_url_tiktok', array(
-		'label'			=> 'TikTok Username (ex. https://tiktok.com/@[username])',
+	) );
+	$wp_customize->add_control( 'social_url_tiktok', array(
+		'label'			=> 'TikTok Username ( ex. https://tiktok.com/@[username] )',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_tiktok',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_fb', array(
-		'label'			=> 'Facebook Username (ex. https://www.facebook.com/[username])',
+	) );
+	$wp_customize->add_control( 'social_url_fb', array(
+		'label'			=> 'Facebook Username ( ex. https://www.facebook.com/[username] )',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_fb',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_ig', array(
-		'label'			=> 'Instagram Username (ex. https://www.instagram.com/[username])',
+	) );
+	$wp_customize->add_control( 'social_url_ig', array(
+		'label'			=> 'Instagram Username ( ex. https://www.instagram.com/[username] )',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_ig',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_sc', array(
-		'label'			=> 'Snapchat Username (ex. https://www.snapchat.com/add/[username]',
+	) );
+	$wp_customize->add_control( 'social_url_sc', array(
+		'label'			=> 'Snapchat Username ( ex. https://www.snapchat.com/add/[username]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_sc',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_twitch', array(
-		'label'			=> 'Twitch Username (ex. https://www.twitch.tv/[username]',
+	) );
+	$wp_customize->add_control( 'social_url_twitch', array(
+		'label'			=> 'Twitch Username ( ex. https://www.twitch.tv/[username]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_twitch',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_twitter', array(
-		'label'			=> 'Twitter Handle (ex. https://www.twitter.com/[handle])',
+	) );
+	$wp_customize->add_control( 'social_url_twitter', array(
+		'label'			=> 'Twitter Handle ( ex. https://www.twitter.com/[handle] )',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_twitter',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_yt', array(
-		'label'			=> 'Youtube Channel ID (ex. https://www.youtube.com/channel/[channel ID])',
+	) );
+	$wp_customize->add_control( 'social_url_yt', array(
+		'label'			=> 'Youtube Channel ID ( ex. https://www.youtube.com/channel/[channel ID] )',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_yt',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_pn', array(
-		'label'			=> 'Pinterest Username (ex. https://www.pinterest.com/[username]',
+	) );
+	$wp_customize->add_control( 'social_url_pn', array(
+		'label'			=> 'Pinterest Username ( ex. https://www.pinterest.com/[username]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_pn',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_li', array(
-		'label'			=> 'LinkedIn Profile Name (ex. https://www.linkedin.com/in/[profile name]',
+	) );
+	$wp_customize->add_control( 'social_url_li', array(
+		'label'			=> 'LinkedIn Profile Name ( ex. https://www.linkedin.com/in/[profile name]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_li',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_gh', array(
-		'label'			=> 'Github Username (ex. https://www.github.com/[username]',
+	) );
+	$wp_customize->add_control( 'social_url_gh', array(
+		'label'			=> 'Github Username ( ex. https://www.github.com/[username]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_gh',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_dr', array(
-		'label'			=> 'Dribbble Profile Name (ex. https://www.dribbble.com/[profile name]',
+	) );
+	$wp_customize->add_control( 'social_url_dr', array(
+		'label'			=> 'Dribbble Profile Name ( ex. https://www.dribbble.com/[profile name]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_dr',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_be', array(
-		'label'			=> 'Behance Profile Name (ex. https://www.behance.net/[profile name]',
+	) );
+	$wp_customize->add_control( 'social_url_be', array(
+		'label'			=> 'Behance Profile Name ( ex. https://www.behance.net/[profile name]',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_be',
 		'type'			=> 'text'
-	));
-	$wp_customize->add_control('social_url_vs', array(
-		'label'			=> 'VSCO Username (ex. https://vsco.co/[Username]/images/1',
+	) );
+	$wp_customize->add_control( 'social_url_vs', array(
+		'label'			=> 'VSCO Username ( ex. https://vsco.co/[Username]/images/1',
 		'section'		=> 'starchas3r_social_media',
 		'settings'		=> 'social_media_vs',
 		'type'			=> 'text'
-	));
+	) );
 }
 
-function custom_logo_svg( $wp_customize) {
+function custom_logo_svg( $wp_customize ) {
 	$wp_customize->add_section( 'starchas3r_logo_svg' , array(
 		'title' 		=> __( 'Logo Icon SVG', 'starchas3r_' ),
 		'priority' 		=> 201,
 	) );
-	$wp_customize->add_setting('logo_svg', array(
+	$wp_customize->add_setting( 'logo_svg', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_setting('logo_svg_viewBox', array(
+	) );
+	$wp_customize->add_setting( 'logo_svg_viewBox', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('logo_svg_code', array(
-		'label'			=> 'SVG Code for Icon (Usually found in exports from apps like Adobe Illustrator)',
+	) );
+	$wp_customize->add_control( 'logo_svg_code', array(
+		'label'			=> 'SVG Code for Icon ( Usually found in exports from apps like Adobe Illustrator )',
 		'section'		=> 'starchas3r_logo_svg',
 		'settings'		=> 'logo_svg',
 		'type'			=> 'text',
-	));
-	$wp_customize->add_control('logo_svg_viewBox_code', array(
-		'label'			=> 'Attribute for "ViewBox" attribute in SVG tag (Also found in exports from apps like Adobe Illustrator)',
+	) );
+	$wp_customize->add_control( 'logo_svg_viewBox_code', array(
+		'label'			=> 'Attribute for "ViewBox" attribute in SVG tag ( Also found in exports from apps like Adobe Illustrator )',
 		'section'		=> 'starchas3r_logo_svg',
 		'settings'		=> 'logo_svg_viewBox',
 		'type'			=> 'text',
-	));
+	) );
 }
 
 function custom_fonts( $wp_customize ) {
@@ -321,750 +321,750 @@ function custom_fonts( $wp_customize ) {
 		'title'		=> __( 'Font Settings', 'starchas3r_' ),
 		'priority'	=> 202
 	) );
-	$wp_customize->add_setting('typekit_pid', array(
+	$wp_customize->add_setting( 'typekit_pid', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('project_id_entry',array(
-		'label'		=> 'Project ID (go to https://fonts.adobe.com/my_fonts#web_projects-section to find this)',
+	) );
+	$wp_customize->add_control( 'project_id_entry',array(
+		'label'		=> 'Project ID ( go to https://fonts.adobe.com/my_fonts#web_projects-section to find this )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'typekit_pid',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('google_fonts_list', array(
+	) );
+	$wp_customize->add_setting( 'google_fonts_list', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('google_fonts_entry',array(
-		'label'		=> 'Google Fonts String – Use link tag supplied by Google Fonts (ex. <link href="https://fonts.googleapis.com/css?family=Mansalva|Noto+Sans:400,700|Turret+Road:400,500&display=swap" rel="stylesheet">)',
+	) );
+	$wp_customize->add_control( 'google_fonts_entry',array(
+		'label'		=> 'Google Fonts String – Use link tag supplied by Google Fonts ( ex. <link href="https://fonts.googleapis.com/css?family=Mansalva|Noto+Sans:400,700|Turret+Road:400,500&display=swap" rel="stylesheet"> )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'google_fonts_list',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('heading_stack', array(
+	) );
+	$wp_customize->add_setting( 'heading_stack', array(
 		'default'		=> '\'helvetica neue\', helvetica, arial, sans-serif',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('heading_stack_entry',array(
-		'label'		=> 'Headline Default Font Stack (Give a CSS-friendly comma delimited sequence of fonts) Blank defaults to "\'helvetica neue\', helvetica, arial, sans-serif"',
+	) );
+	$wp_customize->add_control( 'heading_stack_entry',array(
+		'label'		=> 'Headline Default Font Stack ( Give a CSS-friendly comma delimited sequence of fonts ) Blank defaults to "\'helvetica neue\', helvetica, arial, sans-serif"',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'heading_stack',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('heading_weight', array(
+	) );
+	$wp_customize->add_setting( 'heading_weight', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('heading_weight_entry', array(
+	) );
+	$wp_customize->add_control( 'heading_weight_entry', array(
 		'label'			=> 'Heading Default Font Weight',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'heading_weight',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('heading_transform', array(
+	) );
+	$wp_customize->add_setting( 'heading_transform', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('heading_transform_entry', array(
+	) );
+	$wp_customize->add_control( 'heading_transform_entry', array(
 		'label'			=> 'Heading Default Text Options',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'heading_transform',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('body_stack', array(
+	) );
+	$wp_customize->add_setting( 'body_stack', array(
 		'default'		=> 'georgia, \'times new roman\', serif',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('body_stack_entry',array(
-		'label'		=> 'Body copy default (Give a CSS-friendly comma delimited sequence of fonts) Blank defaults to "georgia, \'times new roman\', serif"',
+	) );
+	$wp_customize->add_control( 'body_stack_entry',array(
+		'label'		=> 'Body copy default ( Give a CSS-friendly comma delimited sequence of fonts ) Blank defaults to "georgia, \'times new roman\', serif"',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'body_stack',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('code_text_stack', array(
+	) );
+	$wp_customize->add_setting( 'code_text_stack', array(
 		'default'		=> 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('code_text_stack_entry',array(
-		'label'		=> 'Code tag default (Give a CSS-friendly comma delimited sequence of fonts) Blank defaults to "SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;"',
+	) );
+	$wp_customize->add_control( 'code_text_stack_entry',array(
+		'label'		=> 'Code tag default ( Give a CSS-friendly comma delimited sequence of fonts ) Blank defaults to "SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;"',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'code_text_stack',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_logo', array(
+	) );
+	$wp_customize->add_setting( 'stack_logo', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_logo_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_logo_entry',array(
 		'label'		=> 'Site Logo Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_logo',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_logo', array(
+	) );
+	$wp_customize->add_setting( 'weight_logo', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_logo_entry', array(
+	) );
+	$wp_customize->add_control( 'weight_logo_entry', array(
 		'label'			=> 'Site Logo Font Weight',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_logo',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_logo', array(
+	) );
+	$wp_customize->add_setting( 'transform_logo', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_logo_entry', array(
+	) );
+	$wp_customize->add_control( 'transform_logo_entry', array(
 		'label'			=> 'Site Logo Text Options',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_logo',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_nav_items', array(
+	) );
+	$wp_customize->add_setting( 'stack_nav_items', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_nav_items_entry',array(
-		'label'		=> 'Nav Items Fonts (Default)',
+	) );
+	$wp_customize->add_control( 'stack_nav_items_entry',array(
+		'label'		=> 'Nav Items Fonts ( Default )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_nav_items',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_nav_items', array(
+	) );
+	$wp_customize->add_setting( 'weight_nav_items', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_nav_items_entry', array(
+	) );
+	$wp_customize->add_control( 'weight_nav_items_entry', array(
 		'label'			=> 'Nav Items Font Weight',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_nav_items',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_nav_items', array(
+	) );
+	$wp_customize->add_setting( 'transform_nav_items', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_nav_items_entry', array(
+	) );
+	$wp_customize->add_control( 'transform_nav_items_entry', array(
 		'label'			=> 'Nav Items Text Options',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_nav_items',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_nav_items_primary', array(
+	) );
+	$wp_customize->add_setting( 'stack_nav_items_primary', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_nav_items_primary_entry',array(
-		'label'		=> 'Nav Items Fonts (Primary)',
+	) );
+	$wp_customize->add_control( 'stack_nav_items_primary_entry',array(
+		'label'		=> 'Nav Items Fonts ( Primary )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_nav_items_primary',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_nav_items_primary', array(
+	) );
+	$wp_customize->add_setting( 'weight_nav_items_primary', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_nav_items_primary_entry', array(
-		'label'			=> 'Nav Items (Primary) Font Weight',
+	) );
+	$wp_customize->add_control( 'weight_nav_items_primary_entry', array(
+		'label'			=> 'Nav Items ( Primary ) Font Weight',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_nav_items_primary',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_nav_items_primary', array(
+	) );
+	$wp_customize->add_setting( 'transform_nav_items_primary', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_nav_items_primary_entry', array(
-		'label'			=> 'Nav Items (Primary) Text Options',
+	) );
+	$wp_customize->add_control( 'transform_nav_items_primary_entry', array(
+		'label'			=> 'Nav Items ( Primary ) Text Options',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_nav_items_primary',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_nav_items_header', array(
+	) );
+	$wp_customize->add_setting( 'stack_nav_items_header', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_nav_items_header_entry',array(
-		'label'		=> 'Nav Items Fonts (Header)',
+	) );
+	$wp_customize->add_control( 'stack_nav_items_header_entry',array(
+		'label'		=> 'Nav Items Fonts ( Header )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_nav_items_header',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_nav_items_header', array(
+	) );
+	$wp_customize->add_setting( 'weight_nav_items_header', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_nav_items_header_entry', array(
-		'label'			=> 'Nav Items (Header) Font Weight',
+	) );
+	$wp_customize->add_control( 'weight_nav_items_header_entry', array(
+		'label'			=> 'Nav Items ( Header ) Font Weight',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_nav_items_header',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_nav_items_header', array(
+	) );
+	$wp_customize->add_setting( 'transform_nav_items_header', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_nav_items_header_entry', array(
-		'label'			=> 'Nav Items (Header) Text Options',
+	) );
+	$wp_customize->add_control( 'transform_nav_items_header_entry', array(
+		'label'			=> 'Nav Items ( Header ) Text Options',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_nav_items_header',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_nav_items_footer', array(
+	) );
+	$wp_customize->add_setting( 'stack_nav_items_footer', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_nav_items_footer_entry',array(
-		'label'		=> 'Nav Items Fonts (Footer)',
+	) );
+	$wp_customize->add_control( 'stack_nav_items_footer_entry',array(
+		'label'		=> 'Nav Items Fonts ( Footer )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_nav_items_footer',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_nav_items_footer', array(
+	) );
+	$wp_customize->add_setting( 'weight_nav_items_footer', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_nav_items_footer_entry', array(
-		'label'			=> 'Nav Items (Footer) Font Weight',
+	) );
+	$wp_customize->add_control( 'weight_nav_items_footer_entry', array(
+		'label'			=> 'Nav Items ( Footer ) Font Weight',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_nav_items_footer',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_nav_items_footer', array(
+	) );
+	$wp_customize->add_setting( 'transform_nav_items_footer', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_nav_items_footer_entry', array(
-		'label'			=> 'Nav Items (Footer) Text Options',
+	) );
+	$wp_customize->add_control( 'transform_nav_items_footer_entry', array(
+		'label'			=> 'Nav Items ( Footer ) Text Options',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_nav_items_footer',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_pagination_header', array(
+	) );
+	$wp_customize->add_setting( 'stack_pagination_header', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_pagination_header_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_pagination_header_entry',array(
 		'label'		=> 'Pagination Header Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_pagination_header',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_pagination_copy', array(
+	) );
+	$wp_customize->add_setting( 'stack_pagination_copy', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_pagination_copy_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_pagination_copy_entry',array(
 		'label'		=> 'Pagination Copy Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_pagination_copy',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_copyright', array(
+	) );
+	$wp_customize->add_setting( 'stack_copyright', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_copyright_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_copyright_entry',array(
 		'label'		=> 'Copyright Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_copyright',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_homepage_headline', array(
+	) );
+	$wp_customize->add_setting( 'stack_homepage_headline', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_homepage_headline_entry',array(
-		'label'		=> 'Headline Fonts (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'stack_homepage_headline_entry',array(
+		'label'		=> 'Headline Fonts ( Homepage, Archive )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_homepage_headline',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_homepage_headline', array(
+	) );
+	$wp_customize->add_setting( 'weight_homepage_headline', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_homepage_headline_entry', array(
-		'label'			=> 'Headline Font Weight (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'weight_homepage_headline_entry', array(
+		'label'			=> 'Headline Font Weight ( Homepage, Archive )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_homepage_headline',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_homepage_headline', array(
+	) );
+	$wp_customize->add_setting( 'transform_homepage_headline', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_homepage_headline_entry', array(
-		'label'			=> 'Headline Text Options (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'transform_homepage_headline_entry', array(
+		'label'			=> 'Headline Text Options ( Homepage, Archive )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_homepage_headline',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_homepage_byline', array(
+	) );
+	$wp_customize->add_setting( 'stack_homepage_byline', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_homepage_byline_entry',array(
-		'label'		=> 'Author Byline Fonts (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'stack_homepage_byline_entry',array(
+		'label'		=> 'Author Byline Fonts ( Homepage, Archive )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_homepage_byline',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_homepage_byline', array(
+	) );
+	$wp_customize->add_setting( 'weight_homepage_byline', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_homepage_byline_entry', array(
-		'label'			=> 'Author Byline Font Weight (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'weight_homepage_byline_entry', array(
+		'label'			=> 'Author Byline Font Weight ( Homepage, Archive )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_homepage_byline',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_homepage_byline', array(
+	) );
+	$wp_customize->add_setting( 'transform_homepage_byline', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_homepage_byline_entry', array(
-		'label'			=> 'Author Byline Text Options (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'transform_homepage_byline_entry', array(
+		'label'			=> 'Author Byline Text Options ( Homepage, Archive )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_homepage_byline',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_homepage_article_data', array(
+	) );
+	$wp_customize->add_setting( 'stack_homepage_article_data', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_homepage_article_data_entry',array(
-		'label'		=> 'Article Data Fonts (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'stack_homepage_article_data_entry',array(
+		'label'		=> 'Article Data Fonts ( Homepage, Archive )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_homepage_article_data',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_homepage_article_data', array(
+	) );
+	$wp_customize->add_setting( 'weight_homepage_article_data', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_homepage_article_data_entry', array(
-		'label'			=> 'Article Data Font Weight (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'weight_homepage_article_data_entry', array(
+		'label'			=> 'Article Data Font Weight ( Homepage, Archive )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_homepage_article_data',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_homepage_article_data', array(
+	) );
+	$wp_customize->add_setting( 'transform_homepage_article_data', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_homepage_article_data_entry', array(
-		'label'			=> 'Article Data Text Options (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'transform_homepage_article_data_entry', array(
+		'label'			=> 'Article Data Text Options ( Homepage, Archive )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_homepage_article_data',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_homepage_copy', array(
+	) );
+	$wp_customize->add_setting( 'stack_homepage_copy', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_homepage_copy_entry',array(
-		'label'		=> 'Body Copy Fonts (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'stack_homepage_copy_entry',array(
+		'label'		=> 'Body Copy Fonts ( Homepage, Archive )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_homepage_copy',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_homepage_copy', array(
+	) );
+	$wp_customize->add_setting( 'weight_homepage_copy', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_homepage_copy_entry', array(
-		'label'			=> 'Body Copy Font Weight (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'weight_homepage_copy_entry', array(
+		'label'			=> 'Body Copy Font Weight ( Homepage, Archive )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_homepage_copy',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_homepage_copy', array(
+	) );
+	$wp_customize->add_setting( 'transform_homepage_copy', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_homepage_copy_entry', array(
-		'label'			=> 'Body Copy Text Options (Homepage, Archive)',
+	) );
+	$wp_customize->add_control( 'transform_homepage_copy_entry', array(
+		'label'			=> 'Body Copy Text Options ( Homepage, Archive )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_homepage_copy',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_article_title_headline', array(
+	) );
+	$wp_customize->add_setting( 'stack_article_title_headline', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_article_title_headline_entry',array(
-		'label'		=> 'Article Title Section Headline Fonts (Post, Page)',
+	) );
+	$wp_customize->add_control( 'stack_article_title_headline_entry',array(
+		'label'		=> 'Article Title Section Headline Fonts ( Post, Page )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_title_headline',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_article_title_headline', array(
+	) );
+	$wp_customize->add_setting( 'weight_article_title_headline', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_article_title_headline_entry', array(
-		'label'			=> 'Article Title Section Headline Font Weight (Post, Page)',
+	) );
+	$wp_customize->add_control( 'weight_article_title_headline_entry', array(
+		'label'			=> 'Article Title Section Headline Font Weight ( Post, Page )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_article_title_headline',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_article_title_headline', array(
+	) );
+	$wp_customize->add_setting( 'transform_article_title_headline', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_article_title_headline_entry', array(
-		'label'			=> 'Article Title Section Headline Text Options (Post, Page)',
+	) );
+	$wp_customize->add_control( 'transform_article_title_headline_entry', array(
+		'label'			=> 'Article Title Section Headline Text Options ( Post, Page )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_article_title_headline',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_article_title_byline', array(
+	) );
+	$wp_customize->add_setting( 'stack_article_title_byline', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_article_title_byline_entry',array(
-		'label'		=> 'Author Byline Fonts (Post, Page)',
+	) );
+	$wp_customize->add_control( 'stack_article_title_byline_entry',array(
+		'label'		=> 'Author Byline Fonts ( Post, Page )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_title_byline',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_article_title_byline', array(
+	) );
+	$wp_customize->add_setting( 'weight_article_title_byline', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_article_title_byline_entry', array(
-		'label'			=> 'Author Byline Font Weight (Post, Page)',
+	) );
+	$wp_customize->add_control( 'weight_article_title_byline_entry', array(
+		'label'			=> 'Author Byline Font Weight ( Post, Page )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_article_title_byline',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_article_title_byline', array(
+	) );
+	$wp_customize->add_setting( 'transform_article_title_byline', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_article_title_byline_entry', array(
-		'label'			=> 'Author Byline Text Options (Post, Page)',
+	) );
+	$wp_customize->add_control( 'transform_article_title_byline_entry', array(
+		'label'			=> 'Author Byline Text Options ( Post, Page )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_article_title_byline',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_article_title_data', array(
+	) );
+	$wp_customize->add_setting( 'stack_article_title_data', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_article_title_data_entry',array(
-		'label'		=> 'Article Title Section Data Fonts (Post, Page)',
+	) );
+	$wp_customize->add_control( 'stack_article_title_data_entry',array(
+		'label'		=> 'Article Title Section Data Fonts ( Post, Page )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_title_data',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_article_title_data', array(
+	) );
+	$wp_customize->add_setting( 'weight_article_title_data', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_article_title_data_entry', array(
-		'label'			=> 'Article Title Section Data Font Weight (Post, Page)',
+	) );
+	$wp_customize->add_control( 'weight_article_title_data_entry', array(
+		'label'			=> 'Article Title Section Data Font Weight ( Post, Page )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_article_title_data',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_article_title_data', array(
+	) );
+	$wp_customize->add_setting( 'transform_article_title_data', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_article_title_data_entry', array(
-		'label'			=> 'Article Title Section Data Text Options (Post, Page)',
+	) );
+	$wp_customize->add_control( 'transform_article_title_data_entry', array(
+		'label'			=> 'Article Title Section Data Text Options ( Post, Page )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_article_title_data',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_article_title_copy', array(
+	) );
+	$wp_customize->add_setting( 'stack_article_title_copy', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_article_title_copy_entry',array(
-		'label'		=> 'Article Title Body Copy Fonts (Post, Page)',
+	) );
+	$wp_customize->add_control( 'stack_article_title_copy_entry',array(
+		'label'		=> 'Article Title Body Copy Fonts ( Post, Page )',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_title_copy',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('weight_article_title_copy', array(
+	) );
+	$wp_customize->add_setting( 'weight_article_title_copy', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('weight_article_title_copy_entry', array(
-		'label'			=> 'Article Title Section Body Copy Font Weight (Post, Page)',
+	) );
+	$wp_customize->add_control( 'weight_article_title_copy_entry', array(
+		'label'			=> 'Article Title Section Body Copy Font Weight ( Post, Page )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'weight_article_title_copy',
 		'type'			=> 'select',
 		'choices'		=> $options_font_weight
-	));
-	$wp_customize->add_setting('transform_article_title_copy', array(
+	) );
+	$wp_customize->add_setting( 'transform_article_title_copy', array(
 		'default'		=> 'inherit',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('transform_article_title_copy_entry', array(
-		'label'			=> 'Article Title Section Body Copy Text Options (Post, Page)',
+	) );
+	$wp_customize->add_control( 'transform_article_title_copy_entry', array(
+		'label'			=> 'Article Title Section Body Copy Text Options ( Post, Page )',
 		'section'		=> 'starchas3r_fonts',
 		'settings'		=> 'transform_article_title_copy',
 		'type'			=> 'select',
 		'choices'		=> $options_text_transform
-	));
-	$wp_customize->add_setting('stack_article_copy', array(
+	) );
+	$wp_customize->add_setting( 'stack_article_copy', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_article_copy_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_article_copy_entry',array(
 		'label'		=> 'Article Body Copy Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_copy',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_article_captions', array(
+	) );
+	$wp_customize->add_setting( 'stack_article_captions', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_article_captions_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_article_captions_entry',array(
 		'label'		=> 'Article Captions Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_captions',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_article_tags', array(
+	) );
+	$wp_customize->add_setting( 'stack_article_tags', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_article_tags_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_article_tags_entry',array(
 		'label'		=> 'Article Tags Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_tags',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_article_blockquote', array(
+	) );
+	$wp_customize->add_setting( 'stack_article_blockquote', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_article_blockquote_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_article_blockquote_entry',array(
 		'label'		=> 'Article Blockquote Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_blockquote',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_article_pagination', array(
+	) );
+	$wp_customize->add_setting( 'stack_article_pagination', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_article_pagination_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_article_pagination_entry',array(
 		'label'		=> 'Article Pagination Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_article_pagination',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_comment_headline', array(
+	) );
+	$wp_customize->add_setting( 'stack_comment_headline', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_comment_headline_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_comment_headline_entry',array(
 		'label'		=> 'Comment Headline Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_comment_headline',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_comment_data', array(
+	) );
+	$wp_customize->add_setting( 'stack_comment_data', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_comment_data_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_comment_data_entry',array(
 		'label'		=> 'Comment Author Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_comment_data',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_comment_metadata', array(
+	) );
+	$wp_customize->add_setting( 'stack_comment_metadata', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_comment_metadata_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_comment_metadata_entry',array(
 		'label'		=> 'Comment Metadata Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_comment_metadata',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_comment_copy', array(
+	) );
+	$wp_customize->add_setting( 'stack_comment_copy', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_comment_copy_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_comment_copy_entry',array(
 		'label'		=> 'Comment Copy Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_comment_copy',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_comment_reply', array(
+	) );
+	$wp_customize->add_setting( 'stack_comment_reply', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_comment_reply_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_comment_reply_entry',array(
 		'label'		=> 'Comment Reply Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_comment_reply',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_comment_write_headline', array(
+	) );
+	$wp_customize->add_setting( 'stack_comment_write_headline', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_comment_write_headline_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_comment_write_headline_entry',array(
 		'label'		=> 'Write Comment Headline Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_comment_write_headline',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_comment_write_copy', array(
+	) );
+	$wp_customize->add_setting( 'stack_comment_write_copy', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_comment_write_copy_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_comment_write_copy_entry',array(
 		'label'		=> 'Write Comment Instructions Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_comment_write_copy',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_comment_write_label', array(
+	) );
+	$wp_customize->add_setting( 'stack_comment_write_label', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_comment_write_label_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_comment_write_label_entry',array(
 		'label'		=> 'Write Comment Label Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_comment_write_label',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_archive_headline', array(
+	) );
+	$wp_customize->add_setting( 'stack_archive_headline', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_archive_headline_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_archive_headline_entry',array(
 		'label'		=> 'Archive Headline Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_archive_headline',
 		'type'		=> 'text'
-	));
-	$wp_customize->add_setting('stack_archive_header_copy', array(
+	) );
+	$wp_customize->add_setting( 'stack_archive_header_copy', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
 		'capability'	=> 'edit_theme_options'
-	));
-	$wp_customize->add_control('stack_archive_header_copy_entry',array(
+	) );
+	$wp_customize->add_control( 'stack_archive_header_copy_entry',array(
 		'label'		=> 'Archive Header Copy Fonts',
 		'section'	=> 'starchas3r_fonts',
 		'settings'	=> 'stack_archive_header_copy',
 		'type'		=> 'text'
-	));
+	) );
 }
 
-function drop_semicolon($css_string){
-	$output = substr($css_string,-1) == ';' ? substr($css_string, 0, -1) : $css_string;
+function drop_semicolon( $css_string ){
+	$output = substr( $css_string,-1 ) == ';' ? substr( $css_string, 0, -1 ) : $css_string;
 	return $output;
 }
 
 function has_google_fonts() {
     $blog_id = blog_switch();
-    $google_fonts = preg_replace('/(.*)(family=)(.*?)(&|")(.*)/', '$3', get_theme_mod( 'google_fonts_list' ));
-    $google_bool = (!($google_fonts) || preg_match('([^\\A-Za-z_\|\+:0-9,])',$google_fonts) ? false : true);
-    return (bool) $google_bool;
+    $google_fonts = preg_replace( '/( .* )( family= )( .*? )( &|" )( .* )/', '$3', get_theme_mod( 'google_fonts_list' ) );
+    $google_bool = ( !( $google_fonts ) || preg_match( '([^\\A-Za-z_\|\+:0-9,] )',$google_fonts ) ? false : true );
+    return ( bool ) $google_bool;
 }
 
 function has_social_icons() {
@@ -1089,7 +1089,7 @@ function has_social_icons() {
     	$custom_social_icons = true;
     }
  
-    return (bool) $custom_social_icons;
+    return ( bool ) $custom_social_icons;
 }
 
 function retrieve_social_links() {
@@ -1178,11 +1178,11 @@ function retrieve_social_links() {
 
 	$social_links = array();
 
-	$social_links_keys = array_keys($social_links_raw);
+	$social_links_keys = array_keys( $social_links_raw );
 
-	foreach($social_links_keys as $social_key) {
+	foreach( $social_links_keys as $social_key ) {
 		$currentSocial = $social_links_raw[$social_key];
-		if($currentSocial['value']){
+		if( $currentSocial['value'] ){
 			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/white/social-logos-white-' . $currentSocial['abbreviation'] . '.png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
 		}
 	}
@@ -1192,7 +1192,7 @@ function retrieve_social_links() {
 function has_typekit( $blog_id = 0 ){
     $blog_id = blog_switch();
 
-	if (get_theme_mod( 'typekit_pid' ) ){
+	if ( get_theme_mod( 'typekit_pid' ) ){
 		return true;	
 	};
 }
@@ -1200,7 +1200,7 @@ function has_typekit( $blog_id = 0 ){
 function is_schema_enabled( $blog_id = 0 ){
     $blog_id = blog_switch();
 
-	if (get_theme_mod( 'general_is_schema' ) ){
+	if ( get_theme_mod( 'general_is_schema' ) ){
 		return true;	
 	};
 }
@@ -1208,31 +1208,31 @@ function is_schema_enabled( $blog_id = 0 ){
 function is_byline_enabled( $blog_id = 0 ){
     $blog_id = blog_switch();
 
-	if (get_theme_mod( 'general_is_byline' ) ){
+	if ( get_theme_mod( 'general_is_byline' ) ){
 		return true;	
 	};
 }
 
 function starchas3r_register(){
-	wp_register_style('main_style', get_template_directory_uri() . '/style.css');
-	wp_register_style('homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css');
-	wp_register_style('archive', get_template_directory_uri() . '/css/starchas3r_archive.css');
-	wp_register_style('article', get_template_directory_uri() . '/css/starchas3r_article.css');
-	wp_register_style('nav', get_template_directory_uri() . '/css/starchas3r_nav.css');
-	wp_register_script('mobile_nav', get_template_directory_uri() . '/js/mobileNav.js','','',true);
-	wp_register_script('single_page_fade_in', get_template_directory_uri() . '/js/singlePageFadeIn.js','','',true);
-	wp_register_script('page_effects', get_template_directory_uri() . '/js/pageEffects.js','','',true);
-	if (has_typekit()) {
-		wp_register_style('adobe_font', 'https://use.typekit.net/' . get_theme_mod( 'typekit_pid' ) . '.css');
+	wp_register_style( 'main_style', get_template_directory_uri() . '/style.css' );
+	wp_register_style( 'homepage', get_template_directory_uri() . '/css/starchas3r_homepage.css' );
+	wp_register_style( 'archive', get_template_directory_uri() . '/css/starchas3r_archive.css' );
+	wp_register_style( 'article', get_template_directory_uri() . '/css/starchas3r_article.css' );
+	wp_register_style( 'nav', get_template_directory_uri() . '/css/starchas3r_nav.css' );
+	wp_register_script( 'mobile_nav', get_template_directory_uri() . '/js/mobileNav.js','','',true );
+	wp_register_script( 'single_page_fade_in', get_template_directory_uri() . '/js/singlePageFadeIn.js','','',true );
+	wp_register_script( 'page_effects', get_template_directory_uri() . '/js/pageEffects.js','','',true );
+	if ( has_typekit() ) {
+		wp_register_style( 'adobe_font', 'https://use.typekit.net/' . get_theme_mod( 'typekit_pid' ) . '.css' );
 	};
-	if (has_google_fonts()){
-		wp_register_style('google_fonts', esc_url('https://fonts.googleapis.com/css?family=' . preg_replace('/(.*)(family=)(.*?)(&|")(.*)/', '$3', get_theme_mod( 'google_fonts_list' )) . '&display=swap'));
+	if ( has_google_fonts() ){
+		wp_register_style( 'google_fonts', esc_url( 'https://fonts.googleapis.com/css?family=' . preg_replace( '/( .* )( family= )( .*? )( &|" )( .* )/', '$3', get_theme_mod( 'google_fonts_list' ) ) . '&display=swap' ));
 	};
 }
 
 function starchas3r_custom_styles( $blog_id = 0 ){
     $blog_id = blog_switch();
-	wp_enqueue_style('main_style');
+	wp_enqueue_style( 'main_style' );
 	$css_array = array(
 		'heading'	=> array(
 			'selector'					=> 	'h1, h2, h3, h4, h5, h6',
@@ -1512,10 +1512,10 @@ function starchas3r_custom_styles( $blog_id = 0 ){
 			)
 	);
 	$custom_fonts = '';
-	$css_keys = array_keys($css_array);
+	$css_keys = array_keys( $css_array );
 
-	foreach($css_keys as $css_key){
-		if( in_array( $css_key, array( 'homepage_byline', 'article_title_byline' ) ) && ( !(get_theme_mod( 'general_is_byline' ) ) || is_author() ) ){
+	foreach( $css_keys as $css_key ){
+		if( in_array( $css_key, array( 'homepage_byline', 'article_title_byline' ) ) && ( !( get_theme_mod( 'general_is_byline' ) ) || is_author() ) ){
 
 		} else {
 			$current_array = $css_array[$css_key];
@@ -1539,22 +1539,22 @@ function starchas3r_custom_styles( $blog_id = 0 ){
 					'choices'		=>	get_transform_options()
 				)
 			);
-			foreach($meta_array as $field_name){
+			foreach( $meta_array as $field_name ){
 				$current_field_name = $field_name['name'];
 				$current_field_attr = $field_name['attr'];
 				$current_field_type = $field_name['type'];
 				$current_field_choices = $current_field_type == 'select' ? $field_name['choices'] : '';
 				$has_default_key = 'has_default_' . $current_field_name;
 				$default_key = 'default_' . $current_field_name;
-				if($current_array[$current_field_name]){
+				if( $current_array[$current_field_name] ){
 					$declaration_value = $field_name['type'] == 'select' ? $current_field_choices[$current_array[$current_field_name]] : $current_array[$current_field_name];
-					$current_declaration .= "\t" . $current_field_attr . ": " . drop_semicolon($declaration_value) . ";\n"; 
-				} elseif($current_array[$has_default_key]){
-					$current_declaration .= "\t" . $current_field_attr . ": " . drop_semicolon($current_array[$default_key]) . ";\n"; 
+					$current_declaration .= "\t" . $current_field_attr . ": " . drop_semicolon( $declaration_value ) . ";\n"; 
+				} elseif( $current_array[$has_default_key] ){
+					$current_declaration .= "\t" . $current_field_attr . ": " . drop_semicolon( $current_array[$default_key] ) . ";\n"; 
 				}
 			}
 
-			if(strlen($current_declaration) > 0){
+			if( strlen( $current_declaration ) > 0 ){
 				$custom_fonts .= $current_array['selector'] . " {\n" . $current_declaration . "}\n\n";
 			}
 
@@ -1565,22 +1565,22 @@ function starchas3r_custom_styles( $blog_id = 0 ){
 }
 
 function starchas3r_enqueue(){
-	wp_enqueue_style('nav');
-	wp_enqueue_script('mobile_nav');
-	wp_enqueue_script('page_effects');
-	if (is_single() || is_page()){
-		wp_enqueue_style('article');
-		wp_enqueue_script('single_page_fade_in');
+	wp_enqueue_style( 'nav' );
+	wp_enqueue_script( 'mobile_nav' );
+	wp_enqueue_script( 'page_effects' );
+	if ( is_single() || is_page() ){
+		wp_enqueue_style( 'article' );
+		wp_enqueue_script( 'single_page_fade_in' );
 	} elseif ( is_archive() ){
-		wp_enqueue_style('archive');}
+		wp_enqueue_style( 'archive' );}
 	else {
-		wp_enqueue_style('homepage');
+		wp_enqueue_style( 'homepage' );
 	}
-	if (has_typekit()){
-		wp_enqueue_style('adobe_font');
+	if ( has_typekit() ){
+		wp_enqueue_style( 'adobe_font' );
 	}
-	if (has_google_fonts()){
-		wp_enqueue_style('google_fonts');
+	if ( has_google_fonts() ){
+		wp_enqueue_style( 'google_fonts' );
 	}
 }
 
@@ -1589,8 +1589,8 @@ add_action( 'customize_register', 'general_options' );
 add_action( 'customize_register', 'custom_logo_svg' );
 add_action( 'customize_register', 'custom_fonts' );
 add_action( 'after_setup_theme', 'theme_support_setup' );
-add_action( 'wp_enqueue_scripts', 'starchas3r_register');
-add_action( 'wp_enqueue_scripts', 'starchas3r_enqueue');
-add_action( 'wp_enqueue_scripts', 'starchas3r_custom_styles');
+add_action( 'wp_enqueue_scripts', 'starchas3r_register' );
+add_action( 'wp_enqueue_scripts', 'starchas3r_enqueue' );
+add_action( 'wp_enqueue_scripts', 'starchas3r_custom_styles' );
 
 ?>

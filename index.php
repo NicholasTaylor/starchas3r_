@@ -19,7 +19,7 @@ if ( have_posts() ) :
         'mid_size'  => 1,
         'prev_text' => __( '&#9668; Newer', 'starchas3r_' ),
         'next_text' => __( 'Older &#9658;', 'starchas3r_' ),
-        'screen_reader_text' => __('Archives','starchas3r_')
+        'screen_reader_text' => __( 'Archives','starchas3r_' )
       ) 
     );
 else :

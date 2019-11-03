@@ -32,20 +32,20 @@
           	$social_media_count = count( $social_media_icons );
           	$sm_loc_array = get_sm_locs();
       		$sm_loc = strtolower( $sm_loc_array[get_theme_mod( 'social_media_location' )] );
-          	$toggle_nav_footer = ( has_nav_menu( 'footer' ) || ($social_media_count > 0 && $sm_loc == 'footer') ? true : false );
+          	$toggle_nav_footer = ( has_nav_menu( 'footer' ) || ( $social_media_count > 0 && $sm_loc == 'footer' ) ? true : false );
     ?>
   		<footer>
-			<?php if($toggle_nav_footer) : ?>
+			<?php if( $toggle_nav_footer ) : ?>
 			  <div id="container-nav-footer">
 			    <?php if( has_nav_menu( 'footer' ) ) : ?>
 			      <nav id="nav-items-footer">
-			        <?php wp_nav_menu($args_nav_footer);?>
+			        <?php wp_nav_menu( $args_nav_footer );?>
 			      </nav>
-			    <?php endif; ?>
-			    <?php if( $social_media_count > 0 && $sm_loc == 'footer' ) : ?>
+			    <?php endif; 
+			    if( $social_media_count > 0 && $sm_loc == 'footer' ) : ?>
 			      <nav id="nav-items-social">
 			        <ul>
-			          <?php foreach($social_media_icons as $social_icon){
+			          <?php foreach( $social_media_icons as $social_icon ){
 			            echo $social_icon;
 			          } ?>
 			        </ul>
@@ -55,7 +55,7 @@
 			<?php endif; ?>
 			<div id="copyright">
 				<p>
-					&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>
+					&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>
 				</p>
 			</div>
 		</footer>
