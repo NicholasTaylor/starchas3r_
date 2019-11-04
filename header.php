@@ -7,20 +7,18 @@
  * @package Starchas3r_
  * @since Starchas3r_ 1.0
  */
+$page_id = get_queried_object_id();
+$metaStructuredTitle = get_the_title( $page_id );
 ?>
 <!doctype html>
-<html <?php language_attributes( $doctype ) ?> <?php if( is_schema_enabled() ) : ?>itemscope <?php if ( is_single() ) : ?>itemtype="http://schema.org/Article"<?php else : ?>itemtype="http://schema.org/CreativeWork"<?php endif; ?><?php endif; ?>>
+<html <?php language_attributes( $doctype ) ?> <?php if( is_schema_enabled() ) : ?>itemscope <?php if ( is_single() ) : ?>itemtype="http://schema.org/Article"<?php else : ?>itemtype="http://schema.org/CreativeWork"<?php endif; endif; ?>>
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <?php $page_id = get_queried_object_id();
-        $metaStructuredTitle = get_the_title( $page_id );
-    ?>
     <?php if ( is_single () && is_schema_enabled() ) : ?>
         <meta itemprop="name" content="<?php echo $metaStructuredTitle; ?>"></meta>
     <?php endif; ?>
-
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -29,50 +27,10 @@
   <body <?php body_class(); ?> >
     <header>
       <!-- START Navs -->
-      <?php $sm_loc_array = get_sm_locs();
-      $sm_loc = strtolower( $sm_loc_array[get_theme_mod( 'social_media_location' )] );
-      $args_nav_primary = array(
-            'theme_location'  => 'primary',
-            'menu'            => '',
-            'container'       => '',
-            'container_class' => '',
-            'container_id'    => '',
-            'menu_class'      => '',
-            'menu_id'         => '',
-            'echo'            => true,
-            'fallback_cb'     => 'wp_page_menu',
-            'before'          => '',
-            'after'           => '',
-            'link_before'     => '',
-            'link_after'      => '',
-            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-            'depth'           => 0,
-            'walker'          => ''
-          );
-
-      $args_nav_header = array(
-            'theme_location'  => 'header',
-            'menu'            => '',
-            'container'       => '',
-            'container_class' => '',
-            'container_id'    => '',
-            'menu_class'      => '',
-            'menu_id'         => '',
-            'echo'            => true,
-            'fallback_cb'     => 'wp_page_menu',
-            'before'          => '',
-            'after'           => '',
-            'link_before'     => '',
-            'link_after'      => '',
-            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-            'depth'           => 0,
-            'walker'          => ''
-          );
-
-          $social_media_icons = retrieve_social_links();
+      <?php $social_media_icons = retrieve_social_links();
           $social_media_count = count( $social_media_icons );
-          $toggle_nav_primary = ( has_nav_menu( 'primary' ) || ( $social_media_count > 0 && $sm_loc == 'primary' ) ? true : false );
-          $toggle_nav_header = ( has_nav_menu( 'header' ) || ( $social_media_count > 0 && $sm_loc == 'header' ) ? true : false );
+          $toggle_nav_primary = ( has_nav_menu( 'primary' ) || ( $social_media_count > 0 && get_theme_mod( 'social_media_primary' ) ) ? true : false );
+          $toggle_nav_header = ( has_nav_menu( 'header' ) || ( $social_media_count > 0 && get_theme_mod( 'social_media_header' ) ) ? true : false );
 
           ?>
       <div id="container-nav">
@@ -110,10 +68,10 @@
           <div id="container-nav-header">
             <?php if( has_nav_menu( 'header' ) ) : ?>
               <nav id="nav-items-header">
-                <?php wp_nav_menu( $args_nav_header );?>
+                <?php wp_nav_menu( get_args_nav( 'header' ) );?>
               </nav>
-            <?php endif; ?>
-            <?php if( $social_media_count > 0 && $sm_loc == 'header' ) : ?>
+            <?php endif; 
+            if( $social_media_count > 0 && get_theme_mod( 'social_media_header' ) ) : ?>
               <nav id="nav-items-social">
                 <ul>
                   <?php foreach( $social_media_icons as $social_icon ){
@@ -123,15 +81,15 @@
               </nav>
             <?php endif; ?>
           </div>
-        <?php endif; ?>
-        <?php if( $toggle_nav_primary ) : ?>
+        <?php endif; 
+        if( $toggle_nav_primary ) : ?>
           <div id="container-nav-primary">
             <?php if( has_nav_menu( 'primary' ) ) : ?>
               <nav id="nav-items-primary">
-                <?php wp_nav_menu( $args_nav_primary );?>
+                <?php wp_nav_menu( get_args_nav( 'primary' ) );?>
               </nav>
-            <?php endif; ?>
-            <?php if( $social_media_count > 0 && $sm_loc == 'primary' ) : ?>
+            <?php endif; 
+            if( $social_media_count > 0 && get_theme_mod( 'social_media_primary' ) ) : ?>
               <nav id="nav-items-social">
                 <ul>
                   <?php foreach( $social_media_icons as $social_icon ){

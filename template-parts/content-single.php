@@ -11,8 +11,8 @@ $misc_data_open_tag = ( is_byline_enabled() ) ? '<h3 class="data-point">' : '<h2
 $misc_data_close_tag = ( is_byline_enabled() ) ? '</h3>' : '</h2>';
 ?>    
     <article id="post-<?php the_ID(); ?>">
-      <?php if( has_post_thumbnail() ) : ?>
-        <?php $articleIntroBgRaw = wp_get_attachment_image_src( get_post_thumbnail_id(  ), 'full' );
+      <?php if( has_post_thumbnail() ) : 
+        $articleIntroBgRaw = wp_get_attachment_image_src( get_post_thumbnail_id(  ), 'full' );
         $articleIntroBg = $articleIntroBgRaw[0]; ?>
         <div id="article-title" style="background-image: url( '<?php echo $articleIntroBg; ?>' );">
       <?php else : ?>
