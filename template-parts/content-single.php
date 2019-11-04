@@ -108,14 +108,14 @@ $misc_data_close_tag = ( is_byline_enabled() ) ? '</h3>' : '</h2>';
           <?php
             wp_link_pages(
               array(
-                'before'           => '',
+                'before'           => '<h1>' . get_the_title() . '</h1>',
                 'after'            => '',
-                'link_before'      => '<h3>',
-                'link_after'       => '</h3>',
+                'link_before'      => '<li>',
+                'link_after'       => '</li>',
                 'next_or_number'   => 'next',
                 'separator'        => ' ',
-                'nextpagelink'     => __( 'Next Page' ),
-                'previouspagelink' => __( 'Previous Page' ),
+                'nextpagelink'     => __( 'Next Page &#9658;' ),
+                'previouspagelink' => __( '&#9668; Previous Page' ),
                 'pagelink'         => '%',
               )
             );

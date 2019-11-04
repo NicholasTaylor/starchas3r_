@@ -36,7 +36,6 @@ h3,
 h4, 
 h5, 
 h6 {
-	font-weight: 200;
 	line-height: 1;
 	margin: 0;
 	padding: 0;
@@ -79,6 +78,10 @@ p {
 #container {
 	overflow-x: hidden;
 }
+
+.commentlist {
+	list-style-type: none;
+}
 /* END General Elements */
 
 /* START Admin Bar Overrides */
@@ -102,7 +105,7 @@ code {
 @media (max-width: 320px),
 (max-height: 320px){
 	.pagination h2 {
-	    .size: 2rem;
+	    font-size: 2rem;
 	}
 	
 	.nav-links a, 

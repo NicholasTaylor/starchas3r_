@@ -16,6 +16,7 @@ $link_open_tag = '<a href="' . esc_url( get_permalink() ) . '">';
 $link_close_tag = '</a>';
 $misc_data_open_tag = ( is_byline_enabled() && !( is_author() )) ? '<h3 class="data-point">' : '<h2 class="data-point">';
 $misc_data_close_tag = ( is_byline_enabled() && !( is_author() )) ? '</h3>' : '</h2>';
+$is_last_post = ( ( ( $wp_query->current_post + 1 ) >= ( $wp_query->post_count ) ) ? true : false) ;
 ?>
     <section id="post-<?php echo $current_post_num; ?>" class="article article-<?php echo $article_type; ?>" style=<?php echo $background_style; ?>>
       <div class="bg-screen">
@@ -69,4 +70,16 @@ $misc_data_close_tag = ( is_byline_enabled() && !( is_author() )) ? '</h3>' : '<
           </div>
         <?php endif; ?>
       </div>
+      <?php if ( ( is_home() || is_front_page() ) && ($is_last_post) ) :
+        the_posts_pagination( 
+          array(
+            'mid_size'  => 1,
+            'prev_text' => __( '&#9668; Newer', 'starchas3r_' ),
+            'next_text' => __( 'Older &#9658;', 'starchas3r_' ),
+            'screen_reader_text' => __( 'Archives','starchas3r_' )
+          ) 
+        );
+        get_template_part( 'template-parts/content', 'footer' );
+      endif;
+      ?>
     </section>

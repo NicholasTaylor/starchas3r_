@@ -38,7 +38,7 @@ TABLE OF CONTENTS
     left: 0;
 }
 
-.pagination {
+.pagination, footer {
 	position: relative;
 	z-index: 110;
 }
@@ -49,8 +49,8 @@ TABLE OF CONTENTS
     width: 90vw;
     position: relative;
     z-index: 110;
-    padding-top: 10vh;
-    margin: 0 auto;
+    margin: 45vh auto 0 auto;
+    transform: translateY(-50%);
 }
 
 #header-category p {
@@ -230,7 +230,7 @@ TABLE OF CONTENTS
 	#container-section-list section, 
 	#container-section-list section .bg-screen {
 	    height: 25vh;
-	    min-height: 260px;
+	    min-height: 400px;
 	}
 
 	#container-section-list section .article-content {
@@ -272,7 +272,7 @@ TABLE OF CONTENTS
 	#container-section-list section, 
 	#container-section-list section .bg-screen {
 	    height: 50vh;
-	    min-height: 430px;
+	    min-height: 500px;
 	}
 
 	#container-section-list section .article-content {

@@ -1093,6 +1093,17 @@ function custom_fonts( $wp_customize ) {
 		'settings'		=> 'stack_article_blockquote',
 		'type'			=> 'text'
 	) );
+	$wp_customize->add_setting( 'stack_article_pagination_headline', array(
+		'default'		=> '',
+		'type'			=> 'theme_mod',
+		'capability'	=> 'edit_theme_options'
+	) );
+	$wp_customize->add_control( 'stack_article_pagination_headline_entry',array(
+		'label'			=> 'Article Pagination Fonts',
+		'section'		=> 'starchas3r_fonts',
+		'settings'		=> 'stack_article_pagination_headline',
+		'type'			=> 'text'
+	) );
 	$wp_customize->add_setting( 'stack_article_pagination', array(
 		'default'		=> '',
 		'type'			=> 'theme_mod',
@@ -1580,8 +1591,15 @@ function starchas3r_custom_styles(){
 			'has_default_weight'		=>	false,
 			'has_default_transform'		=>	false
 			),
+		'article_pagination_headline'	=> array(
+			'selector'					=>	'.wrapper-pagination h1',
+			'font_stack'				=>	get_theme_mod( 'stack_article_pagination_headline' ),
+			'has_default_font_stack'	=>	false,
+			'has_default_weight'		=>	false,
+			'has_default_transform'		=>	false
+			),
 		'article_pagination'	=> array(
-			'selector'					=>	'.post-page-numbers h3',
+			'selector'					=>	'.wrapper-pagination li',
 			'font_stack'				=>	get_theme_mod( 'stack_article_pagination' ),
 			'has_default_font_stack'	=>	false,
 			'has_default_weight'		=>	false,

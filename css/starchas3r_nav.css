@@ -40,7 +40,6 @@ nav ul {
 }
 
 nav ul li {
-	font-weight: 600;
 	line-height: 1;
 	margin: 0;
 	padding: 0;
@@ -68,7 +67,6 @@ nav ul li {
 	margin: 0;
 	line-height: 1;
 	font-size: 1.5rem;
-	font-weight: 700;
 }
 
 #container-nav-main-divs div {
@@ -176,8 +174,7 @@ nav ul li {
 /* END Social Nav */
 
 /* START Multiple Nav */
-#nav-items-footer ul li,
-#nav-items-header ul li {
+nav ul li {
     font-size: 1.25rem;
 }
 
@@ -194,8 +191,7 @@ nav ul li {
 	    margin: 0.75em;
 	}
 
-	#nav-items-footer ul li,
-	#nav-items-header ul li {
+	nav ul li {
 	    font-size: 1rem;
 	}
 }
@@ -220,7 +216,7 @@ nav ul li {
 /* START Tablet */
 @media (min-width: 768px){
 	#container-nav-primary {
-	    width: 30vw;
+	    width: 60vw;
 	}
 
 	#container-nav-footer {
@@ -239,11 +235,19 @@ nav ul li {
     	transform: translateY(-50%);
 		width: 1.5rem;
 	}
+
+	nav ul li {
+    	font-size: 1.5rem
+	}
 }
 /* END Tablet */
 
 /* START Desktop */
 @media (min-width: 1200px){
+	#container-nav-primary {
+	    width: 40vw;
+	}
+
 	#logo h1 {
 		font-size: 3rem;
 	}
@@ -258,6 +262,10 @@ nav ul li {
 
 	#nav-icon img {
 		width: 2rem;
+	}
+
+	nav ul li {
+		font-size: 1.5rem;
 	}
 }
 /* END Desktop */

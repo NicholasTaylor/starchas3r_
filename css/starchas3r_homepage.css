@@ -82,6 +82,11 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	font-size: 1.75rem;
 }
 
+.article p, 
+.article h3 {
+	font-size: 1rem;
+}
+
 .data-point {
     display: inline-block;
     margin-right: 0.5em;
@@ -118,6 +123,27 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 .article:nth-child(2) h3, 
 .article:nth-child(3) h3 { 
 	font-size: 1.25rem;
+}
+
+.article:last-child .article-content, .pagination, footer {
+    z-index: 99;
+    position: relative;
+}
+
+.article:last-child {
+    height: 100%;
+    padding: 6em 0 3em 0;
+}
+
+.article:last-child .bg-screen {
+    height: 100%;
+    top: 0;
+}
+
+.article:last-child .article-content {
+    margin-bottom: 6em;
+    top: auto;
+    transform: none;
 }
 
 /* END Primary Articles */

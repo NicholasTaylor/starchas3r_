@@ -116,6 +116,10 @@ blockquote {
     z-index: 100;
 }
 
+#title-content h1 {
+    font-size: 3rem;
+}
+
 #title-content h2 {
     letter-spacing: 0;
     font-size: 1.75rem;
@@ -148,7 +152,12 @@ blockquote {
 }
 
 #article-body p,
-#article-body li {
+#article-body li,
+.comment-author,
+.comment-content p,
+.reply .comment-reply-link,
+#commentform p,
+#commentform p.comment-form-comment {
     font-size: 1.25rem;
 }
 
@@ -162,12 +171,13 @@ blockquote {
 	padding: 0;
 }
 
-.content-body-tag h2 {
+.content-body-tag h2,
+#article-body p.wp-caption-text,
+code {
     font-size: 1rem;
 }
 
 #article-body p.wp-caption-text {
-    font-size: 1rem;
     margin: 0 0 1em 0;
 }
 
@@ -202,9 +212,18 @@ textarea {
 	margin: 3em 0;
 }
 
-.post-page-numbers h3 {
+.wrapper-pagination h1,
+#comments,
+h3#reply-title {
+    font-size: 2rem;
+}
+
+.wrapper-pagination li {
     display: inline-block;
-    margin: 0 1em 0 0;
+    font-size: 1.25rem;
+    border: 1px solid #fff;
+    padding: 0.25em 0.5em;
+    margin: 1em 0 0 0;
 }
 /* END Comments and Pagination */
 /* END Mobile */
@@ -234,14 +253,30 @@ textarea {
 	h6 {
 	    font-size: 1.25rem;
 	}
+
+	#title-content h1 {
+	    font-size: 2.5rem;
+	}
+
 	#title-content h2 {
 		font-size: 1.25rem;
 	}
 
 	#title-content p,
 	#article-body p,
-	#article-body li {
+	#article-body li,
+	.comment-author,
+	.comment-content p,
+	.reply .comment-reply-link,
+	#commentform p,
+	#commentform p.comment-form-comment {
 	    font-size: 1rem;
+	}
+
+	.content-body-tag h2,
+	#article-body p.wp-caption-text,
+	code {
+	    font-size: 0.75rem;
 	}
 }
 /* END Micro Mobile */
@@ -267,13 +302,8 @@ textarea {
 	    width: 70vw;
 	}
 
-	.single img, .wp-caption{
-		max-width: 75vw;
-		height: auto;
-	}
-
 	h1 {
-	    2size: 4rem;
+	    font-size: 4rem;
 	}
 
 	h2 {
@@ -296,6 +326,10 @@ textarea {
 	    font-size: 2rem;
 	}
 
+	#title-content h1 {
+	    font-size: 4rem;
+	}
+
 	#title-content h2 {
 	    font-size: 2.5rem;
 	}
@@ -303,8 +337,19 @@ textarea {
 	#article-body p,
 	#article-body li,
 	#title-content p,
-	#title-content h3 {
+	#title-content h3,
+	.comment-author,
+	.comment-content p,
+	.reply .comment-reply-link,
+	#commentform p,
+	#commentform p.comment-form-comment {
 	    font-size: 1.5rem;
+	}
+
+	.content-body-tag h2,
+	#article-body p.wp-caption-text,
+	code {
+	    font-size: 1.25rem;
 	}
 
 	blockquote {
@@ -349,6 +394,10 @@ textarea {
 	    font-size: 2.5rem;
 	}
 
+	#title-content h1 {
+	    font-size: 6rem;
+	}
+
 	#title-content h2 {
 	    font-size: 3rem;
 	}
@@ -358,8 +407,24 @@ textarea {
 	    font-size: 2rem;
 	}
 
+	#article-body p,
+	#article-body li,
+	.comment-author,
+	.comment-content p,
+	.reply .comment-reply-link,
+	#commentform p,
+	#commentform p.comment-form-comment {
+	    font-size: 1.5rem;
+	}
+
+	.content-body-tag h2,
+	#article-body p.wp-caption-text,
+	code {
+	    font-size: 1.25rem;
+	}
+
 	blockquote {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 	}
 }
 /* END Desktop */
