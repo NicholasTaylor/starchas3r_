@@ -30,6 +30,12 @@ body {
 	left: 0;
 }
 
+header {
+	width: 100vw;
+	z-index: 200;
+	position: fixed;
+}
+
 nav ul {
 	padding: 0;
 	margin: 0;
@@ -49,17 +55,20 @@ nav ul li {
 
 /* START Container Nav and Main Divs */
 #container-nav {
-    position: fixed;
-    width: 94vw;
-    padding: 2vh 0 2vh 6vw;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
     top: 0;
+    line-height: 1;
+    padding: 2vh 6vw;
     z-index: 200;
     transition: 0.5s ease-in;
 }
 
-#container-nav-main-divs,
-#container-nav-main-divs div {
-	display: inline-block;
+#container-nav-main-divs {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 #logo h1 {
@@ -72,18 +81,23 @@ nav ul li {
 #container-nav-main-divs div {
     height: 1.5rem;
     vertical-align: top;
+    display: inline-block;
 }
 
 #nav-icon {
-	margin-right: 0.5em;
+	margin: auto 1em auto 0;
+}
+
+#logo {
+	margin: auto 0;
 }
 
 #nav-icon img {
+    height: auto;
+    width: 1rem;
     position: relative;
-    top: 50%;
-    transform: translateY(-80%);
-	height: auto;
-	width: 1rem;
+    top: 45%;
+    transform: translateY(-50%);
 }
 /* END Container Navs and Main Divs */
 
@@ -113,24 +127,28 @@ nav ul li {
 
 /* START Header Nav */
 #container-nav-header {
-    float: right;
-    position: relative;
-    right: 6vw;
-}
-
-#container-nav-header ul li {
-    display: inline-block;
-    margin: 0 1em 0.5em 0;
-}
-
-#container-nav-header ul li:last-child {
-    margin-right: 0;
+    margin: auto 0 auto auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #container-nav-header nav {
     display: inline-block;
-    margin: 0.5em 0 0 1em;
-    vertical-align: middle;
+    margin: auto 1em auto 0;
+}
+
+#container-nav-header nav:last-child {
+    margin: auto 0;
+}
+
+#container-nav-header ul li {
+    display: inline-block;
+    margin: 0.25em 1em 0.25em 0;
+}
+
+#container-nav-header ul li:last-child {
+    margin: 0.25em 0;
 }
 /* END Header Nav */
 
@@ -164,7 +182,7 @@ nav ul li {
 /* START Social Nav */
 #nav-items-social ul li img {
 	height: auto;
-	width: 2rem;
+	width: 1.5rem;
 }
 
 #container-nav-primary #nav-items-social ul li,
@@ -175,7 +193,7 @@ nav ul li {
 
 /* START Multiple Nav */
 nav ul li {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 #container-nav-footer ul,
@@ -194,16 +212,12 @@ nav ul li {
 	nav ul li {
 	    font-size: 1rem;
 	}
-}
-/* END Micro Mobile */
 
-/* START Mobile Landscape */
-@media (max-height: 420px){
-	#nav-items-social ul li img {
-	    width: 2.5rem;
+	#nav-icon img {
+	    top: 40%;
 	}
 }
-/* END Mobile Landscape */
+/* END Micro Mobile */
 
 /* START Mobile Landscape + Tablet + Desktop */
 @media (min-width: 421px){
@@ -232,13 +246,18 @@ nav ul li {
 	}
 
 	#nav-icon img {
-    	transform: translateY(-50%);
 		width: 1.5rem;
+		top: 50%;
 	}
 
 	nav ul li {
     	font-size: 1.5rem
 	}
+
+	#nav-items-social ul li img {
+		width: 2rem;
+	}
+
 }
 /* END Tablet */
 
