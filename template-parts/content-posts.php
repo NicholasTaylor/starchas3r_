@@ -21,7 +21,7 @@ $is_last_post = ( ( ( $wp_query->current_post + 1 ) >= ( $wp_query->post_count )
     <section id="post-<?php echo $current_post_num; ?>" class="article article-<?php echo $article_type; ?>" style=<?php echo $background_style; ?>>
       <div class="bg-screen">
       </div>
-      <div class="article-content">
+      <div class="article-content <?php echo starchas3r_retrieve_title_align( get_the_ID() ); ?>">
         <?php the_title( '<h1>' . $link_open_tag,'</h1>' . $link_close_tag ); ?>
         <div class="article-data">
           <?php if ( is_byline_enabled() && !( is_author() ) && is_schema_enabled() ) : ?>

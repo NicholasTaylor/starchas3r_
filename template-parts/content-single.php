@@ -20,7 +20,7 @@ $misc_data_close_tag = ( is_byline_enabled() ) ? '</h3>' : '</h2>';
       <?php endif; ?>
         <div id="bg-screen">
         </div>
-        <div id="title-content">
+        <div id="title-content" class="<?php echo starchas3r_retrieve_title_align( get_the_ID() ); ?>">
           <?php $pre_title = is_schema_enabled() ? '<h1 itemprop="headline">' : '<h1>';
           the_title( $pre_title,'</h1>' ); ?>
           <div id="title-data">

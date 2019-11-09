@@ -1585,7 +1585,7 @@ function starchas3r_custom_styles(){
 			'has_default_transform'		=>	false
 			),
 		'article_blockquote'	=> array(
-			'selector'					=>	'blockquote ',
+			'selector'					=>	'blockquote',
 			'font_stack'				=>	get_theme_mod( 'stack_article_blockquote' ),
 			'has_default_font_stack'	=>	false,
 			'has_default_weight'		=>	false,
@@ -1729,6 +1729,86 @@ function starchas3r_custom_styles(){
 	wp_add_inline_style( 'main_style' , $custom_fonts );
 }
 
+function starchas3r_title_control_html($post){
+	?>
+	<label for="starchas3r_title_align">Post Title Alignment</label>
+	<select name="starchas3r_title_align" id="starchas3r_title_align" class="postbox">
+		<option value="">Default</option>
+		<option value="default-left" <?php selected($value, 'default-left'); ?>>Default Left</option>
+		<option value="default-center" <?php selected($value, 'default-center'); ?>>Default Center</option>
+		<option value="default-right" <?php selected($value, 'default-right'); ?>>Default Right</option>
+		<option value="upper-left" <?php selected($value, 'upper-left'); ?>>Upper Left</option>
+		<option value="upper-center" <?php selected($value, 'upper-center'); ?>>Upper Center</option>
+		<option value="upper-right" <?php selected($value, 'upper-right'); ?>>Upper Right</option>
+		<option value="middle-left" <?php selected($value, 'middle-left'); ?>>Middle Left</option>
+		<option value="middle-center" <?php selected($value, 'middle-center'); ?>>Middle Center</option>
+		<option value="middle-right" <?php selected($value, 'middle-right'); ?>>Middle Right</option>
+		<option value="lower-left" <?php selected($value, 'lower-left'); ?>>Lower Left</option>
+		<option value="lower-center" <?php selected($value, 'lower-center'); ?>>Lower Center</option>
+		<option value="lower-right" <?php selected($value, 'lower-right'); ?>>Lower Right</option>
+	</select>
+	<?php
+}
+
+function starchas3r_add_title_control_box(){
+	$screens = [ 'post', 'page' ];
+	foreach ( $screens as $screen ){
+		add_meta_box(
+			'starchas3r_title_control',
+			'Post Title Options',
+			'starchas3r_title_control_html',
+			$screen
+		);
+	}
+}
+
+add_action( 'add_meta_boxes', 'starchas3r_add_title_control_box' );
+
+function starchas3r_save_postdata( $post_id ){
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+	elseif ( isset( $_POST[ 'starchas3r_title_align' ] ) ){
+		update_post_meta(
+			$post_id,
+			'starchas3r_title_align',
+			$_POST['starchas3r_title_align']
+		);
+	}
+}
+
+add_action( 'save_post', 'starchas3r_save_postdata' );
+
+function starchas3r_retrieve_title_align( $post_id ){
+	$title_align_value = get_post_meta( $post_id, 'starchas3r_title_align' ) ? get_post_meta( $post_id, 'starchas3r_title_align' )[0] : false;
+	$title_default_array = array(
+		'default-left',
+		'default-center',
+		'default-right'
+	);
+	$title_align_array = array(
+		'default-left'		=>		'title-align-default title-align-special-left',
+		'default-center'	=>		'title-align-default title-align-special-center',
+		'default-right'		=>		'title-align-default title-align-special-right',
+		'upper-left'		=>		'title-align-upper title-align-left',
+		'upper-center'		=>		'title-align-upper title-align-center',
+		'upper-right'		=>		'title-align-upper title-align-right',
+		'middle-left'		=>		'title-align-middle title-align-left',
+		'middle-center'		=>		'title-align-true-middle',
+		'middle-right'		=>		'title-align-middle title-align-right',
+		'lower-left'		=>		'title-align-lower title-align-left',
+		'lower-center'		=>		'title-align-lower title-align-center',
+		'lower-right'		=>		'title-align-lower title-align-right'
+	);
+	if ( $title_align_value && strlen( $title_align_value ) > 0 && in_array( $title_align_value, array_keys( $title_align_array ) ) && !( in_array( $title_align_value, $title_default_array ) ) ){
+		return $title_align_array[$title_align_value] . ' title-align-non-default';
+	} elseif ( $title_align_value && strlen( $title_align_value ) > 0 && in_array( $title_align_value, array_keys( $title_align_array ) ) ){
+		return $title_align_array[$title_align_value];
+	} else {
+		return 'title-align-default';
+	}
+}
+
 function starchas3r_enqueue(){
 	wp_enqueue_style( 'nav' );
 	wp_enqueue_script( 'mobile_nav' );
@@ -1757,5 +1837,6 @@ add_action( 'after_setup_theme', 'theme_support_setup' );
 add_action( 'wp_enqueue_scripts', 'starchas3r_register' );
 add_action( 'wp_enqueue_scripts', 'starchas3r_enqueue' );
 add_action( 'wp_enqueue_scripts', 'starchas3r_custom_styles' );
+
 
 ?>

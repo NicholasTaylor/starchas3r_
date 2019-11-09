@@ -63,6 +63,8 @@ nav ul li {
     padding: 2vh 6vw;
     z-index: 200;
     transition: 0.5s ease-in;
+    position: fixed;
+    width: 88vw;
 }
 
 #container-nav-main-divs {

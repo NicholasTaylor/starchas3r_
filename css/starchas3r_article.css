@@ -107,20 +107,27 @@ blockquote {
 }
 
 #title-content {
-    width: 90vw;
-    text-align: left;
-    position: absolute;
-    left: 50vw;
-    transform: translateX(-50%);
-    bottom: 6vh;
     z-index: 100;
+    height: fit-content;
 }
 
-#title-content h1 {
+.title-align-default,
+.title-align-non-default {
+	width: 90vw;
+	position: absolute;
+    left: 50vw;
+    transform: translateX(-50%);
+    text-align: left;
+    bottom: 6vh;
+}
+
+.title-align-default h1,
+.title-align-non-default h1 {
     font-size: 3rem;
 }
 
-#title-content h2 {
+.title-align-default h2,
+.title-align-non-default h2 {
     letter-spacing: 0;
     font-size: 1.75rem;
 }
@@ -130,8 +137,10 @@ blockquote {
     margin-right: 0.5em;
 }
 
-#title-content p, 
-#title-content h3 {
+.title-align-default p,
+.title-align-default h3,
+.title-align-non-default p,
+.title-align-non-default h3 {
     font-size: 1.25rem;
 }
 /* END Article Title Area */
@@ -326,18 +335,16 @@ h3#reply-title {
 	    font-size: 2rem;
 	}
 
-	#title-content h1 {
+	.title-align-default h1 {
 	    font-size: 4rem;
 	}
 
-	#title-content h2 {
+	.title-align-default h2 {
 	    font-size: 2.5rem;
 	}
 
-	#article-body p,
-	#article-body li,
-	#title-content p,
-	#title-content h3,
+	.title-align-default p,
+	.title-align-default li,
 	.comment-author,
 	.comment-content p,
 	.reply .comment-reply-link,
@@ -354,6 +361,72 @@ h3#reply-title {
 
 	blockquote {
 		font-size: 1.25rem;
+	}
+
+	.title-align-non-default {
+		width: 40vw;
+		text-align: center;
+		transform: initial;
+	}
+
+	.title-align-non-default h1 {
+	    font-size: 3rem;
+	}
+
+	.title-align-non-default h2 {
+	    font-size: 2rem;
+	}
+
+	.title-align-non-default p,
+	.title-align-non-default li,
+	.title-align-non-default p,
+	.title-align-non-default h3 {
+	    font-size: 1rem;
+	}
+
+	.title-align-left {
+		left: 6vw;
+	}
+
+	.title-align-center {
+		left: 50vw;
+		transform: translateX(-50%);
+	}
+
+	.title-align-right {
+		right: 6vw;
+		left: auto;
+	}
+
+	.title-align-upper {
+		top: 16vh;
+	}
+
+	.title-align-middle {
+		top: 50vh;
+		transform: translateY(-50%);
+	}
+
+	.title-align-true-middle {
+		top: 50vh;
+		left: 50vw;
+		transform: translate(-50%,-50%);
+	}
+
+	.title-align-lower {
+		bottom: 6vh;
+	}
+
+	.title-align-special-left {
+		text-align: left;
+	}
+
+	.title-align-special-center {
+		text-align: center;
+	}
+
+	.title-align-special-right {
+		text-align: right;
 	}
 }
 /* END Tablet */
@@ -394,17 +467,36 @@ h3#reply-title {
 	    font-size: 2.5rem;
 	}
 
-	#title-content h1 {
+
+	.title-align-default h1 {
 	    font-size: 6rem;
 	}
 
-	#title-content h2 {
+	.title-align-default h2 {
 	    font-size: 3rem;
 	}
 
-	#title-content h3,
-	#title-content p {
+	.title-align-default p,
+	.title-align-default h3 {
 	    font-size: 2rem;
+	}
+
+	.title-align-non-default {
+		width: 50vw;
+	}
+
+
+	.title-align-non-default h1 {
+	    font-size: 4rem;
+	}
+
+	.title-align-non-default h2 {
+	    font-size: 3rem;
+	}
+
+	.title-align-non-default p,
+	.title-align-non-default h3 {
+	    font-size: 1.5rem;
 	}
 
 	#article-body p,
