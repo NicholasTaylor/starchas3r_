@@ -117,7 +117,7 @@ code {
 /* END Micro Mobile */
 
 /* START Tablet */
-@media (min-width: 768px){
+@media (min-width: 768px) and (min-height: 421px){
 	.pagination h2 {
 	    font-size: 3.5rem;
 	}
@@ -131,7 +131,7 @@ code {
 /* END Tablet */
 
 /* START Desktop */
-@media (min-width: 1200px){
+@media (min-width: 1200px) and (min-height: 421px){
 	.pagination h2 {
 	    font-size: 4rem;
 	}

@@ -20,6 +20,7 @@ const fadeInText = function(){
 
 const fullFade = async function(){
 	await fadeInitial();
+	bg.style.transition = '0s';
 	setTimeout(function(){
 		fadeInText();
 	},250);

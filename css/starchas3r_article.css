@@ -300,7 +300,7 @@ h3#reply-title {
 /* END Mobile Landscape */
 
 /* START Tablet */
-@media (min-width: 768px){
+@media (min-width: 768px) and (min-height: 421px){
 	#article-body, 
 	#respond,
 	#comments,
@@ -432,7 +432,7 @@ h3#reply-title {
 /* END Tablet */
 
 /* START Desktop */
-@media (min-width: 1200px){
+@media (min-width: 1200px) and (min-height: 421px){
 	#article-body, 
 	#respond,
 	#comments,

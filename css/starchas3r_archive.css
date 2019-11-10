@@ -202,7 +202,7 @@ TABLE OF CONTENTS
 /* END Mobile Landscape */
 
 /* START Tablet */
-@media (min-width: 768px){
+@media (min-width: 768px) and (min-height: 421px){
 	#header-category h1, #container-section-list section:first-child .article-content h1:before {
 		font-size: 4rem;
 	}
@@ -245,7 +245,7 @@ TABLE OF CONTENTS
 /* END Tablet */
 
 /* START Desktop */
-@media (min-width: 1200px){
+@media (min-width: 1200px) and (min-height: 421px){
 	#header-category {
 		padding-top: 16vh;
 	}

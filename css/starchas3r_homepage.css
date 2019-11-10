@@ -208,7 +208,7 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 /* END Micro Mobile */
 /* START Tablet */
 
-@media (min-width: 768px){
+@media (min-width: 768px) and (min-height: 421px){
 
 	/* START General */
 	.article p, 
@@ -275,7 +275,7 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 /* END Tablet */
 /* START Desktop */
 
-@media (min-width: 1200px){
+@media (min-width: 1200px) and (min-height: 421px){
 	/* START Secondary Article */
 	.article h1 {
 	    font-size: 6rem;
