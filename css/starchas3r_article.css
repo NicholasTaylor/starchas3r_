@@ -79,7 +79,6 @@ blockquote {
 #article-title #bg-screen {
     width: 100vw;
     height: 100vh;
-    min-height: 420px;
 }
 
 #article-title {
@@ -263,15 +262,20 @@ h3#reply-title {
 	    font-size: 1.25rem;
 	}
 
-	#title-content h1 {
+	.title-align-default h1,
+	.title-align-non-default h1 {
 	    font-size: 2.5rem;
 	}
 
-	#title-content h2 {
+	.title-align-default h2,
+	.title-align-non-default h2 {
 		font-size: 1.25rem;
 	}
 
-	#title-content p,
+	.title-align-default p,
+	.title-align-non-default p,
+	.title-align-default h3,
+	.title-align-non-default h3,
 	#article-body p,
 	#article-body li,
 	.comment-author,
@@ -289,15 +293,6 @@ h3#reply-title {
 	}
 }
 /* END Micro Mobile */
-
-/* START Mobile Landscape */
-@media (max-height: 420px){
-
-	#title-content h1 {
-		font-size: 3.5rem;
-	}
-}
-/* END Mobile Landscape */
 
 /* START Tablet */
 @media (min-width: 768px) and (min-height: 421px){

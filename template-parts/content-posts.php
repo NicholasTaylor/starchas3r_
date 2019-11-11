@@ -22,24 +22,24 @@ $is_last_post = ( ( ( $wp_query->current_post + 1 ) >= ( $wp_query->post_count )
       <div class="bg-screen">
       </div>
       <div class="article-content <?php echo starchas3r_retrieve_title_align( get_the_ID() ); ?>">
-        <?php the_title( '<h1>' . $link_open_tag,'</h1>' . $link_close_tag ); ?>
+        <?php echo '<h1>' . $link_open_tag . elim_widow( get_the_title(), $current_post_num ) . $link_close_tag . '</h1>'; ?>
         <div class="article-data">
           <?php if ( is_byline_enabled() && !( is_author() ) && is_schema_enabled() ) : ?>
             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
               <h2 itemprop="author">
-                <?php echo get_the_author(); ?>
+                <?php echo elim_widow( get_the_author(), $current_post_num ); ?>
               </h2>
             </a>
           <?php elseif ( is_byline_enabled() && !( is_author() ) ) : ?>
             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
               <h2>
-                <?php echo get_the_author(); ?>
+                <?php echo elim_widow( get_the_author(), $current_post_num ); ?>
               </h2>
             </a>
           <?php endif;
           echo $misc_data_open_tag; ?>
             <a href="<?php echo esc_url( get_permalink() ); ?>">
-              <?php echo get_the_date( 'Y.m.d H:i' ); ?>
+              <?php echo elim_widow( get_the_date( 'Y.m.d H:i' ), $current_post_num ); ?>
             </a>
           <?php echo $misc_data_close_tag;
           if ( has_category () && !( is_category() ) ) :
@@ -49,7 +49,7 @@ $is_last_post = ( ( ( $wp_query->current_post + 1 ) >= ( $wp_query->post_count )
             $categoryURL = esc_url( get_category_link( $categoryFirst->term_id ));
               if ( categoryName != '' ) : ?>
               <a href="<?php echo $categoryURL; ?>" title="<?php echo $categoryName; ?>">
-                <?php echo $misc_data_open_tag . $categoryName . $misc_data_close_tag; ?>
+                <?php echo $misc_data_open_tag . elim_widow( $categoryName, $current_post_num ) . $misc_data_close_tag; ?>
               </a>
             <?php endif;
           endif;
@@ -57,14 +57,14 @@ $is_last_post = ( ( ( $wp_query->current_post + 1 ) >= ( $wp_query->post_count )
           $current_content = $post->post_content;
               $read_time_secs = ( str_word_count( strip_tags( do_shortcode( $current_content )) ) * ( 6/25 ));
             $read_time = ( $read_time_secs < 60 ? '&lt; 1 min.' : ( $read_time_secs < 3600 ? round( ($read_time_secs / 60 ),0 ) . ' min.' : round( ($read_time_secs / 3600 ),0 ) . ' hr.' ));
-            echo $read_time;
+            echo elim_widow( $read_time, $current_post_num );
           echo $misc_data_close_tag; ?>
         </div>
         <?php if ( has_excerpt () ) : ?>
           <div class="excerpt">
             <a href="<?php echo esc_url( get_permalink() ); ?>">
               <p>
-                <?php echo get_the_excerpt(); ?>
+                <?php echo elim_widow( get_the_excerpt(), $current_post_num ); ?>
               </p>
             </a>
           </div>

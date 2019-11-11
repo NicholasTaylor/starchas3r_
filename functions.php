@@ -1729,7 +1729,8 @@ function starchas3r_custom_styles(){
 	wp_add_inline_style( 'main_style' , $custom_fonts );
 }
 
-function starchas3r_title_control_html($post){
+function starchas3r_title_control_html( $post ){
+	$current_widow_toggle = get_post_meta( $post->ID, 'starchas3r_widow_toggle', true ) ? ' checked' : '';
 	?>
 	<label for="starchas3r_title_align">Post Title Alignment</label>
 	<select name="starchas3r_title_align" id="starchas3r_title_align" class="postbox">
@@ -1747,10 +1748,12 @@ function starchas3r_title_control_html($post){
 		<option value="lower-center" <?php selected($value, 'lower-center'); ?>>Lower Center</option>
 		<option value="lower-right" <?php selected($value, 'lower-right'); ?>>Lower Right</option>
 	</select>
+	<label for="starchas3r_widow_toggle">Enable Widow Prevention?</label>
+	<input name="starchas3r_widow_toggle" id="starchas3r_widow_toggle" type="checkbox"<?php echo $current_widow_toggle; ?>>
 	<?php
 }
 
-function starchas3r_add_title_control_box(){
+function starchas3r_add_metaboxes(){
 	$screens = [ 'post', 'page' ];
 	foreach ( $screens as $screen ){
 		add_meta_box(
@@ -1762,22 +1765,56 @@ function starchas3r_add_title_control_box(){
 	}
 }
 
-add_action( 'add_meta_boxes', 'starchas3r_add_title_control_box' );
+add_action( 'add_meta_boxes', 'starchas3r_add_metaboxes' );
 
 function starchas3r_save_postdata( $post_id ){
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
     }
-	elseif ( isset( $_POST[ 'starchas3r_title_align' ] ) ){
+	elseif ( isset( $_POST[ 'starchas3r_title_align' ] ) || isset( $_POST[ 'starchas3r_widow_toggle' ] ) ){
 		update_post_meta(
 			$post_id,
 			'starchas3r_title_align',
 			$_POST['starchas3r_title_align']
 		);
+		update_post_meta(
+			$post_id,
+			'starchas3r_widow_toggle',
+			$_POST['starchas3r_widow_toggle']
+		);
 	}
 }
 
 add_action( 'save_post', 'starchas3r_save_postdata' );
+
+
+function elim_widow( $text_input, $current_post_id ){	
+	$text_array = explode( ' ', $text_input );
+	$text_count = count( $text_array );
+	$text_output = '';
+	if ( $text_count >= 2 ){
+		$last_two_words_len = strlen( $text_array[ $text_count - 1 ] ) + strlen( $text_array[ $text_count - 2 ] );
+	} elseif ( $text_count == 1 ) {
+		$last_two_words_len = strlen( $text_array[ $text_count - 1 ] );
+	} else {
+		$last_two_words_len = 0;
+	}
+	if ( $last_two_words_len <= 16 && get_post_meta( $current_post_id, 'starchas3r_widow_toggle', true ) ){
+		for ($i = 0; $i < $text_count; $i++){
+			$current_text = $text_array[$i];
+			if ( $i == $text_count - 2 ){
+				$text_output .= $current_text . '&nbsp;';
+			} elseif ( $i == $text_count - 1 ){
+				$text_output .= $current_text;
+			} else {
+				$text_output .= $current_text . ' ';
+			}
+		}
+		return $text_output;
+	} else {
+		return $text_input;
+	}
+}
 
 function starchas3r_retrieve_title_align( $post_id ){
 	$title_align_value = get_post_meta( $post_id, 'starchas3r_title_align' ) ? get_post_meta( $post_id, 'starchas3r_title_align' )[0] : false;
