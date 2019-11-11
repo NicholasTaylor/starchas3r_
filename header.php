@@ -29,8 +29,8 @@ $metaStructuredTitle = get_the_title( $page_id );
       <!-- START Navs -->
       <?php $social_media_icons = retrieve_social_links();
           $social_media_count = count( $social_media_icons );
-          $toggle_nav_primary = ( has_nav_menu( 'primary' ) || ( $social_media_count > 0 && get_theme_mod( 'social_media_primary' ) ) ? true : false );
-          $toggle_nav_header = ( has_nav_menu( 'header' ) || ( $social_media_count > 0 && get_theme_mod( 'social_media_header' ) ) ? true : false );
+          $toggle_nav_primary = ( has_nav_menu( 'primary' ) || ( $social_media_count > 0 && is_social_media_loc( 'primary' ) ) ? true : false );
+          $toggle_nav_header = ( has_nav_menu( 'header' ) || ( $social_media_count > 0 && is_social_media_loc( 'header' ) ) ? true : false );
 
           ?>
       <div id="container-nav">
@@ -71,7 +71,7 @@ $metaStructuredTitle = get_the_title( $page_id );
                 <?php wp_nav_menu( get_args_nav( 'header' ) );?>
               </nav>
             <?php endif; 
-            if( $social_media_count > 0 && get_theme_mod( 'social_media_header' ) ) : ?>
+            if( $social_media_count > 0 && is_social_media_loc( 'header' ) ) : ?>
               <nav id="nav-items-social">
                 <ul>
                   <?php foreach( $social_media_icons as $social_icon ){
@@ -89,7 +89,7 @@ $metaStructuredTitle = get_the_title( $page_id );
                 <?php wp_nav_menu( get_args_nav( 'primary' ) );?>
               </nav>
             <?php endif; 
-            if( $social_media_count > 0 && get_theme_mod( 'social_media_primary' ) ) : ?>
+            if( $social_media_count > 0 && is_social_media_loc( 'primary' ) ) : ?>
               <nav id="nav-items-social">
                 <ul>
                   <?php foreach( $social_media_icons as $social_icon ){

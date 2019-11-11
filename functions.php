@@ -445,33 +445,9 @@ function social_options( $wp_customize ) {
 	) );
 }
 
-function custom_logo_svg( $wp_customize ) {
-	$wp_customize->add_section( 'starchas3r_logo_svg' , array(
-		'title' 		=> __( 'Logo Icon SVG', 'starchas3r_' ),
-		'priority' 		=> 112,
-	) );
-	$wp_customize->add_setting( 'logo_svg', array(
-		'default'		=> '',
-		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options'
-	) );
-	$wp_customize->add_setting( 'logo_svg_viewBox', array(
-		'default'		=> '',
-		'type'			=> 'theme_mod',
-		'capability'	=> 'edit_theme_options'
-	) );
-	$wp_customize->add_control( 'logo_svg_code', array(
-		'label'			=> 'SVG Code for Icon ( Usually found in exports from apps like Adobe Illustrator)',
-		'section'		=> 'starchas3r_logo_svg',
-		'settings'		=> 'logo_svg',
-		'type'			=> 'text',
-	) );
-	$wp_customize->add_control( 'logo_svg_viewBox_code', array(
-		'label'			=> 'Attribute for "ViewBox" attribute in SVG tag ( Also found in exports from apps like Adobe Illustrator)',
-		'section'		=> 'starchas3r_logo_svg',
-		'settings'		=> 'logo_svg_viewBox',
-		'type'			=> 'text',
-	) );
+function is_social_media_loc( $location ) {
+	$target_theme_mod_selector = 'social_media_' . $location;
+	return sanitize_key( get_theme_mod( $target_theme_mod_selector ) ) ? true : false;
 }
 
 function custom_fonts( $wp_customize ) {
@@ -1237,99 +1213,112 @@ function sort_by_priority( $a, $b ){
 	return $a['priority'] - $b['priority'];
 }
 
+
+function is_schema_enabled(){
+	if ( sanitize_key( get_theme_mod( 'general_is_schema' ) ) ){
+		return true;	
+	};
+}
+
+function is_byline_enabled(){
+	if ( sanitize_key( get_theme_mod( 'general_is_byline' ) ) ){
+		return true;	
+	};
+}
+
 function retrieve_social_links() {
 
 	$social_links_raw = array(
 		'tiktok' => array(
 			'prefix' => 'https://tiktok.com/@',
-			'value' => get_theme_mod( 'social_media_tiktok' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_tiktok' ) ),
 			'title' => 'TikTok',
 			'abbreviation' => 'tk',
-			'priority' => get_theme_mod( 'social_media_tiktok_priority' ) ? intval( get_theme_mod( 'social_media_tiktok_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_tiktok_priority' ) ? absint( intval( get_theme_mod( 'social_media_tiktok_priority' ) ) ) : 9001
 		),
 		'facebook' => array(
 			'prefix' => 'https://www.facebook.com/',
-			'value' => get_theme_mod( 'social_media_fb' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_fb' ) ),
 			'title' => 'Facebook',
 			'abbreviation' => 'fb',
-			'priority' => get_theme_mod( 'social_media_fb_priority' ) ? intval( get_theme_mod( 'social_media_fb_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_fb_priority' ) ? absint( intval( get_theme_mod( 'social_media_fb_priority' ) ) ) : 9001
 		),
 		'instagram' => array(
 			'prefix' => 'https://www.instagram.com/',
-			'value' => get_theme_mod( 'social_media_ig' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_ig' ) ),
 			'title' => 'Instagram',
 			'abbreviation' => 'ig',
-			'priority' => get_theme_mod( 'social_media_ig_priority' ) ? intval( get_theme_mod( 'social_media_ig_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_ig_priority' ) ? absint( intval( get_theme_mod( 'social_media_ig_priority' ) ) ) : 9001
 		),
 		'snapchat' => array(
 			'prefix' => 'https://www.snapchat.com/add/',
-			'value' => get_theme_mod( 'social_media_sc' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_sc' ) ),
 			'title' => 'Snapchat',
 			'abbreviation' => 'sc',
-			'priority' => get_theme_mod( 'social_media_sc_priority' ) ? intval( get_theme_mod( 'social_media_sc_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_sc_priority' ) ? absint( intval( get_theme_mod( 'social_media_sc_priority' ) ) ) : 9001
 		),
 		'twitch' => array(
 			'prefix' => 'https://www.twitch.tv/',
-			'value' => get_theme_mod( 'social_media_twitch' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_twitch' ) ),
 			'title' => 'Twitch',
 			'abbreviation' => 'twitch',
-			'priority' => get_theme_mod( 'social_media_twitch_priority' ) ? intval( get_theme_mod( 'social_media_twitch_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_twitch_priority' ) ? absint( intval( get_theme_mod( 'social_media_twitch_priority' ) ) ) : 9001
 		),
 		'twitter' => array(
 			'prefix' => 'https://www.twitter.com/',
-			'value' => get_theme_mod( 'social_media_twitter' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_twitter' ) ),
 			'title' => 'Twitter',
 			'abbreviation' => 'twitter',
-			'priority' => get_theme_mod( 'social_media_twitter_priority' ) ? intval( get_theme_mod( 'social_media_twitter_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_twitter_priority' ) ? absint( intval( get_theme_mod( 'social_media_twitter_priority' ) ) ) : 9001
 		),
 		'youtube' => array(
 			'prefix' => 'https://www.youtube.com/channel/',
-			'value' => get_theme_mod( 'social_media_yt' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_yt' ) ),
 			'title' => 'YouTube',
 			'abbreviation' => 'yt',
-			'priority' => get_theme_mod( 'social_media_yt_priority' ) ? intval( get_theme_mod( 'social_media_yt_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_yt_priority' ) ? absint( intval( get_theme_mod( 'social_media_yt_priority' ) ) ) : 9001
 		),
 		'pinterest' => array(
 			'prefix' => 'https://www.pinterest.com/',
-			'value' => get_theme_mod( 'social_media_pn' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_pn' ) ),
 			'title' => 'Pinterest',
 			'abbreviation' => 'pn',
-			'priority' => get_theme_mod( 'social_media_pn_priority' ) ? intval( get_theme_mod( 'social_media_pn_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_pn_priority' ) ? absint( intval( get_theme_mod( 'social_media_pn_priority' ) ) ) : 9001
 		),
 		'linkedin' => array(
 			'prefix' => 'https://www.linkedin.com/in/',
-			'value' => get_theme_mod( 'social_media_li' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_li' ) ),
 			'title' => 'LinkedIn',
 			'abbreviation' => 'li',
-			'priority' => get_theme_mod( 'social_media_li_priority' ) ? intval( get_theme_mod( 'social_media_li_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_li_priority' ) ? absint( intval( get_theme_mod( 'social_media_li_priority' ) ) ) : 9001
 		),
 		'github' => array(
 			'prefix' => 'https://www.github.com/',
-			'value' => get_theme_mod( 'social_media_gh' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_gh' ) ),
 			'title' => 'GitHub',
 			'abbreviation' => 'gh',
-			'priority' => get_theme_mod( 'social_media_gh_priority' ) ? intval( get_theme_mod( 'social_media_gh_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_gh_priority' ) ? absint( intval( get_theme_mod( 'social_media_gh_priority' ) ) ) : 9001
 		),
 		'dribbble' => array(
 			'prefix' => 'https://www.dribbble.com/',
-			'value' => get_theme_mod( 'social_media_dr' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_dr' ) ),
 			'title' => 'Dribbble',
 			'abbreviation' => 'dr',
-			'priority' => get_theme_mod( 'social_media_dr_priority' ) ? intval( get_theme_mod( 'social_media_dr_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_dr_priority' ) ? absint( intval( get_theme_mod( 'social_media_dr_priority' ) ) ) : 9001
 		),
 		'behance' => array(
 			'prefix' => 'https://www.behance.net/',
-			'value' => get_theme_mod( 'social_media_be' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_be' ) ),
 			'title' => 'Behance',
 			'abbreviation' => 'be',
-			'priority' => get_theme_mod( 'social_media_be_priority' ) ? intval( get_theme_mod( 'social_media_be_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_be_priority' ) ? absint( intval( get_theme_mod( 'social_media_be_priority' ) ) ) : 9001
 		),
 		'vsco' => array(
 			'prefix' => 'https://vsco.co/',
-			'value' => get_theme_mod( 'social_media_vs' ),
+			'value' => sanitize_text_field( get_theme_mod( 'social_media_vs' ) ),
 			'title' => 'VSCO',
 			'abbreviation' => 'vs',
-			'priority' => get_theme_mod( 'social_media_vs_priority' ) ? intval( get_theme_mod( 'social_media_vs_priority' ) ) : 9001
+			'priority' => get_theme_mod( 'social_media_vs_priority' ) ? absint( intval( get_theme_mod( 'social_media_vs_priority' ) ) ) : 9001
 		)
 	);
 
@@ -1341,35 +1330,35 @@ function retrieve_social_links() {
 
 	foreach( $social_links_keys as $social_key ) {
 		$currentSocial = $social_links_raw[$social_key];
-		if( $currentSocial['value'] ){
+		if( $currentSocial['value'] && is_schema_enabled() ){
 			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/white/social-logos-white-' . $currentSocial['abbreviation'] . '.png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
+		} elseif( $currentSocial['value'] ){
+			$social_links[$social_key] = '<li><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '><img src="' . get_template_directory_uri()  . '/images/icons-social/white/social-logos-white-' . $currentSocial['abbreviation'] . '.png" border="0" title="' . $currentSocial['title'] . '" /></a></li>';
 		}
 	}
 	return $social_links;
 }
 
 function has_typekit(){
-	if ( get_theme_mod( 'typekit_pid' ) ){
+	if ( sanitize_text_field( get_theme_mod( 'typekit_pid' ) ) ){
 		return true;	
 	};
+}
+
+function allowed_google_fonts_html() {
+	return array(
+		'link' => array(
+			'href'	=> array(),
+			'rel'	=> array()
+		)
+	);
 }
 
 function has_google_fonts() {
-    $google_fonts = preg_replace( '/( .* )( family= )( .*? )( &|" )( .* )/', '$3', get_theme_mod( 'google_fonts_list' ) );
+	$google_fonts_allowed_tags = allowed_google_fonts_html();
+    $google_fonts = preg_replace( '/(.*)(family=)(.*?)(&|")(.*)/', '$3', wp_kses( esc_html( get_theme_mod( 'google_fonts_list' ) ), $google_fonts_allowed_tags ) );
     $google_bool = ( !( $google_fonts ) || preg_match( '([^\\A-Za-z_\|\+:0-9,] )',$google_fonts ) ? false : true );
     return ( bool ) $google_bool;
-}
-
-function is_schema_enabled(){
-	if ( get_theme_mod( 'general_is_schema' ) ){
-		return true;	
-	};
-}
-
-function is_byline_enabled(){
-	if ( get_theme_mod( 'general_is_byline' ) ){
-		return true;	
-	};
 }
 
 function starchas3r_register(){
@@ -1382,10 +1371,10 @@ function starchas3r_register(){
 	wp_register_script( 'single_page_fade_in', get_template_directory_uri() . '/js/singlePageFadeIn.js','','',true );
 	wp_register_script( 'page_effects', get_template_directory_uri() . '/js/pageEffects.js','','',true );
 	if ( has_typekit() ) {
-		wp_register_style( 'adobe_font', 'https://use.typekit.net/' . get_theme_mod( 'typekit_pid' ) . '.css' );
+		wp_register_style( 'adobe_font', 'https://use.typekit.net/' . sanitize_text_field( get_theme_mod( 'typekit_pid' ) ) . '.css' );
 	};
 	if ( has_google_fonts() ){
-		wp_register_style( 'google_fonts', esc_url( 'https://fonts.googleapis.com/css?family=' . preg_replace( '/( .* )( family= )( .*? )( &|" )( .* )/', '$3', get_theme_mod( 'google_fonts_list' ) ) . '&display=swap' ));
+		wp_register_style( 'google_fonts', esc_url( 'https://fonts.googleapis.com/css?family=' . preg_replace( '/(.*)(family=)(.*?)(&|")(.*)/', '$3', wp_kses( esc_html( get_theme_mod( 'google_fonts_list' ) ), $google_fonts_allowed_tags ) ) . '&display=swap' ));
 	};
 }
 
@@ -1711,11 +1700,11 @@ function starchas3r_custom_styles(){
 				$current_field_choices = $current_field_type == 'select' ? $field_name['choices'] : '';
 				$has_default_key = 'has_default_' . $current_field_name;
 				$default_key = 'default_' . $current_field_name;
-				if( $current_array[$current_field_name] ){
+				if( sanitize_text_field($current_array[$current_field_name]) ){
 					$declaration_value = $field_name['type'] == 'select' ? $current_field_choices[$current_array[$current_field_name]] : $current_array[$current_field_name];
-					$current_declaration .= "\t" . $current_field_attr . ": " . drop_semicolon( $declaration_value ) . ";\n"; 
+					$current_declaration .= "\t" . $current_field_attr . ": " . sanitize_text_field( drop_semicolon( $declaration_value ) ) . ";\n"; 
 				} elseif( $current_array[$has_default_key] ){
-					$current_declaration .= "\t" . $current_field_attr . ": " . drop_semicolon( $current_array[$default_key] ) . ";\n"; 
+					$current_declaration .= "\t" . $current_field_attr . ": " . sanitize_text_field( drop_semicolon( $current_array[$default_key] ) ) . ";\n"; 
 				}
 			}
 
@@ -1771,16 +1760,30 @@ function starchas3r_save_postdata( $post_id ){
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
     }
-	elseif ( isset( $_POST[ 'starchas3r_title_align' ] ) || isset( $_POST[ 'starchas3r_widow_toggle' ] ) ){
+    elseif ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ){
+    	if ( ! current_user_can( 'edit_page', $post_id ) ){
+    		return;
+    	}
+    }
+    else {
+    	if ( ! current_user_can( 'edit_post', $post_id ) ){
+    		return;
+    	}
+    }
+
+    $starchas3r_widow_toggle_sani = sanitize_key( $_POST[ 'starchas3r_widow_toggle' ] );
+    $starchas3r_title_align_sani = sanitize_text_field( $_POST[ 'starchas3r_title_align' ] );
+
+	if ( isset( $_POST[ 'starchas3r_title_align' ] ) || isset( $_POST[ 'starchas3r_widow_toggle' ] ) ){
 		update_post_meta(
 			$post_id,
 			'starchas3r_title_align',
-			$_POST['starchas3r_title_align']
+			$starchas3r_title_align_sani
 		);
 		update_post_meta(
 			$post_id,
 			'starchas3r_widow_toggle',
-			$_POST['starchas3r_widow_toggle']
+			$starchas3r_widow_toggle_sani
 		);
 	}
 }
@@ -1799,7 +1802,7 @@ function elim_widow( $text_input, $current_post_id ){
 	} else {
 		$last_two_words_len = 0;
 	}
-	if ( $last_two_words_len <= 16 && get_post_meta( $current_post_id, 'starchas3r_widow_toggle', true ) ){
+	if ( $last_two_words_len <= 16 && sanitize_key( get_post_meta( $current_post_id, 'starchas3r_widow_toggle', true ) ) ){
 		for ($i = 0; $i < $text_count; $i++){
 			$current_text = $text_array[$i];
 			if ( $i == $text_count - 2 ){
@@ -1838,9 +1841,9 @@ function starchas3r_retrieve_title_align( $post_id ){
 		'lower-right'		=>		'title-align-lower title-align-right'
 	);
 	if ( $title_align_value && strlen( $title_align_value ) > 0 && in_array( $title_align_value, array_keys( $title_align_array ) ) && !( in_array( $title_align_value, $title_default_array ) ) ){
-		return $title_align_array[$title_align_value] . ' title-align-non-default';
+		return sanitize_text_field( $title_align_array[ $title_align_value ] ) . ' title-align-non-default';
 	} elseif ( $title_align_value && strlen( $title_align_value ) > 0 && in_array( $title_align_value, array_keys( $title_align_array ) ) ){
-		return $title_align_array[$title_align_value];
+		return sanitize_text_field( $title_align_array[ $title_align_value ] );
 	} else {
 		return 'title-align-default';
 	}
@@ -1868,7 +1871,6 @@ function starchas3r_enqueue(){
 
 add_action( 'customize_register', 'social_options' );
 add_action( 'customize_register', 'general_options' );
-add_action( 'customize_register', 'custom_logo_svg' );
 add_action( 'customize_register', 'custom_fonts' );
 add_action( 'after_setup_theme', 'theme_support_setup' );
 add_action( 'wp_enqueue_scripts', 'starchas3r_register' );
