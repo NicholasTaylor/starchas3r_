@@ -1720,6 +1720,8 @@ function starchas3r_custom_styles(){
 
 function starchas3r_title_control_html( $post ){
 	$current_widow_toggle = get_post_meta( $post->ID, 'starchas3r_widow_toggle', true ) ? ' checked' : '';
+	$value = get_post_meta( $post->ID, 'starchas3r_title_align', true );
+	wp_nonce_field( 'edit_title_control_settings', 'starchas3r_title_control_nonce' );
 	?>
 	<label for="starchas3r_title_align">Post Title Alignment</label>
 	<select name="starchas3r_title_align" id="starchas3r_title_align" class="postbox">
@@ -1760,15 +1762,19 @@ function starchas3r_save_postdata( $post_id ){
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
     }
-    elseif ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ){
+
+    if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ){
     	if ( ! current_user_can( 'edit_page', $post_id ) ){
     		return;
     	}
-    }
-    else {
+    } else {
     	if ( ! current_user_can( 'edit_post', $post_id ) ){
     		return;
     	}
+    }
+
+    if( !( wp_verify_nonce( $_POST['starchas3r_title_control_nonce' ], 'edit_title_control_settings' ) && ( isset( $_POST['starchas3r_title_control_nonce'] ) ) ) ){
+    	return;
     }
 
     $starchas3r_widow_toggle_sani = sanitize_key( $_POST[ 'starchas3r_widow_toggle' ] );
