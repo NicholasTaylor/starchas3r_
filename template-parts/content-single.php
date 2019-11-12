@@ -41,13 +41,13 @@ $misc_data_close_tag = ( is_byline_enabled() ) ? '</h3>' : '</h2>';
             if( is_schema_enabled() ) : 
               echo $misc_data_open_tag; ?>
                 <time itemprop="datePublished" datetime="<?php echo get_the_date( $d = 'Y-m-d' ); ?>T<?php echo get_the_date( $d = 'H:i' );?>"> 
-                  <?php echo elim_widow( get_the_date( 'Y.m.d H:i' ), $current_post_num );?>
+                  <?php echo elim_widow( get_the_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ), $current_post_num );?>
                 </time>
               <?php echo $misc_data_close_tag; ?>
               <meta itemprop="dateModified" content="<?php echo get_the_modified_date( $d = 'Y-m-d' );?>T<?php echo get_the_modified_date( $d = 'H:i' );?>">
               </meta>
             <?php else :
-              echo $misc_data_open_tag . elim_widow( get_the_date( 'Y.m.d H:i' ), $current_post_num ) . $misc_data_close_tag;
+              echo $misc_data_open_tag . elim_widow( get_the_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ), $current_post_num ) . $misc_data_close_tag;
             endif;
             if ( has_category() && is_schema_enabled() ) :
               echo $misc_data_open_tag; ?>

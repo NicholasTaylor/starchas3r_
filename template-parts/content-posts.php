@@ -39,7 +39,7 @@ $is_last_post = ( ( ( $wp_query->current_post + 1 ) >= ( $wp_query->post_count )
           <?php endif;
           echo $misc_data_open_tag; ?>
             <a href="<?php echo esc_url( get_permalink() ); ?>">
-              <?php echo elim_widow( get_the_date( 'Y.m.d H:i' ), $current_post_num ); ?>
+              <?php echo elim_widow( get_the_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ), $current_post_num ); ?>
             </a>
           <?php echo $misc_data_close_tag;
           if ( has_category () && !( is_category() ) ) :
