@@ -15,14 +15,21 @@ const navFade = function(){
 	}
 }
 
+const vhReset = function(){
+	let vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh', +vh +'px');
+} 
+
 document.addEventListener('DOMContentLoaded',function(){
 	navFade();
+	vhReset();
 });
 
 document.addEventListener('scroll',function(){
 	navFade();
 });
 
-document.addEventListener('resize',function(){
+window.addEventListener('resize',function(){
 	navFade();
+	vhReset();
 });

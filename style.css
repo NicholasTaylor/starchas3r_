@@ -18,6 +18,11 @@ TABLE OF CONTENTS
 */
 
 /* START General Elements */
+
+:root {
+	--vh: 1vh;
+}
+
 body {
 	background-color: #000;
 	color: #fff;

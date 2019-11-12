@@ -50,6 +50,7 @@ TABLE OF CONTENTS
     position: relative;
     z-index: 110;
     margin: 45vh auto 0 auto;
+    margin: calc(var(--vh, 1vh) * 45) auto 0 auto;
     transform: translateY(-50%);
 }
 
@@ -75,6 +76,7 @@ TABLE OF CONTENTS
     background-size: cover;
     width: 90vw;
     height: 20vh;
+    height: calc(var(--vh, 1vh) * 20);
     margin: 1em auto;
     position: relative;
 }
@@ -82,6 +84,7 @@ TABLE OF CONTENTS
 #container-section-list section .bg-screen {
     width: 90vw;
     height: 20vh;
+    height: calc(var(--vh, 1vh) * 20);
     position: absolute;
     background-color: rgba(0,0,0,0.3);
     z-index: 111;
@@ -137,7 +140,9 @@ TABLE OF CONTENTS
 	background-image: none !important;
 	height: auto;
 	padding: 3vh 0 6vh 0;
+	padding: calc(var(--vh, 1vh) * 3) 0 calc(var(--vh, 1vh) * 6) 0;
 	margin-bottom: 6vh;
+	margin-bottom: calc(var(--vh, 1vh) * 6);
 	border-bottom: 1px solid #fff;
 }
 
@@ -173,6 +178,7 @@ TABLE OF CONTENTS
 	#container-section-list section, 
 	#container-section-list section .bg-screen {
 	    height: 25vh;
+	    height: calc(var(--vh, 1vh) * 25);
 	}
 	
 }
@@ -182,11 +188,13 @@ TABLE OF CONTENTS
 @media (max-height: 420px){
 	#header-category {
 		padding-top: 16vh;
+		padding-top: calc(var(--vh, 1vh) * 16);
 	}
 
 	#container-section-list section, 
 	#container-section-list section .bg-screen {
 	    height: 30vh;
+	    height: calc(var(--vh, 1vh) * 30);
 	    min-height: 90px;
 	}
 
@@ -230,6 +238,7 @@ TABLE OF CONTENTS
 	#container-section-list section, 
 	#container-section-list section .bg-screen {
 	    height: 25vh;
+	    height: calc(var(--vh, 1vh) * 25);
 	    min-height: 400px;
 	}
 
@@ -248,6 +257,7 @@ TABLE OF CONTENTS
 @media (min-width: 1200px) and (min-height: 421px){
 	#header-category {
 		padding-top: 16vh;
+		padding-top: calc(var(--vh, 1vh) * 16);
 	}
 
 	#header-category h1, #container-section-list section:first-child .article-content h1:before {
@@ -272,6 +282,7 @@ TABLE OF CONTENTS
 	#container-section-list section, 
 	#container-section-list section .bg-screen {
 	    height: 50vh;
+	    height: calc(var(--vh, 1vh) * 50);
 	    min-height: 500px;
 	}
 

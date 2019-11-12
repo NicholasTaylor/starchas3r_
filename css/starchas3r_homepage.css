@@ -66,6 +66,7 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 .article,
 .article .bg-screen {
     height: 50vh;
+    height: calc(var(--vh, 1vh) * 50);
     min-height: 150px;
 }
 
@@ -100,7 +101,8 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 .article:first-child .bg-screen, 
 .article:nth-child(2) .bg-screen, 
 .article:nth-child(3) .bg-screen { 
-    height: 100vh;
+    height: 100vh; 
+    height: calc(var(--vh, 1vh) * 100);
     min-height: 300px;
 }
  
@@ -156,6 +158,7 @@ NOTE: List first in stylesheet. This should be default and overwritten by Primar
 	.article,
 	.article .bg-screen {
 		height: 30vh;
+		height: calc(var(--vh, 1vh) * 30);
 	}
 
 	.article h1 {

@@ -79,6 +79,7 @@ blockquote {
 #article-title #bg-screen {
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
 }
 
 #article-title {
@@ -98,6 +99,7 @@ blockquote {
 #fadein-screen {
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
 	background-color: #000;
 	opacity: 1.0;
     z-index: 250;
@@ -118,6 +120,7 @@ blockquote {
     transform: translateX(-50%);
     text-align: left;
     bottom: 6vh;
+    bottom: calc(var(--vh, 1vh) * 6);
 }
 
 .title-align-default h1,
@@ -156,6 +159,7 @@ blockquote {
     position: relative;
     left: 50%;
     top: 2vh;
+    top: calc(var(--vh, 1vh) * 2);
     transform: translateX(-50%);
 }
 
@@ -395,21 +399,25 @@ h3#reply-title {
 
 	.title-align-upper {
 		top: 16vh;
+		top: calc(var(--vh, 1vh) * 16);
 	}
 
 	.title-align-middle {
 		top: 50vh;
+		top: calc(var(--vh, 1vh) * 50);
 		transform: translateY(-50%);
 	}
 
 	.title-align-true-middle {
 		top: 50vh;
+		top: calc(var(--vh, 1vh) * 50);
 		left: 50vw;
 		transform: translate(-50%,-50%);
 	}
 
 	.title-align-lower {
 		bottom: 6vh;
+		bottom: calc(var(--vh, 1vh) * 6);
 	}
 
 	.title-align-special-left {
