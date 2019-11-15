@@ -11,23 +11,23 @@ $page_id = get_queried_object_id();
 $metaStructuredTitle = get_the_title( $page_id );
 ?>
 <!doctype html>
-<html <?php language_attributes( $doctype ) ?> <?php if( is_schema_enabled() ) : ?>itemscope <?php if ( is_single() ) : ?>itemtype="http://schema.org/Article"<?php else : ?>itemtype="http://schema.org/CreativeWork"<?php endif; endif; ?>>
+<html <?php language_attributes( $doctype ) ?>>
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <?php if ( is_single () && is_schema_enabled() ) : ?>
-        <meta itemprop="name" content="<?php echo $metaStructuredTitle; ?>"></meta>
-    <?php endif; ?>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-    <?php wp_head(); ?>
+    <?php if( is_schema_enabled() ) :
+      get_template_part( 'template-parts/content', 'structured-data' );
+    endif;
+    wp_head(); ?>
   </head>
   <body <?php body_class(); ?> >
     <header>
       <!-- START Navs -->
-      <?php $social_media_icons = retrieve_social_links();
+      <?php $social_media_icons = retrieve_social_links( 'nav' );
           $social_media_count = count( $social_media_icons );
           $toggle_nav_primary = ( has_nav_menu( 'primary' ) || ( $social_media_count > 0 && is_social_media_loc( 'primary' ) ) ? true : false );
           $toggle_nav_header = ( has_nav_menu( 'header' ) || ( $social_media_count > 0 && is_social_media_loc( 'header' ) ) ? true : false );
@@ -48,16 +48,7 @@ $metaStructuredTitle = get_the_title( $page_id );
                 <?php bloginfo( 'name' ); ?>
               </h1>
             </a>
-            <?php if ( has_custom_logo() && is_schema_enabled() ) : ?>
-              <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject" class="hide">
-                  <?php $custom_logo_id = get_theme_mod( 'custom_logo' );
-                  $imageCustomLogo = wp_get_attachment_image_src( $custom_logo_id, 'full' ); ?>
-                  <img src="<?php echo $imageCustomLogo[0]; ?>">
-                  <meta itemprop="url" content="<?php echo $imageCustomLogo[0]; ?>">
-                  <meta itemprop="width" content="<?php echo $imageCustomLogo[1]; ?>">
-                  <meta itemprop="height" content="<?php echo $imageCustomLogo[2]; ?>">
-              </span>
-            <?php elseif ( has_custom_logo() ) : ?>
+            <?php if ( has_custom_logo() ) : ?>
               <?php $custom_logo_id = get_theme_mod( 'custom_logo' );
               $imageCustomLogo = wp_get_attachment_image_src( $custom_logo_id, 'full' ); ?>
               <img src="<?php echo $imageCustomLogo[0]; ?>">

@@ -24,13 +24,7 @@ $is_last_post = ( ( ( $wp_query->current_post + 1 ) >= ( $wp_query->post_count )
       <div class="article-content <?php echo starchas3r_retrieve_title_align( get_the_ID() ); ?>">
         <?php echo '<h1>' . $link_open_tag . elim_widow( get_the_title(), $current_post_num ) . $link_close_tag . '</h1>'; ?>
         <div class="article-data">
-          <?php if ( is_byline_enabled() && !( is_author() ) && is_schema_enabled() ) : ?>
-            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
-              <h2 itemprop="author">
-                <?php echo elim_widow( get_the_author(), $current_post_num ); ?>
-              </h2>
-            </a>
-          <?php elseif ( is_byline_enabled() && !( is_author() ) ) : ?>
+          <?php if ( is_byline_enabled() && !( is_author() ) ) : ?>
             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
               <h2>
                 <?php echo elim_widow( get_the_author(), $current_post_num ); ?>

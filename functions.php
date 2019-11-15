@@ -101,11 +101,32 @@ function general_options( $wp_customize ){
 		'capability'	=>	'edit_theme_options'
 	) );
 	$wp_customize->add_control( 'general_is_schema_entry', array(
-		'label'			=> 'Enable Schema.org Support',
+		'label'			=> 'Enable Structured Data Support (Not recommended if a plugin already does this)',
 		'section'		=> 'starchas3r_general',
 		'settings'		=> 'general_is_schema',
 		'type'			=> 'checkbox'
 	) );
+	$wp_customize->add_setting( 'general_schema_organization', array(
+		'default'		=>	'',
+		'type'			=>	'theme_mod',
+		'capability'	=>	'edit_theme_options'
+	) );
+	$wp_customize->add_control( 'general_organization_entry', array(
+		'label'			=> 'Organization Name (for Structured Data only)',
+		'section'		=> 'starchas3r_general',
+		'settings'		=> 'general_schema_organization',
+		'type'			=> 'text'
+	) );
+	$wp_customize->add_setting( 'general_schema_organization_logo', array(
+		'default'		=>	'',
+		'type'			=>	'theme_mod',
+		'capability'	=>	'edit_theme_options'
+	) );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'general_schema_organization_logo', array(
+		'label'			=> 'Organization Logo (for Structured Data only)',
+		'section'		=> 'starchas3r_general',
+		'settings'		=> 'general_schema_organization_logo'
+	) ) );
 	$wp_customize->add_setting( 'general_is_byline', array(
 		'default'		=>	false,
 		'type'			=>	'theme_mod',
@@ -1226,7 +1247,7 @@ function is_byline_enabled(){
 	};
 }
 
-function retrieve_social_links() {
+function retrieve_social_links( $context ) {
 
 	$social_links_raw = array(
 		'tiktok' => array(
@@ -1330,12 +1351,18 @@ function retrieve_social_links() {
 
 	foreach( $social_links_keys as $social_key ) {
 		$currentSocial = $social_links_raw[$social_key];
-		if( $currentSocial['value'] && is_schema_enabled() ){
-			$social_links[$social_key] = '<li><span itemprop="sameAs"><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '" itemprop="url"><img src="' . get_template_directory_uri()  . '/images/icons-social/white/social-logos-white-' . $currentSocial['abbreviation'] . '.png" border="0" title="' . $currentSocial['title'] . '" /></a></span></li>';
-		} elseif( $currentSocial['value'] ){
-			$social_links[$social_key] = '<li><a href="' . $currentSocial['prefix'] . $currentSocial['value'] . '><img src="' . get_template_directory_uri()  . '/images/icons-social/white/social-logos-white-' . $currentSocial['abbreviation'] . '.png" border="0" title="' . $currentSocial['title'] . '" /></a></li>';
+		if( $currentSocial['value'] ){
+			if ( $context == 'jsonld' ){
+				$social_test = ( strlen( $currentSocial[ 'value' ] ) ) ? true : false;
+				if ( $social_test ){
+					array_push( $social_links, $currentSocial[ 'prefix' ] . $currentSocial[ 'value' ] );
+				}
+			} else {
+				$social_links[ $social_key ] = '<li><a href="' . $currentSocial[ 'prefix' ] . $currentSocial[ 'value' ] . '"><img src="' . get_template_directory_uri()  . '/images/icons-social/white/social-logos-white-' . $currentSocial[ 'abbreviation' ] . '.png" border="0" title="' . $currentSocial[ 'title' ] . '" /></a></li>';				
+			}
 		}
 	}
+
 	return $social_links;
 }
 

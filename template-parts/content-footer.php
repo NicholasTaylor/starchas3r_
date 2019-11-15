@@ -7,7 +7,7 @@
  * @package starchas3r_
  * @since starchas3r_ 1.0
  */
-$social_media_icons = retrieve_social_links();
+$social_media_icons = retrieve_social_links( 'nav' );
 $social_media_count = count( $social_media_icons );
 $toggle_nav_footer = ( has_nav_menu( 'footer' ) || ( $social_media_count > 0 && is_social_media_loc( 'footer' ) ) ? true : false );
 ?>    
