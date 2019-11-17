@@ -118,20 +118,20 @@ blockquote {
 	position: absolute;
     left: 50vw;
     transform: translateX(-50%);
-    text-align: left;
+    text-align: center;
     bottom: 6vh;
     bottom: calc(var(--vh, 1vh) * 6);
 }
 
 .title-align-default h1,
 .title-align-non-default h1 {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .title-align-default h2,
 .title-align-non-default h2 {
     letter-spacing: 0;
-    font-size: 1.75rem;
+    font-size: 1.6rem;
 }
 
 #title-content .data-point {
@@ -143,7 +143,7 @@ blockquote {
 .title-align-default h3,
 .title-align-non-default p,
 .title-align-non-default h3 {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 /* END Article Title Area */
 
@@ -170,7 +170,11 @@ blockquote {
 .reply .comment-reply-link,
 #commentform p,
 #commentform p.comment-form-comment {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+}
+
+#article-body p {
+	line-height: 1.25;
 }
 
 #article-body h1,
@@ -268,7 +272,7 @@ h3#reply-title {
 
 	.title-align-default h1,
 	.title-align-non-default h1 {
-	    font-size: 2.5rem;
+	    font-size: 1.75rem;
 	}
 
 	.title-align-default h2,
@@ -287,7 +291,7 @@ h3#reply-title {
 	.reply .comment-reply-link,
 	#commentform p,
 	#commentform p.comment-form-comment {
-	    font-size: 1rem;
+	    font-size: 0.9rem;
 	}
 
 	.content-body-tag h2,
@@ -335,11 +339,18 @@ h3#reply-title {
 	}
 
 	.title-align-default h1 {
-	    font-size: 4rem;
+	    font-size: 3.5rem;
 	}
 
 	.title-align-default h2 {
 	    font-size: 2.5rem;
+	}
+
+	.title-align-non-default p,
+	.title-align-non-default li,
+	.title-align-non-default p,
+	.title-align-non-default h3 {
+	    font-size: 1.25rem;
 	}
 
 	.title-align-default p,
@@ -349,7 +360,7 @@ h3#reply-title {
 	.reply .comment-reply-link,
 	#commentform p,
 	#commentform p.comment-form-comment {
-	    font-size: 1.5rem;
+	    font-size: 1.25rem;
 	}
 
 	.content-body-tag h2,
@@ -380,7 +391,7 @@ h3#reply-title {
 	.title-align-non-default li,
 	.title-align-non-default p,
 	.title-align-non-default h3 {
-	    font-size: 1rem;
+	    font-size: 1.25rem;
 	}
 
 	.title-align-left {
@@ -472,11 +483,11 @@ h3#reply-title {
 
 
 	.title-align-default h1 {
-	    font-size: 6rem;
+	    font-size: 5rem;
 	}
 
 	.title-align-default h2 {
-	    font-size: 3rem;
+	    font-size: 3.5rem;
 	}
 
 	.title-align-default p,
@@ -499,7 +510,7 @@ h3#reply-title {
 
 	.title-align-non-default p,
 	.title-align-non-default h3 {
-	    font-size: 1.5rem;
+	    font-size: 2rem;
 	}
 
 	#article-body p,
